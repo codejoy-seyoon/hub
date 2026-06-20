@@ -111,11 +111,9 @@
 <a class="bni-logo" href="#">BNI</a>
 <nav class="bni-nav">
 <ul class="bni-nav__menu">
-<li><a href="#">Training Home</a></li>
-<li><a href="renewal.html">Schedule</a></li>
-<li><a href="#">Main-Class</a></li>
-<li><a href="#">News</a></li>
-<li><a href="#">Join us</a></li>
+<li><a href="index.html">Training Home</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="news.html">News</a></li>
 </ul>
 <div class="bni-nav__right">
 <a class="bni-nav__email" href="#">Login</a>
@@ -169,7 +167,7 @@
 <div><p class="text-4xl lg:text-5xl font-extrabold text-red">77</p><p class="mt-2 text-body text-sm font-semibold">Countries</p></div>
 <div><p class="text-4xl lg:text-5xl font-extrabold text-red">17.9M</p><p class="mt-2 text-body text-sm font-semibold">Member Referrals</p><p class="text-xs text-body/60">Last 12 Months</p></div>
 </div>
-<div class="text-center mt-12"><a class="btn btn-red" href="renewal.html">Schedule 보기</a></div>
+<div class="text-center mt-12"><a class="btn btn-red" href="schedule.html">Schedule 보기</a></div>
 </div>
 </section>
 
@@ -197,20 +195,8 @@
 </div>
 </section>
 
-<!-- ===== News ===== -->
-<section class="wrap py-20">
-<div class="flex items-end justify-between mb-10">
-<div>
-<p class="text-red font-bold tracking-widest uppercase text-sm mb-2">News</p>
-<h2 class="text-3xl md:text-4xl font-extrabold">내셔널 오피스 공지사항</h2>
-</div>
-<a class="btn btn-line hidden md:inline-flex">전체 보기</a>
-</div>
-<ul class="border-t border-line" id="newsList"></ul>
-</section>
-
 <!-- ===== Footer ===== -->
-<footer class="bg-ink text-white/60">
+<footer class="text-white/60 border-t border-white/10" style="background:#16181b;">
 <div class="wrap py-16">
 <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
 <div class="col-span-2 md:col-span-1">
@@ -221,11 +207,9 @@
 <div>
 <p class="text-white font-bold mb-4 text-sm">메뉴</p>
 <ul class="space-y-2.5 text-sm">
-<li><a class="hover:text-white">Training Home</a></li>
-<li><a href="renewal.html" class="hover:text-white">Schedule</a></li>
-<li><a class="hover:text-white">Main-Class</a></li>
-<li><a class="hover:text-white">News</a></li>
-<li><a class="hover:text-white">Join us</a></li>
+<li><a href="index.html" class="hover:text-white">Training Home</a></li>
+<li><a href="schedule.html" class="hover:text-white">Schedule</a></li>
+<li><a href="news.html" class="hover:text-white">News</a></li>
 </ul>
 </div>
 <div>
@@ -273,18 +257,5 @@
       </div>
     </a>`).join('');
 
-  // NEWS 내셔널 오피스 공지사항
-  const news=[
-    ["[내셔널 오피스 공지] 비지터 초대 노하우 전격 공개!!","22시간 전"],
-    ["[이벤트] 2026 내셔널 컨퍼런스 기간 한정 비지터 특별 혜택!","2026.06.10"],
-    ["[내셔널 오피스 공지] 2026년 6월 트레이닝 마감 일정 안내","2026.06.05"],
-    ["[내셔널 오피스 공지] 내셔널 컨퍼런스 개최에 따른 고객센터 응대 지연 안내 (6/1)","2026.06.01"],
-    ["[트래픽 라이트] 비밀글입니다.","2026.05.28"],
-  ];
-  document.getElementById('newsList').innerHTML = news.map(([t,d])=>`
-    <li class="flex items-center justify-between gap-4 py-4 border-b border-line hover:bg-soft transition px-2 -mx-2 rounded cursor-pointer">
-      <span class="text-ink font-medium truncate hover:text-red">${t}</span>
-      <span class="text-body text-sm flex-shrink-0">${d}</span>
-    </li>`).join('');
 </script>
 </body></html>
