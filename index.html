@@ -4,20 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BNI Korea Hub</title>
+  <link rel="stylesheet" href="shared/brand.css" />
   <style>
-    :root {
-      --bg: #0f1115;
-      --card: #181b22;
-      --line: #262a33;
-      --text: #e8eaed;
-      --muted: #9aa0a8;
-      --accent: #c8102e; /* BNI red */
-    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "Pretendard", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: var(--bni-font);
+      background: #fff;
+      color: var(--bni-ink);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -31,62 +24,82 @@
       font-weight: 800;
       letter-spacing: 0.5px;
       font-size: 14px;
-      color: var(--accent);
-      border: 1px solid var(--accent);
+      color: #fff;
+      background: var(--bni-grad);
       border-radius: 999px;
-      padding: 6px 14px;
+      padding: 7px 16px;
       margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(207, 32, 48, 0.18);
     }
-    h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.2; }
-    header p { color: var(--muted); margin-top: 12px; font-size: 16px; }
+    h1 {
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    h1 .accent { color: var(--bni-red); }
+    header p { color: var(--bni-body); margin-top: 14px; font-size: 16px; }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      gap: 24px;
       width: 100%;
-      max-width: 920px;
+      max-width: 960px;
     }
     .card {
       display: block;
       text-decoration: none;
       color: inherit;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      transition: transform .15s ease, border-color .15s ease;
+      background: #fff;
+      border: 1px solid var(--bni-line);
+      border-radius: var(--bni-radius);
+      padding: 30px;
+      box-shadow: var(--bni-shadow);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
-    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .card .icon { font-size: 30px; margin-bottom: 16px; }
-    .card h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 14px; line-height: 1.5; }
-    .card .go { margin-top: 18px; color: var(--accent); font-weight: 600; font-size: 14px; }
-    footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--bni-red);
+      box-shadow: 0 14px 36px rgba(207, 32, 48, 0.12);
+    }
+    .card .icon {
+      width: 52px; height: 52px;
+      display: grid; place-items: center;
+      border-radius: 14px;
+      background: var(--bni-red-soft);
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+    .card h2 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .card p { color: var(--bni-body); font-size: 14px; line-height: 1.6; }
+    .card .go { margin-top: 18px; color: var(--bni-red); font-weight: 700; font-size: 14px; }
+    footer { margin-top: 52px; color: var(--bni-body); font-size: 13px; }
+    footer .bar { color: var(--bni-line); margin: 0 8px; }
   </style>
 </head>
 <body>
   <header>
     <span class="logo">BNI KOREA</span>
-    <h1>BNI Korea Hub</h1>
+    <h1>BNI Korea <span class="accent">Hub</span></h1>
     <p>하나의 플랫폼에서 운영하는 통합 서비스</p>
   </header>
 
   <main class="grid">
-    <a class="card" href="store/">
+    <a class="card" href="store/index.html">
       <div class="icon">🛍️</div>
       <h2>Store</h2>
       <p>제품과 굿즈를 둘러보고 구매할 수 있는 온라인 스토어.</p>
       <div class="go">바로가기 →</div>
     </a>
 
-    <a class="card" href="training/">
+    <a class="card" href="training/index.html">
       <div class="icon">🎓</div>
       <h2>Training</h2>
       <p>교육 일정과 트레이닝 프로그램을 확인하세요.</p>
       <div class="go">바로가기 →</div>
     </a>
 
-    <a class="card" href="ebook/">
+    <a class="card" href="ebook/index.html">
       <div class="icon">📚</div>
       <h2>eBook</h2>
       <p>전자책을 검색하고 뷰어로 바로 열람할 수 있습니다.</p>
@@ -94,6 +107,8 @@
     </a>
   </main>
 
-  <footer>© BNI Korea — hub-bnikorea.com</footer>
+  <footer>
+    © BNI Korea <span class="bar">|</span> hub-bnikorea.com
+  </footer>
 </body>
 </html>

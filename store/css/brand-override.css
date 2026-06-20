@@ -1,0 +1,50 @@
+/* =========================================================
+   Store(LOUIS VUITTON 레이아웃) — BNI 레드로 톤 통일
+   style.css 보다 '뒤에' 로드.
+   럭셔리 레이아웃과 세리프(Playfair) 헤딩은 유지하고,
+   액션 컬러(버튼/강조)만 BNI 레드로 교체해 통일감을 준다.
+   ========================================================= */
+
+/* 기존 LV 변수 중 강조용 brown → BNI 레드로 재지정 */
+:root {
+  --lv-brown: #9a0d1a;
+}
+
+/* 주요 액션 버튼: 검정 → BNI 레드 (각진 형태는 LV 특성으로 유지) */
+.btn.lv-btn-dark {
+  background-color: var(--bni-red);
+  border-color: var(--bni-red);
+  color: #fff;
+}
+.btn.lv-btn-dark:hover {
+  background-color: transparent;
+  color: var(--bni-red);
+  border-color: var(--bni-red);
+}
+
+/* 뉴스레터 영역: 큰 면적은 뉴트럴 유지, 레드는 입력 보더 포인트만 */
+.lv-newsletter {
+  background-color: var(--bni-soft);
+}
+.newsletter-form .form-control,
+.newsletter-form .form-control:focus {
+  border-color: var(--bni-red);
+}
+
+/* Back-to-top 버튼 레드화 */
+.btn-back-top {
+  background-color: var(--bni-red);
+}
+.btn-back-top:hover {
+  background-color: var(--bni-red-dark);
+}
+
+/* 네비/푸터 링크 hover 강조를 레드로 */
+.lv-navbar .navbar-nav .nav-link:hover,
+.footer-list a:hover {
+  color: var(--bni-red);
+  opacity: 1;
+}
+.lv-navbar .navbar-nav .nav-link::after {
+  background: var(--bni-red);
+}
