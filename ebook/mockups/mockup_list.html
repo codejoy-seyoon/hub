@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pagely — 도서 목록 목업</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
+body{background:#fff;color:#26215C}
+.ann{background:#26215C;color:#fff;text-align:center;padding:8px;font-size:12px}
+.nav{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 24px;display:flex;align-items:center;gap:12px}
+.logo-txt{font-size:18px;font-weight:700;color:#26215C;letter-spacing:.1em}
+.search-wrap{flex:1;display:flex;margin:0 16px}
+.search-wrap input{flex:1;padding:8px 14px;border:1.5px solid #e5e7eb;border-right:none;border-radius:6px 0 0 6px;font-size:13px}
+.search-wrap button{background:#534AB7;color:#fff;border:none;padding:8px 14px;border-radius:0 6px 6px 0;cursor:pointer}
+.nav-right{display:flex;gap:10px;align-items:center}
+.nav-link{font-size:13px;color:#534AB7;text-decoration:none}
+.btn-reg{background:#534AB7;color:#fff;border:none;border-radius:6px;padding:7px 16px;font-size:13px;cursor:pointer}
+.pg-header{background:#EEEDFE;padding:16px 24px;border-bottom:1px solid #CECBF6}
+.pg-header h2{font-size:17px;font-weight:600;color:#26215C}
+.pg-header p{font-size:11px;color:#7F77DD;margin-top:3px}
+.tabs{display:flex;border-bottom:2px solid #e5e7eb;padding:0 24px;background:#fff}
+.tab{padding:12px 18px;font-size:13px;font-weight:500;color:#888;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px}
+.tab.on{color:#534AB7;border-bottom-color:#534AB7}
+.sort-row{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;border-bottom:1px solid #e5e7eb}
+.sort-row span{font-size:12px;color:#888}
+.sort-row select{font-size:12px;padding:5px 10px;border:1px solid #e5e7eb;border-radius:5px;color:#26215C}
+.body-wrap{display:flex}
+.sidebar{width:160px;min-width:160px;padding:18px 16px;border-right:1px solid #e5e7eb}
+.sidebar h4{font-size:12px;font-weight:600;color:#26215C;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #e5e7eb}
+.fg{margin-bottom:16px}
+.fg p{font-size:11px;color:#888;margin-bottom:6px;font-weight:600}
+.fi{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.fi input{accent-color:#534AB7}
+.fi label{font-size:12px;color:#374151}
+.grid{flex:1;padding:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.bk{background:#fff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden}
+.bk-cov{height:110px;position:relative}
+.bc1{background:#26215C}.bc2{background:#534AB7}.bc3{background:#9b59b6}.bc4{background:#3c3489}
+.bc5{background:#1D9E75}.bc6{background:#D85A30}.bc7{background:#BA7517}.bc8{background:#A32D2D}
+.bk-badge{position:absolute;top:8px;left:8px;background:#534AB7;color:#EEEDFE;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px}
+.bk-badge.nw{background:#D85A30}
+.bk-info{padding:10px}
+.bk-genre{font-size:10px;color:#7F77DD;font-weight:500;display:block;margin-bottom:3px}
+.bk-title{font-size:12px;font-weight:600;color:#26215C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px}
+.bk-author{font-size:11px;color:#888;margin-bottom:5px}
+.bk-price{font-size:12px;color:#534AB7;font-weight:700;margin-bottom:7px}
+.bk-btn{display:block;width:100%;background:#534AB7;color:#fff;border:none;border-radius:5px;padding:6px;font-size:11px;cursor:pointer}
+.pagination{display:flex;justify-content:center;gap:5px;padding:18px}
+.pg-btn{width:32px;height:32px;border:1px solid #e5e7eb;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#374151;background:#fff;cursor:pointer}
+.pg-btn.on{background:#534AB7;color:#fff;border-color:#534AB7}
+.footer{background:#26215C;padding:24px;display:flex;justify-content:space-between;align-items:center}
+.ft-logo{font-size:15px;font-weight:700;color:#fff}
+.ft-links{display:flex;gap:16px}
+.ft-links span{font-size:11px;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+
+<div class="ann">🎉 신규 가입 시 첫 달 무료 · 전자책 30만 권 보유</div>
+<div class="nav">
+  <div class="logo-txt">📖 Pagely</div>
+  <div class="search-wrap"><input placeholder="읽고 싶은 책을 검색해보세요"/><button>검색</button></div>
+  <div class="nav-right">
+    <a class="nav-link" href="mockup_login.html">👤 로그인</a>
+    <button class="btn-reg">회원가입</button>
+    <a class="nav-link" href="#">🛍 장바구니</a>
+  </div>
+</div>
+
+<div class="pg-header"><h2>도서 목록</h2><p>전체 30만권 · 지금 바로 읽어보세요</p></div>
+
+<div class="tabs">
+  <div class="tab on">전체</div>
+  <div class="tab">일반</div>
+  <div class="tab">장르</div>
+  <div class="tab">만화</div>
+  <div class="tab">오디오북</div>
+</div>
+
+<div class="sort-row">
+  <span>총 128권</span>
+  <select><option>추천순</option><option>판매순</option><option>최신순</option></select>
+</div>
+
+<div class="body-wrap">
+  <div class="sidebar">
+    <h4>필터</h4>
+    <div class="fg"><p>장르</p>
+      <div class="fi"><input type="checkbox" checked/><label>경제경영</label></div>
+      <div class="fi"><input type="checkbox"/><label>자기개발</label></div>
+      <div class="fi"><input type="checkbox"/><label>로맨스</label></div>
+      <div class="fi"><input type="checkbox"/><label>판타지</label></div>
+      <div class="fi"><input type="checkbox"/><label>만화</label></div>
+    </div>
+    <div class="fg"><p>가격</p>
+      <div class="fi"><input type="checkbox" checked/><label>1만원 이하</label></div>
+      <div class="fi"><input type="checkbox"/><label>1~2만원</label></div>
+      <div class="fi"><input type="checkbox"/><label>2만원 이상</label></div>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="bk"><div class="bk-cov bc1"><span class="bk-badge">베스트</span></div><div class="bk-info"><span class="bk-genre">경제경영</span><div class="bk-title">부의 추월차선</div><div class="bk-author">엠제이 드마코</div><div class="bk-price">₩12,000</div><button class="bk-btn">담기</button></div></div>
+    <div class="bk"><div class="bk-cov bc2"></div><div class="bk-info"><span class="bk-genre">자기개발</span><div class="bk-title">아주 작은 습관의 힘</div><div class="bk-author">제임스 클리어</div><div class="bk-price">₩13,500</div><button class="bk-btn">담기</button></div></div>
+    <div class="bk"><div class="bk-cov bc3"><span class="bk-badge nw">NEW</span></div><div class="bk-info"><span class="bk-genre">로맨스</span><div class="bk-title">달빛 아래 우리</div><div class="bk-author">김서연</div><div class="bk-price">₩8,900</div><button class="bk-btn">담기</button></div></div>
+    <div class="bk"><div class="bk-cov bc4"></div><div class="bk-info"><span class="bk-genre">판타지</span><div class="bk-title">검과 마법의 제국</div><div class="bk-author">이준혁</div><div class="bk-price">₩9,500</div><button class="bk-btn">담기</button></div></div>
+    <div class="bk"><div class="bk-cov bc5"><span class="bk-badge">베스트</span></div><div class="bk-info"><span class="bk-genre">오디오북</span><div class="bk-title">돈의 심리학</div><div class="bk-author">모건 하우절</div><div class="bk-price">₩14,000</div><button class="bk-btn">담기</button></div></div>
+    <div class="bk"><div class="bk-cov bc6"></div><div class="bk-info"><span class="bk-genre">만화</span><div class="bk-title">슬램덩크 완전판</div><div class="bk-author">이노우에 타케히코</div><div class="bk-price">₩7,500</div><button class="bk-btn">담기</button></div></div>
+    <div class="bk"><div class="bk-cov bc7"><span class="bk-badge nw">NEW</span></div><div class="bk-info"><span class="bk-genre">자기개발</span><div class="bk-title">미라클 모닝</div><div class="bk-author">할 엘로드</div><div class="bk-price">₩11,000</div><button class="bk-btn">담기</button></div></div>
+    <div class="bk"><div class="bk-cov bc8"></div><div class="bk-info"><span class="bk-genre">경제경영</span><div class="bk-title">제로 투 원</div><div class="bk-author">피터 틸</div><div class="bk-price">₩13,000</div><button class="bk-btn">담기</button></div></div>
+  </div>
+</div>
+
+<div class="pagination">
+  <div class="pg-btn">〈</div>
+  <div class="pg-btn on">1</div>
+  <div class="pg-btn">2</div>
+  <div class="pg-btn">3</div>
+  <div class="pg-btn">4</div>
+  <div class="pg-btn">5</div>
+  <div class="pg-btn">〉</div>
+</div>
+
+<div class="footer">
+  <span class="ft-logo">📖 Pagely</span>
+  <div class="ft-links">
+    <span>이용약관</span><span>개인정보처리방침</span><span>청소년보호정책</span><span>© 2025 Pagely</span>
+  </div>
+</div>
+
+</body>
+</html>

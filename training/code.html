@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduFlow | Class Calendar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#6ffbbe",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-surface-variant": "#464555",
+                    "on-primary-container": "#dad7ff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-tint": "#4d44e3",
+                    "secondary": "#006c49",
+                    "surface": "#f8f9fa",
+                    "primary": "#3525cd",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "on-secondary-fixed": "#002113",
+                    "background": "#f8f9fa",
+                    "on-secondary-container": "#00714d",
+                    "inverse-primary": "#c3c0ff",
+                    "secondary-container": "#6cf8bb",
+                    "on-primary-fixed": "#0f0069",
+                    "on-tertiary-container": "#ffd4a4",
+                    "on-surface": "#191c1d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-dim": "#d9dadb",
+                    "surface-bright": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffddb8",
+                    "tertiary": "#684000",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-container-high": "#e7e8e9",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "primary-container": "#4f46e5",
+                    "on-background": "#191c1d",
+                    "surface-container": "#edeeef",
+                    "tertiary-container": "#885500",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "inverse-on-surface": "#f0f1f2",
+                    "outline-variant": "#c7c4d8",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "outline": "#777587",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#2a1700",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-fixed": "#e2dfff",
+                    "surface-container-low": "#f3f4f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin": "20px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "stack-md": "16px",
+                    "section-gap": "40px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-auto-rows: 1fr;
+        }
+        .day-cell {
+            transition: background-color 0.2s ease;
+            min-height: 100px;
+        }
+        .day-cell:hover {
+            background-color: #f3f4f5;
+        }
+        .day-cell.active {
+            background-color: #e2dfff;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e1e3e4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c7c4d8;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex overflow-hidden h-screen">
+<!-- SideNavBar (Authority: JSON & Style Guide) -->
+<aside class="h-screen w-64 flex-shrink-0 hidden lg:flex flex-col bg-surface-container-lowest border-r border-surface-container py-stack-lg z-50">
+<div class="px-6 mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">EduFlow Academy</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Learning Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 px-4 text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 bg-primary-container text-on-primary-container mx-2 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Calendar</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-xl transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Community</span>
+</a>
+</nav>
+<div class="px-4 mb-stack-lg">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-xl font-label-md text-label-md shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                Upgrade to Pro
+            </button>
+</div>
+<div class="mt-auto border-t border-surface-container pt-stack-sm">
+<a class="flex items-center gap-3 py-3 px-4 text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden h-screen bg-surface">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="w-full flex-shrink-0 bg-surface/80 backdrop-blur-md border-b border-surface-container flex justify-between items-center px-container-margin py-4">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<h2 class="font-headline-md text-headline-md font-bold text-primary whitespace-nowrap ml-2">October 2024</h2>
+<button class="ml-4 px-4 py-1.5 border border-outline-variant rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-all">
+                        Today
+                    </button>
+</div>
+<nav class="hidden xl:flex items-center gap-6">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Classes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">My Schedule</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Instructors</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-label-md w-48 lg:w-64 focus:ring-2 focus:ring-primary" placeholder="Search classes..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+<div class="flex items-center gap-2 ml-2">
+<button class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md shadow-sm active:scale-95 transition-transform">
+                        Register
+                    </button>
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary-container object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC26QeumqqIs81tS1_WnySMCMCGhaqh5IUjponEDh-pSzu89WfdC7MSZsrAtoL7eJfmskhShpPmRuFXyhPQH6IVMES5zetKyqshdEoABaH34vmOvI68xcJZRoZaBpG-OJBEt6CCkPg9-FdIbQtk8nO3mY55np1srB6HQ1c5AhVlGbPdOfrQEwv-aBD69h7Pl6sQ5h3Eo0q9t3OR_aeyo8Ydct_TbqFOGkXsTVgyr-6dJgeHtLwIZW67dfc9b7xRGpyHC7CrO1mhcKBx"/>
+</div>
+</div>
+</header>
+<!-- Calendar Container -->
+<section class="flex flex-1 overflow-hidden min-w-0">
+<!-- Calendar Grid -->
+<div class="flex-1 flex flex-col bg-surface-container-lowest border-r border-surface-container min-w-0">
+<!-- Day Labels -->
+<div class="grid grid-cols-7 border-b border-surface-container flex-shrink-0">
+<div class="py-3 text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Sun</div>
+<div class="py-3 text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Mon</div>
+<div class="py-3 text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Tue</div>
+<div class="py-3 text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Wed</div>
+<div class="py-3 text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Thu</div>
+<div class="py-3 text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Fri</div>
+<div class="py-3 text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Sat</div>
+</div>
+<!-- Calendar Body -->
+<div class="calendar-grid flex-1 overflow-y-auto">
+<!-- Week 1 (Partial) -->
+<div class="day-cell border-r border-b border-surface-container p-2 opacity-40">
+<span class="font-label-md text-label-md">29</span>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2 opacity-40">
+<span class="font-label-md text-label-md">30</span>
+</div>
+<!-- October Starts -->
+<div class="day-cell border-r border-b border-surface-container p-2 flex flex-col gap-1 cursor-pointer">
+<span class="font-label-md text-label-md mb-1">1</span>
+<div class="bg-primary-container/20 text-on-primary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-primary truncate">
+                            Marketing 101
+                        </div>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2 flex flex-col gap-1 cursor-pointer">
+<span class="font-label-md text-label-md mb-1 text-primary font-bold">2</span>
+<div class="bg-secondary-container/20 text-on-secondary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-secondary truncate">
+                            UX Research
+                        </div>
+<div class="bg-tertiary-container/20 text-on-tertiary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-tertiary truncate">
+                            Startups 101
+                        </div>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2 flex flex-col gap-1 cursor-pointer">
+<span class="font-label-md text-label-md mb-1">3</span>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2 flex flex-col gap-1 cursor-pointer">
+<span class="font-label-md text-label-md mb-1">4</span>
+<div class="bg-primary-container/20 text-on-primary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-primary truncate">
+                            Python Advanced
+                        </div>
+</div>
+<div class="day-cell border-b border-surface-container p-2 flex flex-col gap-1 cursor-pointer">
+<span class="font-label-md text-label-md mb-1">5</span>
+</div>
+<!-- Week 2 -->
+<div class="day-cell border-r border-b border-surface-container p-2">
+<span class="font-label-md text-label-md mb-1">6</span>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2 active flex flex-col gap-1 cursor-pointer">
+<span class="font-label-md text-label-md mb-1 font-bold">7</span>
+<div class="bg-primary-container text-white text-[11px] font-semibold px-2 py-1 rounded truncate">
+                            Brand Strategy
+                        </div>
+<div class="bg-secondary-container/20 text-on-secondary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-secondary truncate">
+                            React Hooks
+                        </div>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2">
+<span class="font-label-md text-label-md mb-1">8</span>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2 flex flex-col gap-1 cursor-pointer">
+<span class="font-label-md text-label-md mb-1">9</span>
+<div class="bg-tertiary-container/20 text-on-tertiary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-tertiary truncate">
+                            VC Funding
+                        </div>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2">
+<span class="font-label-md text-label-md mb-1">10</span>
+</div>
+<div class="day-cell border-r border-b border-surface-container p-2">
+<span class="font-label-md text-label-md mb-1">11</span>
+</div>
+<div class="day-cell border-b border-surface-container p-2">
+<span class="font-label-md text-label-md mb-1">12</span>
+</div>
+<!-- October Continued -->
+<script>
+                        const grid = document.querySelector('.calendar-grid');
+                        for(let i=13; i<=31; i++) {
+                            const div = document.createElement('div');
+                            div.className = `day-cell border-r border-b border-surface-container p-2 flex flex-col gap-1 cursor-pointer ${i % 7 === 0 ? 'border-r-0' : ''}`;
+                            div.innerHTML = `<span class="font-label-md text-label-md mb-1">${i}</span>`;
+                            
+                            if(i === 15 || i === 22) {
+                                div.innerHTML += `<div class="bg-secondary-container/20 text-on-secondary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-secondary truncate">Creative Coding</div>`;
+                            }
+                            if(i === 18) {
+                                div.innerHTML += `<div class="bg-primary-container/20 text-on-primary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded border-l-4 border-primary truncate">SEO Basics</div>`;
+                            }
+                            grid.appendChild(div);
+                        }
+                        // Fill extra spaces
+                        for(let i=1; i<=4; i++) {
+                            const div = document.createElement('div');
+                            div.className = `day-cell border-r border-b border-surface-container p-2 opacity-40 ${i === 4 ? 'border-r-0' : ''}`;
+                            div.innerHTML = `<span class="font-label-md text-label-md">${i}</span>`;
+                            grid.appendChild(div);
+                        }
+                    </script>
+</div>
+<!-- Footer (Authority: JSON) -->
+<footer class="w-full py-4 border-t border-surface-container bg-surface-container-lowest flex-shrink-0">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-margin w-full">
+<div class="flex items-center gap-2 mb-2 md:mb-0">
+<span class="font-label-md text-label-md font-bold text-primary">EduFlow</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">© 2024 EduFlow Learning.</span>
+</div>
+<div class="flex gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Privacy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Support</a>
+</div>
+</div>
+</footer>
+</div>
+<!-- Side Detail Panel (Authority: SCREEN_2 Cards Style) -->
+<aside class="w-80 xl:w-96 flex-shrink-0 bg-surface-container-low flex flex-col hidden md:flex">
+<div class="p-6 border-b border-surface-container bg-surface">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-headline-md text-headline-md font-bold">Selected Day</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md">Monday, Oct 7, 2024</p>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Class Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-surface-container">
+<div class="relative aspect-video">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKowGSFVpT5ha4RcQ9-nU2hFIXP0nvn85bE-iVvql8Vt0w8cQYL00mRQrUaWOXk0fQBnhUdX13A3p6RWqFDsHtkZxPSke1ANR1GhQs6gZ-SBXpSUU5YVfjlrFGqd3KzLnE5suzwYgCZjIgQbfLFpQrIFHHlGgG8Pivcsm5bt39T7XT6JTqoHhuB97UcK1Jr1rqpOcC0kUX40ux6oh0HFyD4gsnbvdfSLkEWQVpZLPhSppEbQjjpUh7v8YIypJQs9AJF5j6CklvqTZw"/>
+<span class="absolute top-3 right-3 bg-primary-container/90 text-on-primary-container px-3 py-1 rounded-full text-[11px] font-bold">Ongoing</span>
+</div>
+<div class="p-4">
+<h4 class="font-label-md text-label-md font-bold mb-3 truncate">Advanced Brand Strategy</h4>
+<div class="flex items-center gap-3 mb-4">
+<img class="w-8 h-8 rounded-full flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJsSfJjz8U1rMZgYpbprL329LHIX51MWS6m1a8qlvqWuqWz9Odmo5g8qYN3uBWPc3RXARRqi121G36dcc2VSWF_hme4W9KIMZoaFI0eNmRGKdE4XhjCWT0-b9UUyUPHQkidnLzZFzCSAWuuzbHqYTsVPVgBD4zfCyH1cA5CrsAfF5gwan2j747Q7m-PABqCA8iuF--elXRunjpNi1kkP1sQH1XNrboZ33Aw8TeXrN3e2Q2wEpbjk1k75humCYEPHnUgWE2FDortPmr"/>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm font-bold truncate">Sarah Jenkins</p>
+<p class="text-[11px] text-on-surface-variant truncate">Lead Strategist</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant min-w-0">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm truncate">10:00 - 12:00</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-lg font-label-md text-label-md active:scale-95 transition-transform flex-shrink-0">Apply</button>
+</div>
+</div>
+</div>
+<!-- Class Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group border border-surface-container">
+<div class="relative aspect-video">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBbWKVLNrz1Wdw94AM6ZyjOAzphd8RVW6B3l00h4N31o6dxoXGu0QrHBfHsiY5h1iWbCOWIvuo1MCjjoAkPbkWfic_sakKsim7-qYG87hQUAewhdAZ27X6d2gS_mUiUg66EaMPaQXEJAea1N8TEfYHEKYsr2iUWtg-wWw4tPsKh_2ChUjX8WnBMMM0L18JNF2bewCZsGC4Ml_svu1-LxQFIKxsh7sUCkCl2j3ujQv6kc1UL9GAmDfwYmZq7DwO-lXmMD_Pl9SoAOZE"/>
+<span class="absolute top-3 right-3 bg-secondary-container/90 text-on-secondary-container px-3 py-1 rounded-full text-[11px] font-bold">Open</span>
+</div>
+<div class="p-4">
+<h4 class="font-label-md text-label-md font-bold mb-3 truncate">Mastering React Hooks</h4>
+<div class="flex items-center gap-3 mb-4">
+<img class="w-8 h-8 rounded-full flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6j7z7l3t0EWM4FpOSk6lQw7Ir7leooaAtMDvyQz50_Px2kpXRD88cN6Bz3Q5fkk4yy9UFEha00g3wNbTGrt6L8b3q8Yp6YQQ34Deri4GiokCLoeRlJnrIHSZNcblvZzBCD3CfTxi3tfx6EO2_bwQjfWwRQ8h0orVG7fDf6FrPRSCc5iATig5SFCRbkWuCzU02dnrBKXvDOSfu3S9jUPK22CbyHCvRgww74Bknf8c-PPpFUMTs_jtrDz7-qTNb2rjxsa_t9VrPXnrx"/>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm font-bold truncate">David Chen</p>
+<p class="text-[11px] text-on-surface-variant truncate">Senior Engineer</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant min-w-0">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm truncate">14:00 - 15:30</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-lg font-label-md text-label-md active:scale-95 transition-transform flex-shrink-0">Apply</button>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-surface-container bg-surface-container-lowest">
+<button class="w-full border-2 border-primary text-primary py-2.5 rounded-xl font-label-md text-label-md hover:bg-primary/5 transition-colors">
+                        Add to Calendar
+                    </button>
+</div>
+</aside>
+</section>
+</main>
+<script>
+        // Simple Micro-interaction for date selection
+        document.querySelectorAll('.day-cell').forEach(cell => {
+            cell.addEventListener('click', () => {
+                document.querySelectorAll('.day-cell').forEach(c => c.classList.remove('active'));
+                cell.classList.add('active');
+                
+                cell.animate([
+                    { transform: 'scale(1)' },
+                    { transform: 'scale(0.98)' },
+                    { transform: 'scale(1)' }
+                ], {
+                    duration: 150,
+                    easing: 'ease-out'
+                });
+            });
+        });
+
+        // Hover animation logic for class bars
+        document.querySelectorAll('.day-cell > div').forEach(bar => {
+            bar.addEventListener('mouseenter', () => {
+                bar.style.transform = 'translateY(-1px)';
+            });
+            bar.addEventListener('mouseleave', () => {
+                bar.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

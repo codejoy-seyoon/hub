@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뷰어 — Pagely</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="viewer-body" id="viewerBody">
+
+    <!-- ── 상단 바 ── -->
+    <div class="viewer-topbar">
+
+      <!-- 뒤로가기 -->
+      <a id="viewerBack" href="detail.html" class="viewer-back">
+        <i class="bi bi-chevron-left"></i> 돌아가기
+      </a>
+
+      <!-- 책 제목 / 저자 -->
+      <div class="viewer-book-info">
+        <span class="viewer-book-title">부의 추월차선</span>
+        <span class="viewer-book-author">엠제이 드마코</span>
+      </div>
+
+      <!-- 컨트롤: 글자 크기 / 테마 -->
+      <div class="viewer-controls">
+        <button id="fontDown" title="글자 줄이기">
+          <i class="bi bi-type"></i>
+        </button>
+        <button id="fontUp" title="글자 키우기">
+          <i class="bi bi-type-bold"></i>
+        </button>
+        <button id="themeToggle" title="배경 테마 변경">
+          <i class="bi bi-moon-stars"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ── 진행률 바 ── -->
+    <div class="viewer-progress">
+      <div class="viewer-progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- ── 본문 영역 ── -->
+    <div class="viewer-stage">
+
+      <!-- 이전 페이지 -->
+      <button class="viewer-nav" id="prevPage" title="이전 페이지 (←)">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <!-- 본문 -->
+      <div class="viewer-page" id="viewerPage">
+        <!-- viewer.js 가 동적으로 채움 -->
+      </div>
+
+      <!-- 다음 페이지 -->
+      <button class="viewer-nav" id="nextPage" title="다음 페이지 (→)">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+    </div>
+
+    <!-- ── 하단 바 (페이지 표시) ── -->
+    <div class="viewer-bottombar">
+      <span id="pageIndicator">1 / 1</span>
+    </div>
+
+    <!-- 스크립트: books.js → viewer.js 순서 필수 -->
+    <script src="books.js"></script>
+    <script src="viewer.js"></script>
+  </body>
+</html>

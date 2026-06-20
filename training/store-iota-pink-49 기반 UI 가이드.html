@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-theme="light" style=""><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&amp;family=Noto+Serif+KR:wght@400;700&amp;display=swap" rel="stylesheet" data-editor-preserved="true">
+    
+    <title>트레이닝/세미나 플랫폼 UI 가이드</title>
+    
+    
+    
+    
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Noto Serif KR', 'Times New Roman', serif;
+        color: #1a1a1a;
+        background-color: #ffffff;
+        line-height: 1.6;
+        font-size: 11pt;
+        text-align: justify;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: 'Noto Sans KR', 'Arial', sans-serif;
+        color: #111111;
+        margin-top: 2em;
+        margin-bottom: 0.5em;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: 24pt;
+        text-align: center;
+        margin-bottom: 0.2em;
+        margin-top: 1em;
+        border-bottom: 2px solid #1a1a1a;
+        padding-bottom: 0.5em;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-family: 'Noto Sans KR', 'Arial', sans-serif;
+        font-size: 14pt;
+        color: #555555;
+        margin-bottom: 3em;
+        font-weight: normal;
+      }
+
+      h2 {
+        font-size: 16pt;
+        border-bottom: 1px solid #dddddd;
+        padding-bottom: 0.3em;
+      }
+      h3 {
+        font-size: 13pt;
+        margin-top: 1.5em;
+      }
+
+      p {
+        margin-bottom: 1.2em;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+        font-family: 'Noto Sans KR', 'Arial', sans-serif;
+        font-size: 10pt;
+      }
+
+      th,
+      td {
+        border: 1px solid #888888;
+        padding: 8px 12px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background-color: #f5f5f5;
+        font-weight: 600;
+      }
+
+      ul,
+      ol {
+        margin-bottom: 1.5em;
+        padding-left: 2em;
+      }
+
+      li {
+        margin-bottom: 0.5em;
+      }
+
+      .summary-box {
+        border: 2px solid #1a1a1a;
+        padding: 20px;
+        margin-top: 3em;
+        background-color: #fafafa;
+      }
+
+      .summary-box h3 {
+        margin-top: 0;
+        text-align: center;
+      }
+
+      .summary-box p {
+        margin-bottom: 0;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid #dddddd;
+        margin: 2em 0;
+      }
+    </style>
+  </head>
+  <body style="">
+    <h1>트레이닝/세미나 플랫폼 UI 가이드</h1>
+    <div class="subtitle">store-iota-pink-49 톤앤매너 기반</div>
+
+    <p>
+      본 문서는 트레이닝 및 세미나 플랫폼의 일관된 브랜드 경험을 구축하기 위한 공식 사용자 인터페이스(UI) 디자인
+      가이드라인입니다. 본 가이드의 목적은 복잡하고 방대한 교육 콘텐츠를 체계적으로 정리하여 사용자에게 전문적이고
+      신뢰감 있는 브랜드 인상을 전달하는 데 있습니다. 플랫폼 내의 모든 웹 페이지, 컴포넌트, 시각 자산의 제작 및
+      유지보수에 본 가이드가 적용됩니다.
+    </p>
+
+    <p>
+      이 가이드라인은 럭셔리 리테일 플랫폼(store-iota-pink-49)의 '절제된 에디토리얼 감성'을 주요 레퍼런스로 삼고
+      있습니다. 그러나 단순한 시각적 복제를 지양하고, 해당 무드를 콘텐츠 중심의 교육 서비스 환경에 맞게 번역하는 것을
+      핵심으로 합니다.
+    </p>
+
+    <p>
+      즉, 화려함을 위한 장식적 요소를 배제하고, 여백과 타이포그래피의 대비를 통해 '정보가 많은 포털'이 아닌 '엄선된
+      프리미엄 마스터클래스'와 같은 고급스러운 탐색 경험을 제공하는 데 중점을 둡니다.
+    </p>
+
+    <h2>1. 디자인 방향성 요약</h2>
+    <ul>
+      <li>
+        <strong>핵심 키워드:</strong> Premium, Editorial, Quiet luxury, Minimal, Structured, Airy, Curated, Professional
+      </li>
+      <li>
+        <strong>브랜드 인상:</strong> 과시하지 않는 자신감과 전문성. 화려한 그래픽이나 자극적인 색상을 배제하고,
+        차분하면서도 무게감 있는 톤을 통해 높은 수준의 교육 퀄리티를 암시합니다.
+      </li>
+      <li>
+        <strong>지향하는 사용자 경험:</strong> 사용자가 화면을 마주했을 때 정보의 압도감을 느끼지 않도록 합니다. 극도로
+        정돈된 레이아웃과 뚜렷한 시각적 계층 구조를 통해 복잡한 세미나 일정을 쉽고 우아하게 탐색할 수 있는 경험을
+        제공합니다.
+      </li>
+    </ul>
+
+    <h2>2. 컬러 시스템</h2>
+    <p>
+      한 화면 내에서 여러 색상의 남용을 엄격히 금지합니다. 강한 원색(특히 노랑, 분홍)과 짙은 검정 배너의 과도한 병치는
+      저렴한 행사 전단지와 같은 인상을 주므로 피해야 합니다.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>분류</th>
+          <th>컬러명 및 HEX</th>
+          <th>역할 및 사용 규칙</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>기본 배경</td>
+          <td>White (#FFFFFF)</td>
+          <td>페이지의 기본 캔버스 역할. 충분한 여백(Whitespace)을 확보하여 콘텐츠의 에디토리얼 무드를 강조합니다.</td>
+        </tr>
+        <tr>
+          <td>보조 배경</td>
+          <td>Soft Gray (#F7F7F5)</td>
+          <td>섹션 간의 부드러운 구분이나 보조 정보 영역의 배경으로 사용합니다.</td>
+        </tr>
+        <tr>
+          <td>본문 텍스트</td>
+          <td>Soft Black (#1A1A1A)</td>
+          <td>
+            가독성을 위한 기본 텍스트 색상. 완전한 검정(#000000) 대비 눈의 피로도를 낮추고 고급스러움을 부여합니다.
+          </td>
+        </tr>
+        <tr>
+          <td>보조 텍스트</td>
+          <td>Dark Gray (#6B6B6B)</td>
+          <td>메타 정보(날짜, 시간, 카테고리) 및 비활성화 텍스트에 사용하여 계층을 분리합니다.</td>
+        </tr>
+        <tr>
+          <td>보더/선</td>
+          <td>Light Gray (#E8E5E0)</td>
+          <td>카드 외곽선, 디바이더 라인에 사용. 극도로 얇고(1px) 절제된 형태로만 적용합니다.</td>
+        </tr>
+        <tr>
+          <td>포인트 컬러</td>
+          <td>Deep Burgundy (#5A2A27)</td>
+          <td>브랜드의 핵심 포인트 요소(강조되는 제목의 일부, 특정 상태값)에 한정적으로 사용합니다.</td>
+        </tr>
+        <tr>
+          <td>강조 컬러</td>
+          <td>Dark Navy (#1C2536)</td>
+          <td>정보의 신뢰성을 주어야 하는 버튼이나 핵심 CTA에 보조적으로 사용합니다.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. 타이포그래피 가이드</h2>
+    <p>
+      세리프(명조)와 산세리프(고딕)의 의도적인 혼합을 통해 에디토리얼 디자인의 세련미를 구현합니다. 한글 환경을 고려하여
+      범용적이면서도 우수한 가독성을 지닌 폰트군을 권장합니다.
+    </p>
+    <ul>
+      <li>
+        <strong>권장 서체군:</strong>
+        <ul>
+          <li>세리프 (헤드라인/감성 카피): Noto Serif KR, KoPub Batang, 강제 유료 폰트 사용 금지</li>
+          <li>산세리프 (UI/본문/데이터): Noto Sans KR, Pretendard</li>
+        </ul>
+      </li>
+      <li>
+        <strong>적용 원칙:</strong> 세리프는 페이지의 대제목이나 핵심 카피 등 감성적이고 권위가 필요한 곳에만 제한적으로
+        사용합니다. 메타정보, 버튼, 본문 단락 등 정보 전달이 목적인 영역은 반드시 산세리프를 사용합니다.
+      </li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <th>계층</th>
+          <th>폰트 종류</th>
+          <th>크기 / 굵기</th>
+          <th>줄간격 (Line Height)</th>
+          <th>자간 (Tracking)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>H1 (페이지 타이틀)</td>
+          <td>세리프</td>
+          <td>36px / Bold</td>
+          <td>1.4</td>
+          <td>-0.02em</td>
+        </tr>
+        <tr>
+          <td>H2 (섹션 타이틀)</td>
+          <td>세리프</td>
+          <td>28px / Regular</td>
+          <td>1.4</td>
+          <td>-0.01em</td>
+        </tr>
+        <tr>
+          <td>H3 (카드 타이틀)</td>
+          <td>산세리프</td>
+          <td>18px / Semi-bold</td>
+          <td>1.5</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Body (본문)</td>
+          <td>산세리프</td>
+          <td>16px / Regular</td>
+          <td>1.6</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Caption (메타정보)</td>
+          <td>산세리프</td>
+          <td>13px / Regular</td>
+          <td>1.5</td>
+          <td>0.02em (라벨링의 경우 영문 대문자 권장)</td>
+        </tr>
+        <tr>
+          <td>Button (버튼명)</td>
+          <td>산세리프</td>
+          <td>14px / Medium</td>
+          <td>1.0</td>
+          <td>0.05em (넓은 자간으로 구조적 느낌 강조)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. 버튼 스타일 가이드</h2>
+    <p>
+      리테일의 조용한 감성을 유지하되, 교육 플랫폼의 핵심인 '신청 및 탐색'이라는 기능적 전환(Conversion)이 방해받지
+      않도록 CTA를 숨기지 않고 명확히 노출합니다.
+    </p>
+    <ul>
+      <li>
+        <strong>Primary Button:</strong> 배경색 Soft Black (#1A1A1A), 텍스트 White. 각진 모서리(Radius 0px)를 사용하여
+        단호하고 구조적인 느낌을 줍니다. (메인 CTA 신청하기, 결제하기 등에 사용)
+      </li>
+      <li>
+        <strong>Secondary Button:</strong> 배경색 White, 테두리 1px Solid #1A1A1A, 텍스트 #1A1A1A. (상세보기, 목록으로
+        가기 등에 사용)
+      </li>
+      <li>
+        <strong>Tertiary Button:</strong> 배경색 Soft Gray (#F7F7F5), 테두리 없음, 텍스트 #1A1A1A. (필터 해제, 보조적
+        기능에 사용)
+      </li>
+      <li>
+        <strong>Text Link:</strong> 밑줄(Underline)을 포함한 텍스트. 대문자 영문을 혼용하고 자간을 넓게 두어 에디토리얼
+        무드를 강조합니다.
+      </li>
+    </ul>
+
+    <h2>5. 카드 스타일 가이드</h2>
+    <p>
+      섹션마다 카드의 문법이 달라지는 조잡함을 방지하기 위해, 플랫폼 내의 모든 카드는 아래 3가지 타입 내에서 통일된
+      규칙을 따릅니다. 공통적으로 드롭 섀도우(Shadow)를 완전히 배제하고 얇은 보더만을 허용합니다.
+    </p>
+    <ol>
+      <li>
+        <strong>세미나 카드:</strong>
+        <ul>
+          <li>
+            구조: 썸네일(비율 4:3 또는 3:2) ➔ 상단 라벨(카테고리) ➔ 세미나명(최대 2줄 제한) ➔ 메타정보(일정/장소 1줄)
+          </li>
+          <li>스타일: 배경 White, Radius 0px, 보더 1px #E8E5E0.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>강사 카드:</strong>
+        <ul>
+          <li>구조: 강사 인물 사진(세로형 비율) ➔ 소속/직함 ➔ 강사명</li>
+          <li>스타일: 하단에 메타정보를 배치하며, 텍스트를 이미지 위에 오버레이하지 않습니다.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>큐레이션/에디토리얼 카드:</strong>
+        <ul>
+          <li>구조: 16:9의 넓은 이미지 영역 ➔ 하단의 넉넉한 여백 ➔ 타이틀 및 한 줄 설명</li>
+          <li>
+            스타일: 이미지가 중심이 되며, 텍스트 영역의 안쪽 여백(Padding)을 최소 24px 이상 확보하여 여유로움을 줍니다.
+          </li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>6. 간격/레이아웃 시스템</h2>
+    <p>'정보를 많이 보여주기보다 선별해서 보여준다'는 원칙 하에, 넉넉한 공간감을 통해 브랜드의 자신감을 표현합니다.</p>
+    <ul>
+      <li><strong>Spacing Rule:</strong> 8pt 배수 시스템을 기본으로 적용합니다. (8, 16, 24, 32, 48, 64, 80, 120px)</li>
+      <li>
+        <strong>섹션 간 여백:</strong> PC 기준 최소 80px ~ 최대 120px의 여백을 두어 콘텐츠 덩어리가 확실히 구분되도록
+        합니다.
+      </li>
+      <li><strong>카드 간 간격 (Gutter):</strong> 24px 또는 32px을 유지하여 답답함을 없앱니다.</li>
+      <li>
+        <strong>콘텐츠 최대 너비:</strong> 그리드 컬럼 운용 시 전체 콘텐츠 최대 너비는 1200px을 초과하지 않도록 하여
+        시선의 분산을 막습니다.
+      </li>
+    </ul>
+
+    <h2>7. 이미지/아이콘/배지 사용 원칙</h2>
+    <ul>
+      <li>
+        <strong>이미지 (Photography):</strong> 일반적인 스톡 사진(화이트보드를 가리키는 정장 차림 등)을 배제하고,
+        자연광이 활용된 고대비의 에디토리얼 톤 이미지를 사용합니다. 썸네일 이미지 위에 텍스트를 얹어 가독성을 해치는
+        디자인을 절대 금지합니다.
+      </li>
+      <li>
+        <strong>아이콘 (Iconography):</strong> 1px 또는 1.5px 두께의 얇은 라인 아이콘(Line style)으로 통일합니다. 과거
+        포털 사이트 형태의 두꺼운 원형 분홍색 바탕 아이콘 등은 전면 폐기합니다.
+      </li>
+      <li>
+        <strong>배지 (Badge):</strong> 상태값(모집중, 마감, 신규)이나 카테고리를 나타낼 때는 속이 꽉 찬 화려한 색상
+        대신, 투명한 배경에 1px 테두리를 두른 아웃라인 형태를 권장합니다.
+      </li>
+    </ul>
+
+    <h2>8. Do / Don't 예시</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>요소</th>
+          <th>Do (이렇게 하세요)</th>
+          <th>Don't (이렇게 하지 마세요)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>컬러</td>
+          <td>충분한 화이트 스페이스와 차분한 모노톤을 배경으로 사용하세요.</td>
+          <td>시선을 끌기 위해 넓은 영역에 원색(노랑, 빨강) 블록을 칠하지 마세요.</td>
+        </tr>
+        <tr>
+          <td>타이포</td>
+          <td>큰 대제목에 세리프 서체를 적용해 우아한 분위기를 연출하세요.</td>
+          <td>본문 단락이나 날짜 정보에 세리프를 적용해 가독성을 떨어뜨리지 마세요.</td>
+        </tr>
+        <tr>
+          <td>버튼</td>
+          <td>직사각형(Radius 0) 형태와 넓은 자간의 텍스트로 정돈감을 주세요.</td>
+          <td>그라데이션이 들어가거나 둥근(Pill 형태) 원색 버튼을 사용하지 마세요.</td>
+        </tr>
+        <tr>
+          <td>카드</td>
+          <td>깔끔한 선과 단일한 레이아웃 문법을 전 사이트에 적용하세요.</td>
+          <td>어떤 곳은 섀도우를 넣고 어떤 곳은 배경색을 넣는 등 규칙을 깨지 마세요.</td>
+        </tr>
+        <tr>
+          <td>레이아웃</td>
+          <td>스크롤이 길어지더라도 여백을 충분히 두어 시각적 휴식을 제공하세요.</td>
+          <td>한 화면에 모든 정보를 구겨 넣으려 리스트를 빽빽하게 붙이지 마세요.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>9. 메인 페이지 적용 원칙</h2>
+    <p>기존의 '모든 것을 보여주는 복잡한 포털형 메인'에서 벗어나, 서사 구조를 갖춘 선별적 레이아웃으로 개편합니다.</p>
+    <ol>
+      <li>
+        <strong>Hero Section (상단 배너):</strong> 단 1개의 핵심 메시지와 압도적인 에디토리얼 이미지만을 노출합니다.
+        롤링 배너를 과도하게 사용하지 않습니다.
+      </li>
+      <li>
+        <strong>추천 세미나 (Flagship Selection):</strong> 가장 퀄리티 높은 프로그램 3~4개만을 넉넉한 카드 레이아웃으로
+        선별하여 보여줍니다.
+      </li>
+      <li><strong>카테고리 네비게이션:</strong> 아이콘 나열 방식이 아닌, 텍스트 기반의 정제된 탭 구조를 활용합니다.</li>
+      <li>
+        <strong>신뢰도 섹션 (Trust &amp; Testimonial):</strong> 강사나 기관의 신뢰도를 보여줄 수 있는 에디토리얼 섹션을
+        배치합니다.
+      </li>
+      <li>
+        <strong>하단 CTA 및 푸터:</strong> 과도한 랭킹 리스트를 배제하고 명확한 하단 안내로 마무리합니다. 푸터의 더미
+        데이터는 반드시 실제 정보로 교체해야 합니다.
+      </li>
+    </ol>
+
+    <h2>10. 빠른 체크리스트 (QA)</h2>
+    <ul>
+      <li>화면 내에 메인 포인트 컬러 외에 불필요한 원색 계열이 없는가?</li>
+      <li>제목 영역(Serif)과 데이터 영역(Sans-serif)의 폰트 구분이 명확한가?</li>
+      <li>카드 컴포넌트들에 그림자(Drop shadow) 효과가 제거되었는가?</li>
+      <li>콘텐츠 블록 간 위아래 여백이 충분히(최소 80px 이상) 확보되었는가?</li>
+      <li>아이콘이 얇은 라인 스타일로 일관되게 적용되었는가?</li>
+      <li>버튼의 형태가 각진 사각형이며 텍스트의 자간이 넓게 설정되었는가?</li>
+      <li>메인 페이지 상단에 조잡한 롤링 배너나 랭킹 리스트가 배치되지 않았는가?</li>
+      <li>썸네일 이미지 위에 직접적으로 텍스트가 덮여 가독성을 해치고 있지 않은가?</li>
+      <li>카테고리 선택 영역이 텍스트나 미니멀한 형태로 정리되었는가?</li>
+      <li>더미 데이터(푸터 등)가 신뢰감을 저해하지 않도록 모두 제거/수정되었는가?</li>
+    </ul>
+
+    <div class="summary-box">
+      <h3>요약 원칙</h3>
+      <p>
+        럭셔리 리테일의 절제된 에디토리얼 감성을 유지하되, 교육 플랫폼에 맞게 정보 구조와 탐색성은 더 명확하고
+        직관적으로 설계한다. '많이 보여주는 방식'에서 '적게, 굵게, 일관되게 선별하여 보여주는 방식'으로 전환하여
+        브랜드의 프리미엄 가치를 확보한다.
+      </p>
+    </div>
+  
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
