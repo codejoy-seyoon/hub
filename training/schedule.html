@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css"/>
 <link rel="stylesheet" href="../shared/brand.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+<!-- 공통 데이터 레이어 (어드민과 공유) -->
+<script src="../shared/data.js"></script>
 <style>
   *{box-sizing:border-box;}
   html,body{margin:0;}
@@ -247,32 +249,9 @@
   for(let d=1;d<=30;d++) cells.push({d,muted:false,sub:d===1?'6월':''});
   let n=1; while(cells.length<42){cells.push({d:n,muted:true,sub:n===1?'7월':''});n++;}
 
-  // ---- events (BNI training + national conferences) ----
-  const EV={
-    1:[["마포 챕터 미팅","c-red"],["코칭타운 정기 코칭","c-blue"]],
-    2:[["영등포 1:1 미팅","c-green"],["서초 오리엔테이션","c-purple"],["COO 주간 회의","c-gray"]],
-    3:[["주간 뉴스레터 발송","c-gray"]],
-    4:[["수원1 멤버데이","c-red"],["코칭타운","c-blue"]],
-    5:[["주간 결산 미팅","c-blue"]],
-    8:[["리더십 트레이닝","c-purple"],["생일: 박멤버","c-green dotstyle"]],
-    9:[["마포 멤버 트레이닝","c-red"],["영등포 미팅","c-green"],["COO 회의","c-gray"]],
-    10:[["코칭타운 코칭","c-blue"]],
-    11:[["네트워킹 세미나","c-green"],["대한민국의 휴일 점검","c-purple dotstyle"]],
-    12:[["주간 결산","c-blue"]],
-    14:[["Equity Asia for HQ","c-mag"]],
-    15:[["NOM 정기 National Conference","c-mag"],["챕터 합동 트레이닝","c-purple"]],
-    16:[["BNI Philippines National Conf.","c-mag"],["신규 멤버 교육","c-red"]],
-    17:[["APEX NOVO Summit (Philippines)","c-mag"],["코칭타운","c-blue"]],
-    18:[["한국지사대표 컨퍼런스 참여","c-mag"],["비즈니스 발표회","c-blue"]],
-    19:[["BNI Taiwan National Conference","c-mag"]],
-    22:[["서초 챕터 미팅","c-red"],["대외 홍보전략 회의","c-blue"],["COO 회의","c-gray"]],
-    23:[["리더 워크숍","c-purple"]],
-    24:[["코칭타운 코칭","c-blue"]],
-    25:[["수원1 멤버 트레이닝","c-red"],["생일: 김디렉터","c-green dotstyle"]],
-    26:[["BNI Taiwan National Conference","c-mag"]],
-    29:[["월말 결산 미팅","c-green"]],
-    30:[["대표 면담","c-gray"],["7월 일정 준비","c-navy"]],
-  };
+  // ---- events (공통 데이터 레이어에서 읽기 — 어드민에서 수정 가능) ----
+  // 형태: { day: [[제목, 색상클래스], ...] }
+  const EV = (window.BNIData && BNIData.getEventsByDay) ? BNIData.getEventsByDay() : {};
 
   // ---- render main grid ----
   const grid=document.getElementById('grid');
@@ -296,24 +275,9 @@
     grid.appendChild(cell);
   });
 
-  // ---- Selected Day Training (detailed) ----
-  const details={
-    1:[{t:"마포 챕터 미팅",chapter:"마포 챕터",who:"김지훈 디렉터",time:"07:00 – 09:00",status:"모집중",img:"photo-1517245386807-bb43f82c33c4"}],
-    2:[{t:"영등포 1:1 미팅",chapter:"영등포 챕터",who:"박서연 트레이너",time:"14:00 – 15:30",status:"모집중",img:"photo-1600880292203-757bb62b4baf"},
-       {t:"서초 오리엔테이션",chapter:"서초 챕터",who:"이정민 디렉터",time:"19:00 – 21:00",status:"모집중",img:"photo-1573164713988-8665fc963095"}],
-    4:[{t:"수원1 멤버데이",chapter:"수원1 챕터",who:"정하늘 디렉터",time:"07:00 – 09:00",status:"모집중",img:"photo-1559136555-9303baea8ebd"}],
-    8:[{t:"리더십 트레이닝",chapter:"코리아 본부",who:"최우진 대표 트레이너",time:"10:00 – 13:00",status:"모집중",img:"photo-1542744094-3a31f272c490"}],
-    9:[{t:"마포 멤버 트레이닝",chapter:"마포 챕터",who:"김지훈 디렉터",time:"07:00 – 09:00",status:"진행중",img:"photo-1556761175-5973dc0f32e7"},
-       {t:"영등포 미팅",chapter:"영등포 챕터",who:"박서연 트레이너",time:"14:00 – 15:30",status:"모집중",img:"photo-1521737604893-d14cc237f11d"}],
-    11:[{t:"네트워킹 세미나",chapter:"코리아 본부",who:"한지윤 매니저",time:"18:30 – 20:30",status:"모집중",img:"photo-1551836022-d5d88e9218df"}],
-    15:[{t:"챕터 합동 트레이닝",chapter:"합동 4개 챕터",who:"최우진 대표 트레이너",time:"09:00 – 12:00",status:"모집중",img:"photo-1552664730-d307ca884978"}],
-    16:[{t:"신규 멤버 교육",chapter:"마포 챕터",who:"김지훈 디렉터",time:"19:00 – 21:00",status:"모집중",img:"photo-1517048676732-d65bc937f952"}],
-    18:[{t:"비즈니스 발표회",chapter:"서초 챕터",who:"이정민 디렉터",time:"14:00 – 16:00",status:"모집중",img:"photo-1475721027785-f74eccf877e2"}],
-    22:[{t:"서초 챕터 미팅",chapter:"서초 챕터",who:"이정민 디렉터",time:"07:00 – 09:00",status:"모집중",img:"photo-1591115765373-5207764f72e7"}],
-    23:[{t:"리더 워크숍",chapter:"코리아 본부",who:"최우진 대표 트레이너",time:"10:00 – 13:00",status:"모집중",img:"photo-1454165804606-c3d57bc86b40"}],
-    25:[{t:"수원1 멤버 트레이닝",chapter:"수원1 챕터",who:"정하늘 디렉터",time:"07:00 – 09:00",status:"모집중",img:"photo-1556157382-97eda2d62296"}],
-    29:[{t:"월말 결산 미팅",chapter:"코리아 본부",who:"한지윤 매니저",time:"18:00 – 20:00",status:"마감임박",img:"photo-1517502884422-41eaead166d4"}],
-  };
+  // ---- Selected Day Training (공통 데이터 레이어에서 읽기 — 어드민에서 등록 가능) ----
+  // 형태: { day: [{t,chapter,who,time,status,img}, ...] }
+  const details = (window.BNIData && BNIData.getTrainingsByDay) ? BNIData.getTrainingsByDay() : {};
   const dow=['일','월','화','수','목','금','토'];
   const stColor={"진행중":"background:#fad2cf;color:#a50e0e","마감임박":"background:#202124;color:#fff","모집중":"border:1px solid #dadce0;color:#5f6368"};
   const modal=document.getElementById('dayModal');

@@ -1,67 +1,161 @@
 /* =========================================================
-   LOUIS VUITTON 클론 - script.js
+   BNI Korea Store - script.js
+   상품/재고를 데이터로 분리해 추후 DB 연동이 쉽도록 구성.
+   - PRODUCTS 배열을 fetch('/api/products') 등으로 교체하면 끝.
+   - stock 값(0 이면 SOLD OUT)으로 품절/재고 표시가 자동 처리됨.
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-  /* ---------------------------------------------------------
-     1) 상품 그리드 동적 생성
-     --------------------------------------------------------- */
-  const products = [
-    {
-      name: "Neverfull MM",
-      price: "₩2,690,000",
-      img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "Capucines BB",
-      price: "₩8,150,000",
-      img: "https://images.unsplash.com/photo-1591348122449-02525d70379b?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "Keepall 50",
-      price: "₩3,420,000",
-      img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "Pochette Métis",
-      price: "₩3,250,000",
-      img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "Speedy 25",
-      price: "₩2,480,000",
-      img: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "Twist MM",
-      price: "₩6,900,000",
-      img: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "OnTheGo GM",
-      price: "₩4,150,000",
-      img: "https://images.unsplash.com/photo-1614179689702-355944cd0918?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "Alma BB",
-      price: "₩2,950,000",
-      img: "https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=600&q=80",
-    },
-  ];
+/* 상품 이미지 폴더 */
+const IMG_BASE = "img/bni_korea_goods_img/";
 
+/* ---------------------------------------------------------
+   상품 불러오기
+   상품/재고 데이터는 공통 데이터 레이어(shared/data.js)에서 읽는다.
+   → 어드민 페이지에서 수정하면 이 스토어에 그대로 반영된다.
+   ▶ DB 연동 시에는 shared/data.js 의 getProducts() 내부만
+     fetch("/api/products") 로 교체하면 된다.
+   --------------------------------------------------------- */
+async function loadProducts() {
+  if (window.BNIData && typeof BNIData.getProducts === "function") {
+    return BNIData.getProducts();
+  }
+  console.warn("BNIData 를 찾을 수 없습니다. shared/data.js 로드를 확인하세요.");
+  return [];
+}
+
+/* 가격 포맷: 18000 -> ₩18,000 */
+function formatPrice(won) {
+  return "₩" + Number(won).toLocaleString("ko-KR");
+}
+
+/* 이미지 경로 (공백/한글 안전 인코딩) */
+function imgUrl(file) {
+  return encodeURI(IMG_BASE + file);
+}
+
+/* 카테고리 목록 (전체 + 데이터에 등장한 순서) */
+function getCategories(products) {
+  const seen = [];
+  products.forEach((p) => {
+    if (!seen.includes(p.category)) seen.push(p.category);
+  });
+  return ["전체", ...seen];
+}
+
+/* 상품 카드 한 장 렌더 */
+function renderCard(p) {
+  const soldOut = !p.stock || p.stock <= 0;
+  const lowStock = !soldOut && p.stock <= 5;
+
+  const col = document.createElement("div");
+  col.className = "col-6 col-md-4 col-lg-3";
+  col.dataset.category = p.category;
+
+  col.innerHTML = `
+    <div class="product-card${soldOut ? " is-soldout" : ""}">
+      <div class="product-thumb" style="background-image:url('${imgUrl(p.img)}')">
+        ${soldOut ? '<span class="soldout-badge">SOLD OUT</span>' : ""}
+        ${lowStock ? `<span class="stock-badge">품절임박 ${p.stock}개</span>` : ""}
+      </div>
+      <p class="product-cat">${p.category}</p>
+      <p class="product-name">${p.name}</p>
+      <p class="product-price">${formatPrice(p.price)}</p>
+      <button class="btn lv-btn-dark product-buy" data-id="${p.id}" ${soldOut ? "disabled" : ""}>
+        ${soldOut ? "품절" : "구매하기"}
+      </button>
+    </div>`;
+  return col;
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  /* ---------------------------------------------------------
+     1) 상품 그리드 + 카테고리 필터
+     --------------------------------------------------------- */
   const grid = document.getElementById("productGrid");
+  const filterBar = document.getElementById("categoryFilter");
+
   if (grid) {
-    products.forEach((p) => {
-      const col = document.createElement("div");
-      col.className = "col-6 col-md-4 col-lg-3";
-      col.innerHTML = `
-        <div class="product-card">
-          <div class="product-thumb" style="background-image:url('${p.img}')"></div>
-          <p class="product-name">${p.name}</p>
-          <p class="product-price">${p.price}</p>
-        </div>`;
-      grid.appendChild(col);
+    let products = await loadProducts();
+    let currentCat = "전체";
+
+    const draw = (cat) => {
+      currentCat = cat;
+      grid.innerHTML = "";
+      products
+        .filter((p) => cat === "전체" || p.category === cat)
+        .forEach((p) => grid.appendChild(renderCard(p)));
+    };
+
+    // 카테고리 필터 버튼
+    if (filterBar) {
+      const cats = getCategories(products);
+      cats.forEach((cat, i) => {
+        const btn = document.createElement("button");
+        btn.className = "cat-chip" + (i === 0 ? " active" : "");
+        btn.textContent = cat;
+        btn.addEventListener("click", () => {
+          filterBar
+            .querySelectorAll(".cat-chip")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          draw(cat);
+        });
+        filterBar.appendChild(btn);
+      });
+    }
+
+    draw("전체");
+
+    /* -------------------------------------------------------
+       구매(체크아웃) — 이름/전화로 유저를 식별해 주문을 기록한다.
+       주문 저장·재고 차감·여정(activity) 기록은 BNIData.addOrder가 처리.
+       ------------------------------------------------------- */
+    const checkout = document.getElementById("checkoutModal");
+    let buyingId = null;
+
+    grid.addEventListener("click", (e) => {
+      const buy = e.target.closest(".product-buy");
+      if (!buy || buy.disabled) return;
+      buyingId = buy.dataset.id;
+      const p = products.find((x) => x.id === buyingId);
+      if (!p || !checkout) return;
+      checkout.querySelector("#coProduct").textContent = p.name;
+      checkout.querySelector("#coPrice").textContent = formatPrice(p.price);
+      checkout.querySelector("#coName").value = "";
+      checkout.querySelector("#coPhone").value = "";
+      checkout.querySelector("#coEmail").value = "";
+      checkout.classList.add("open");
+      checkout.querySelector("#coName").focus();
     });
+
+    if (checkout) {
+      const close = () => checkout.classList.remove("open");
+      checkout.querySelector("#coCancel").addEventListener("click", close);
+      checkout.addEventListener("click", (e) => {
+        if (e.target === checkout) close();
+      });
+
+      checkout.querySelector("#checkoutForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = checkout.querySelector("#coName").value.trim();
+        const phone = checkout.querySelector("#coPhone").value.trim();
+        const email = checkout.querySelector("#coEmail").value.trim();
+        const p = products.find((x) => x.id === buyingId);
+        if (!name || !phone || !p) return;
+        if (!window.BNIData) {
+          alert("데이터 레이어를 불러오지 못했습니다.");
+          return;
+        }
+        const user = BNIData.upsertUser({ name, phone, email });
+        BNIData.addOrder(user.id, [
+          { product_id: p.id, qty: 1, unit_price: p.price },
+        ]);
+        close();
+        products = BNIData.getProducts(); // 재고 갱신분 반영
+        draw(currentCat);
+        alert(`주문이 완료되었습니다.\n${p.name}\n${formatPrice(p.price)}`);
+      });
+    }
   }
 
   /* ---------------------------------------------------------
@@ -97,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const input = form.querySelector("input");
       if (input.value) {
-        alert("가입해 주셔서 감사합니다! (" + input.value + ")");
+        alert("구독해 주셔서 감사합니다! (" + input.value + ")");
         input.value = "";
       }
     });
