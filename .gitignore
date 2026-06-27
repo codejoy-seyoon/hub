@@ -11,7 +11,21 @@ Thumbs.db
 node_modules/
 dist/
 
-# 미사용 원본 스튜디오 사진 (대용량, GitHub 용량/파일제한 초과) — 저장소 제외
-store/img/BNI goods 1차_리뉴얼 스튜디오 촬영버전/
-store/img/BNI goods 2차_리뉴얼 스튜디오 촬영버전/
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# 환경변수 (토스 secret / supabase service role 키 — 절대 커밋 금지)
+.env
+.env.local
+.env*.local
+
+# 레거시 정적 앱(Next.js 재구축으로 대체) — 로컬 참고용, 저장소 제외 (이력은 git history에 보존)
+/legacy/
+
+# 대용량 스튜디오 사진 (GitHub 100MB/용량 제한 초과) — 저장소 제외
+public/store-img/BNI goods 1차_리뉴얼 스튜디오 촬영버전/
+public/store-img/BNI goods 2차_리뉴얼 스튜디오 촬영버전/
 *.zip
