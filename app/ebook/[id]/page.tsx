@@ -15,55 +15,67 @@ export default async function BookDetailPage({
   const discount = book.originalPrice
     ? Math.round(((book.originalPrice - book.price) / book.originalPrice) * 100)
     : 0;
+  const stars = "★".repeat(Math.round(book.rating)) + "☆".repeat(5 - Math.round(book.rating));
 
   return (
-    <main className="mx-auto max-w-5xl px-5 py-10">
-      <nav className="mb-6 text-sm text-bni-body">
-        <Link href="/ebook" className="hover:text-bni-red">이북</Link>
-        <span className="mx-2">/</span>
-        <span className="font-semibold text-bni-ink">{book.title}</span>
-      </nav>
-
-      <div className="grid gap-10 md:grid-cols-[260px_1fr]">
-        <div className="aspect-3/4 overflow-hidden rounded-xl border border-bni-line bg-bni-soft shadow">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={bookCover(book.cover)} alt={book.title} className="h-full w-full object-cover" />
-        </div>
-
-        <div>
-          <p className="text-sm text-bni-body">{book.category}</p>
-          <h1 className="mt-1 text-2xl font-extrabold leading-snug">{book.title}</h1>
-          <p className="mt-1 text-bni-body">{book.author}</p>
-
-          <div className="mt-4 flex items-end gap-3">
-            {discount > 0 && <span className="text-lg font-bold text-bni-red">{discount}%</span>}
-            <span className="text-2xl font-extrabold">{won(book.price)}</span>
-            {book.originalPrice > book.price && (
-              <span className="text-sm text-bni-body line-through">{won(book.originalPrice)}</span>
-            )}
-          </div>
-
-          <ul className="mt-5 grid grid-cols-2 gap-y-1.5 border-t border-bni-line pt-5 text-sm text-bni-body">
-            <li>출판사 · {book.publisher}</li>
-            <li>출간 · {book.pubDate}</li>
-            <li>분량 · {book.pages}</li>
-            <li>포맷 · {book.format}</li>
-            <li>평점 · ★ {book.rating} ({book.reviewCount})</li>
-          </ul>
-
-          <p
-            className="mt-5 text-sm leading-relaxed text-bni-body"
-            dangerouslySetInnerHTML={{ __html: book.desc }}
-          />
-
-          <Link
-            href={`/ebook/checkout?bookId=${book.id}`}
-            className="mt-7 inline-flex h-13 w-full items-center justify-center rounded-xl bg-bni-ink py-3.5 font-bold text-white transition hover:opacity-90"
-          >
-            구매하기
-          </Link>
+    <>
+      {/* breadcrumb */}
+      <div className="breadcrumb-bar">
+        <div className="pg-container">
+          <Link href="/ebook">eBook</Link>
+          <span className="sep">/</span>
+          <span className="cur">{book.category}</span>
+          <span className="sep">/</span>
+          <span className="cur">{book.title}</span>
         </div>
       </div>
-    </main>
+
+      <div className="pg-container" style={{ padding: "40px 16px" }}>
+        <div className="grid gap-10 md:grid-cols-[300px_1fr]">
+          {/* 표지 + 구매 */}
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={bookCover(book.cover)} alt={book.title} className="detail-cover" />
+            <div className="mt-4 grid gap-2">
+              <Link href={`/ebook/checkout?bookId=${book.id}`} className="btn-buy">
+                구매하기 · {won(book.price)}
+              </Link>
+              <button className="btn-cart-lg" type="button">장바구니 담기</button>
+            </div>
+          </div>
+
+          {/* 정보 */}
+          <div>
+            <span className="genre-tag">{book.category}</span>
+            <h1 className="detail-title">{book.title}</h1>
+            <p className="detail-author">{book.author} · {book.publisher}</p>
+            <div className="detail-stars">
+              {stars}
+              <span className="review-count">{book.rating} ({book.reviewCount}개 리뷰)</span>
+            </div>
+
+            <div className="info-row">
+              <div className="info-item"><div className="info-label">출판사</div><div className="info-val">{book.publisher}</div></div>
+              <div className="info-item"><div className="info-label">출간일</div><div className="info-val">{book.pubDate}</div></div>
+              <div className="info-item"><div className="info-label">분량</div><div className="info-val">{book.pages}</div></div>
+              <div className="info-item"><div className="info-label">포맷</div><div className="info-val">{book.format}</div></div>
+            </div>
+
+            <div className="detail-price">
+              {discount > 0 && <span style={{ color: "var(--cta)", marginRight: 10 }}>{discount}%</span>}
+              {won(book.price)}
+              {book.originalPrice > book.price && (
+                <span className="price-sub" style={{ textDecoration: "line-through" }}>{won(book.originalPrice)}</span>
+              )}
+            </div>
+
+            <div className="detail-section" style={{ marginTop: 24, paddingTop: 24 }}>
+              <h3 className="detail-section-title">책 소개</h3>
+              <p className="detail-desc" dangerouslySetInnerHTML={{ __html: book.desc }} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

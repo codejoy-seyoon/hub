@@ -19,61 +19,57 @@ export function StoreGrid({ products }: { products: Product[] }) {
   const shown = products.filter((p) => cat === "전체" || p.category === cat);
 
   return (
-    <div>
-      <div className="mb-8 flex flex-wrap gap-2">
+    <>
+      {/* 카테고리 필터 칩 */}
+      <div className="cat-filter mb-5">
         {categories.map((c) => (
           <button
             key={c}
+            type="button"
             onClick={() => setCat(c)}
-            className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
-              cat === c
-                ? "border-bni-red bg-bni-red text-white"
-                : "border-bni-line bg-white text-bni-ink hover:border-bni-red hover:text-bni-red"
-            }`}
+            className={`cat-chip ${cat === c ? "active" : ""}`}
           >
             {c}
           </button>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+      {/* 상품 그리드 */}
+      <div
+        id="productGrid"
+        className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
+      >
         {shown.map((p) => {
           const soldOut = p.stock <= 0;
           return (
             <Link
               key={p.id}
               href={`/store/${p.id}`}
-              className="group overflow-hidden rounded-2xl border border-bni-line transition hover:shadow-lg"
+              className={`product-card ${soldOut ? "is-soldout" : ""}`}
             >
-              <div className="relative aspect-square overflow-hidden bg-bni-soft">
+              <div
+                className={`product-thumb ${
+                  p.fit === "contain" ? "is-fit-contain" : ""
+                }`}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+                  className="pthumb-img"
                   src={productImg(p.img)}
                   alt={p.name}
-                  className={`h-full w-full transition group-hover:scale-105 ${
-                    p.fit === "contain" ? "object-contain p-4" : "object-cover"
-                  }`}
                 />
-                {soldOut && (
-                  <span className="absolute left-3 top-3 rounded bg-bni-ink/80 px-2 py-1 text-xs font-bold text-white">
-                    SOLD OUT
-                  </span>
-                )}
+                {soldOut && <span className="soldout-badge">SOLD OUT</span>}
                 {!soldOut && p.stock <= 5 && (
-                  <span className="absolute left-3 top-3 rounded bg-bni-red px-2 py-1 text-xs font-bold text-white">
-                    품절임박 {p.stock}개
-                  </span>
+                  <span className="stock-badge">품절임박 {p.stock}개</span>
                 )}
               </div>
-              <div className="p-3">
-                <p className="text-xs text-bni-body">{p.category}</p>
-                <h3 className="mt-0.5 line-clamp-2 text-sm font-semibold">{p.name}</h3>
-                <p className="mt-1.5 font-bold text-bni-red">{won(p.price)}</p>
-              </div>
+              <p className="product-cat">{p.category}</p>
+              <h3 className="product-name">{p.name}</h3>
+              <p className="product-price">{won(p.price)}</p>
             </Link>
           );
         })}
       </div>
-    </div>
+    </>
   );
 }

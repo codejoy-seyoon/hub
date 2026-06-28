@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTraining, trainingImg } from "@/lib/data/trainings";
 import { won } from "@/lib/format";
+import { HubShell } from "@/components/HubShell";
 
 export default async function TrainingDetailPage({
   params,
@@ -13,6 +14,7 @@ export default async function TrainingDetailPage({
   if (!t) notFound();
 
   return (
+    <HubShell>
     <main className="mx-auto max-w-4xl px-5 py-10">
       <nav className="mb-6 text-sm text-bni-body">
         <Link href="/training" className="hover:text-bni-red">트레이닝</Link>
@@ -45,6 +47,7 @@ export default async function TrainingDetailPage({
         </div>
       </div>
     </main>
+    </HubShell>
   );
 }
 

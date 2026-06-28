@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { won } from "@/lib/format";
 
 export function ProductBuy({
@@ -19,11 +20,13 @@ export function ProductBuy({
   const max = Math.max(1, Math.min(stock, 99));
 
   return (
-    <div className="mt-6">
+    <div>
       {!soldOut && (
         <div className="mb-4 flex items-center gap-3">
-          <span className="text-sm font-semibold text-bni-body">수량</span>
-          <div className="flex items-center rounded-lg border border-bni-line">
+          <span className="text-sm font-semibold text-[var(--bni-body)]">
+            수량
+          </span>
+          <div className="flex items-center rounded-lg border border-[var(--bni-line)]">
             <button
               type="button"
               onClick={() => setQty((q) => Math.max(1, q - 1))}
@@ -40,20 +43,27 @@ export function ProductBuy({
               +
             </button>
           </div>
-          <span className="ml-auto text-lg font-extrabold text-bni-red">
+          <span className="ml-auto text-lg font-extrabold text-[var(--bni-red)]">
             {won(price * qty)}
           </span>
         </div>
       )}
 
-      <button
-        type="button"
-        disabled={soldOut}
-        onClick={() => router.push(`/store/checkout?productId=${productId}&qty=${qty}`)}
-        className="h-13 w-full rounded-xl bg-bni-ink py-3.5 font-bold text-white transition hover:opacity-90 disabled:opacity-50"
-      >
-        {soldOut ? "품절" : "구매하기"}
-      </button>
+      <div className="pd-actions">
+        <button
+          type="button"
+          disabled={soldOut}
+          onClick={() =>
+            router.push(`/store/checkout?productId=${productId}&qty=${qty}`)
+          }
+          className="btn lv-btn-dark pd-buy"
+        >
+          {soldOut ? "품절" : "구매하기"}
+        </button>
+        <Link href="/store" className="btn lv-btn-light pd-back" style={{ border: "1px solid var(--bni-ink)", color: "var(--bni-ink)" }}>
+          목록으로
+        </Link>
+      </div>
     </div>
   );
 }

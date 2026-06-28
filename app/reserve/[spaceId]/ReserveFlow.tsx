@@ -41,7 +41,6 @@ export function ReserveFlow({ space }: { space: Space }) {
   const [busy, setBusy] = useState<{ startMin: number; endMin: number }[]>([]);
   const [confirming, setConfirming] = useState(false);
 
-  // 선택 날짜의 예약 현황 조회
   useEffect(() => {
     if (!date) return;
     setBusy([]);
@@ -62,7 +61,6 @@ export function ReserveFlow({ space }: { space: Space }) {
     return busy.some((b) => start < b.endMin && end > b.startMin);
   }
 
-  // 달력 셀
   const firstDow = new Date(viewY, viewM, 1).getDay();
   const daysInMonth = new Date(viewY, viewM + 1, 0).getDate();
   const cells: (number | null)[] = [];
@@ -87,171 +85,221 @@ export function ReserveFlow({ space }: { space: Space }) {
     memo,
   });
 
-  const summary = (
-    <section className="rounded-2xl border border-bni-line p-5">
-      <h2 className="mb-4 text-lg font-bold">예약 내역</h2>
-      <dl className="grid gap-2 text-sm">
-        <div className="flex justify-between"><dt className="text-bni-body">공간</dt><dd className="font-semibold">{space.name}</dd></div>
-        <div className="flex justify-between"><dt className="text-bni-body">일시</dt><dd>{date ? ymd(date) : "-"} {time}</dd></div>
-        <div className="flex justify-between"><dt className="text-bni-body">이용시간</dt><dd>{duration}분</dd></div>
-        <div className="flex justify-between"><dt className="text-bni-body">대관료</dt><dd>{won(base)}</dd></div>
-        {addonIds.length > 0 && (
-          <div className="flex justify-between"><dt className="text-bni-body">추가 옵션</dt><dd>{addonIds.map((id) => SPACE_ADDONS.find((a) => a.id === id)?.name).join(", ")} ({won(extra)})</dd></div>
-        )}
-        <div className="mt-2 flex justify-between border-t border-bni-line pt-3 text-base font-extrabold"><dt>총 결제금액</dt><dd className="text-bni-red">{won(total)}</dd></div>
-      </dl>
-    </section>
+  const dateLabel = date ? `${date.getMonth() + 1}월 ${date.getDate()}일 (${DOW[date.getDay()]})` : "";
+
+  /* 왼쪽 패널: 선택한 공간 + 일시 */
+  const leftPanel = (
+    <div className="booking-left">
+      <div className="booking-label">선택한 공간</div>
+      <div className="display-space">
+        <span className="ds-photo" style={{ backgroundImage: `url('${spaceImg(space.img, 160)}')` }} />
+        <div>
+          <div className="ds-name">{space.name}</div>
+          <div className="ds-price">{won(space.hourly_price)} / 시간</div>
+        </div>
+      </div>
+      {date && time && (
+        <div className="selected-datetime">
+          <svg className="dt-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <div>
+            <div>{dateLabel}</div>
+            <div className="dt-time">{time}</div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 
+  const summary = (
+    <div className="amount-box" style={{ marginTop: 0 }}>
+      <div className="amount-row"><span>공간</span><span>{space.name}</span></div>
+      <div className="amount-row"><span>일시</span><span>{date ? ymd(date) : "-"} {time}</span></div>
+      <div className="amount-row"><span>이용시간</span><span>{duration}분</span></div>
+      <div className="amount-row"><span>대관료</span><span>{won(base)}</span></div>
+      {addonIds.length > 0 && (
+        <div className="amount-row"><span>추가 옵션</span><span>{won(extra)}</span></div>
+      )}
+      <div className="amount-row total"><span>합계</span><span>{won(total)}</span></div>
+    </div>
+  );
+
+  /* ===== 결제 단계 ===== */
   if (confirming && date && time) {
     return (
-      <div>
-        <button onClick={() => setConfirming(false)} className="mb-4 text-sm font-semibold text-bni-body hover:text-bni-red">
-          ← 옵션 다시 선택
-        </button>
-        <CheckoutPanel makeRequest={makeRequest} amount={total} summary={summary} />
-      </div>
+      <main className="booking-main">
+        <div style={{ width: "100%", maxWidth: 640 }}>
+          <button
+            onClick={() => setConfirming(false)}
+            className="btn btn-outline"
+            style={{ height: 40, padding: "0 16px", marginBottom: 16 }}
+          >
+            ← 옵션 다시 선택
+          </button>
+          <CheckoutPanel makeRequest={makeRequest} amount={total} summary={summary} />
+        </div>
+      </main>
     );
   }
 
+  const showOptions = !!(date && time);
+
   return (
-    <div className="space-y-6">
-      {/* 공간 헤더 */}
-      <div className="overflow-hidden rounded-2xl border border-bni-line">
-        <div className="aspect-[2/1] overflow-hidden bg-bni-soft">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={spaceImg(space.img, 900)} alt={space.name} className="h-full w-full object-cover" />
-        </div>
-        <div className="p-5">
-          <h1 className="text-xl font-extrabold">{space.name}</h1>
-          <p className="mt-1 text-sm text-bni-body">{space.location} · 면적 {space.area}㎡ · 수용 {space.capacity}인</p>
-          {space.description && <p className="mt-2 text-sm text-bni-body">{space.description}</p>}
-          <p className="mt-3 font-extrabold text-bni-red">{won(space.hourly_price)}<span className="text-sm font-normal text-bni-body"> / 시간</span></p>
-        </div>
-      </div>
+    <main className="booking-main">
+      <div className="booking-card">
+        {leftPanel}
 
-      {/* 달력 */}
-      <section className="rounded-2xl border border-bni-line p-5">
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-bold">{MONTHS[viewM]} {viewY}</h2>
-          <div className="flex gap-1">
-            <button onClick={prevMonth} className="h-8 w-8 rounded-lg border border-bni-line">‹</button>
-            <button onClick={nextMonth} className="h-8 w-8 rounded-lg border border-bni-line">›</button>
-          </div>
-        </div>
-        <div className="grid grid-cols-7 gap-1 text-center text-xs text-bni-body">
-          {DOW.map((d) => <div key={d} className="py-1">{d}</div>)}
-        </div>
-        <div className="grid grid-cols-7 gap-1">
-          {cells.map((d, i) => {
-            if (d === null) return <div key={i} />;
-            const cellDate = new Date(viewY, viewM, d);
-            const disabled = isDisabledDate(cellDate, today);
-            const selected = date && ymd(date) === ymd(cellDate);
-            return (
-              <button
-                key={i}
-                disabled={disabled}
-                onClick={() => { setDate(cellDate); setTime(null); }}
-                className={`aspect-square rounded-lg text-sm ${
-                  selected ? "bg-bni-red font-bold text-white"
-                  : disabled ? "text-bni-line"
-                  : "hover:bg-bni-red-soft"
-                }`}
-              >
-                {d}
-              </button>
-            );
-          })}
-        </div>
-      </section>
+        {!showOptions ? (
+          <>
+            {/* 가운데: 달력 */}
+            <div className="booking-middle">
+              <h2>날짜를 선택해 주세요.</h2>
+              <div className="calendar">
+                <div className="calendar-header">
+                  <span className="calendar-title">{MONTHS[viewM]} {viewY}</span>
+                  <div className="calendar-nav">
+                    <button onClick={prevMonth} aria-label="이전 달">‹</button>
+                    <button onClick={nextMonth} aria-label="다음 달">›</button>
+                  </div>
+                </div>
+                <div className="calendar-weekdays">
+                  {DOW.map((d) => <span key={d}>{d}</span>)}
+                </div>
+                <div className="calendar-days">
+                  {cells.map((d, i) => {
+                    if (d === null) return <span key={i} />;
+                    const cellDate = new Date(viewY, viewM, d);
+                    const disabled = isDisabledDate(cellDate, today);
+                    const selected = date && ymd(date) === ymd(cellDate);
+                    return (
+                      <button
+                        key={i}
+                        disabled={disabled}
+                        onClick={() => { setDate(cellDate); setTime(null); }}
+                        className={`calendar-day ${selected ? "selected" : ""} ${disabled ? "disabled" : ""}`}
+                      >
+                        {d}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
 
-      {/* 시간 */}
-      {date && (
-        <section className="rounded-2xl border border-bni-line p-5">
-          <h2 className="mb-3 text-lg font-bold">시간 선택</h2>
-          <div className="grid grid-cols-4 gap-2 sm:grid-cols-5">
-            {BASE_SLOTS.map((slot) => {
-              const bz = slotBusy(slot);
-              const sel = time === slot;
-              return (
-                <button
-                  key={slot}
-                  disabled={bz}
-                  onClick={() => setTime(slot)}
-                  className={`rounded-lg border py-2 text-sm font-semibold ${
-                    sel ? "border-bni-red bg-bni-red text-white"
-                    : bz ? "border-bni-line bg-bni-soft text-bni-line line-through"
-                    : "border-bni-line hover:border-bni-red hover:text-bni-red"
-                  }`}
-                >
-                  {slot}
-                </button>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* 옵션 */}
-      {date && time && (
-        <section className="rounded-2xl border border-bni-line p-5">
-          <h2 className="mb-3 text-lg font-bold">이용 옵션</h2>
-          <label className="mb-3 block text-sm font-semibold text-bni-body">이용 시간</label>
-          <div className="mb-5 flex flex-wrap gap-2">
-            {DURATIONS.map((d) => (
-              <button
-                key={d}
-                onClick={() => setDuration(d)}
-                className={`rounded-lg border px-4 py-2 text-sm font-semibold ${
-                  duration === d ? "border-bni-red bg-bni-red text-white" : "border-bni-line hover:border-bni-red"
-                }`}
-              >
-                {d}분
-              </button>
-            ))}
-          </div>
-
-          <label className="mb-2 block text-sm font-semibold text-bni-body">추가 옵션</label>
-          <div className="grid gap-2">
-            {SPACE_ADDONS.map((a) => {
-              const on = addonIds.includes(a.id);
-              return (
-                <label key={a.id} className={`flex cursor-pointer items-center justify-between rounded-lg border px-4 py-2.5 ${on ? "border-bni-red bg-bni-red-soft" : "border-bni-line"}`}>
-                  <span className="flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      checked={on}
-                      onChange={(e) => setAddonIds((prev) => e.target.checked ? [...prev, a.id] : prev.filter((x) => x !== a.id))}
-                    />
-                    {a.name}
-                  </span>
-                  <span className="text-sm font-semibold">+{won(a.price)}</span>
-                </label>
-              );
-            })}
-          </div>
-
-          <label className="mb-2 mt-5 block text-sm font-semibold text-bni-body">메모 (선택)</label>
-          <textarea
-            value={memo}
-            onChange={(e) => setMemo(e.target.value)}
-            rows={2}
-            placeholder="요청사항을 입력하세요"
-            className="w-full rounded-lg border border-bni-line px-3 py-2 text-sm outline-none focus:border-bni-red"
-          />
-
-          <div className="mt-5 flex items-center justify-between">
-            <span className="text-lg font-extrabold text-bni-red">{won(total)}</span>
+            {/* 오른쪽: 시간 */}
+            <div className="booking-right">
+              <div className="booking-right-header">
+                <h2>시간 선택</h2>
+                <p>{date ? dateLabel : "날짜를 선택하세요"}</p>
+              </div>
+              <div className="time-slots">
+                {date ? (
+                  BASE_SLOTS.map((slot) => {
+                    const bz = slotBusy(slot);
+                    return (
+                      <button
+                        key={slot}
+                        disabled={bz}
+                        onClick={() => setTime(slot)}
+                        className={`time-slot-btn ${time === slot ? "selected" : ""} ${bz ? "unavailable" : ""}`}
+                      >
+                        {slot}
+                      </button>
+                    );
+                  })
+                ) : (
+                  <p style={{ color: "var(--gray-400)", fontSize: 14, padding: "8px 0" }}>
+                    먼저 날짜를 선택해 주세요.
+                  </p>
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          /* ===== 옵션 · 금액 ===== */
+          <div className="booking-form-area">
             <button
-              onClick={() => setConfirming(true)}
-              className="h-12 rounded-xl bg-bni-ink px-8 font-bold text-white transition hover:opacity-90"
+              onClick={() => setTime(null)}
+              className="btn btn-outline"
+              style={{ height: 38, padding: "0 14px", marginBottom: 20 }}
             >
-              결제하기
+              ← 날짜·시간 다시 선택
+            </button>
+            <h2>옵션 선택 · 금액 확인</h2>
+
+            <div className="form-group">
+              <label className="form-label">이용시간 <span className="required">*</span></label>
+              <div className="duration-chips">
+                {DURATIONS.map((d) => (
+                  <button
+                    key={d}
+                    type="button"
+                    className={`duration-chip ${duration === d ? "active" : ""}`}
+                    onClick={() => setDuration(d)}
+                  >
+                    {d}분
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {space.amenities && space.amenities.length > 0 && (
+              <div className="form-group">
+                <label className="form-label">기본 제공 시설 <span className="opt-free">무료</span></label>
+                <ul className="facility-list">
+                  {space.amenities.map((a) => <li key={a}>{a}</li>)}
+                </ul>
+              </div>
+            )}
+
+            <div className="form-group">
+              <label className="form-label">추가 옵션 <span className="opt-paid">유료</span></label>
+              <div className="addon-list">
+                {SPACE_ADDONS.map((a) => {
+                  const on = addonIds.includes(a.id);
+                  return (
+                    <label key={a.id} className="addon">
+                      <input
+                        type="checkbox"
+                        checked={on}
+                        onChange={(e) =>
+                          setAddonIds((prev) => (e.target.checked ? [...prev, a.id] : prev.filter((x) => x !== a.id)))
+                        }
+                      />
+                      <span className="addon-name">{a.name}</span>
+                      <span className="addon-price">+{won(a.price)}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">메모</label>
+              <textarea
+                className="textarea"
+                placeholder="전달하실 내용이 있다면 적어주세요."
+                value={memo}
+                onChange={(e) => setMemo(e.target.value)}
+              />
+            </div>
+
+            <div className="amount-box">
+              <div className="amount-row"><span>대관료</span><span>{won(base)}</span></div>
+              <div className="amount-row"><span>추가 옵션</span><span>{won(extra)}</span></div>
+              <div className="amount-row total"><span>합계</span><span>{won(total)}</span></div>
+            </div>
+
+            <button className="btn btn-primary booking-submit" onClick={() => setConfirming(true)}>
+              예약하기
             </button>
           </div>
-        </section>
-      )}
-    </div>
+        )}
+      </div>
+    </main>
   );
 }

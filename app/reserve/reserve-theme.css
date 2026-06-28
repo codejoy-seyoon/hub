@@ -1,0 +1,171 @@
+/* =========================================================
+   Reserve(대관 예약) 테마 — legacy/reserve/styles.css 정밀 이식
+   .rsv-page 스코프로 전역 오염 방지. --primary = BNI 레드.
+   ========================================================= */
+.rsv-page {
+  --primary: #e11b2b;
+  --primary-hover: #cf2030;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  color: var(--gray-900);
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+.rsv-page * { box-sizing: border-box; }
+.rsv-page a { text-decoration: none; color: inherit; }
+
+/* Header */
+.rsv-page .header { border-bottom: 1px solid var(--gray-200); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+.rsv-page .header-left { display: flex; align-items: center; gap: 24px; }
+.rsv-page .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--gray-900); cursor: pointer; }
+.rsv-page .logo-icon { width: 20px; height: 20px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; }
+.rsv-page .logo-icon svg { width: 12px; height: 12px; stroke: #fff; }
+.rsv-page .header-nav { display: flex; align-items: center; gap: 8px; }
+.rsv-page .header-nav a { font-size: 14px; font-weight: 500; color: var(--gray-500); transition: color 0.2s; }
+.rsv-page .header-nav a:hover { color: var(--gray-900); }
+.rsv-page .nav-active { color: var(--primary) !important; font-weight: 600; }
+.rsv-page .nav-separator { color: var(--gray-300); font-size: 12px; }
+.rsv-page .header-right { display: flex; align-items: center; gap: 16px; color: var(--gray-500); }
+.rsv-page .help-icon { width: 20px; height: 20px; cursor: pointer; }
+
+/* Buttons */
+.rsv-page .btn { border: none; cursor: pointer; font-weight: 500; font-size: 14px; border-radius: 6px; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; }
+.rsv-page .btn-primary { background: var(--primary); color: #fff; border: 1px solid transparent; }
+.rsv-page .btn-primary:hover { background: var(--primary-hover); }
+.rsv-page .btn-outline { background: #fff; color: var(--gray-600); border: 1px solid var(--gray-300); }
+.rsv-page .btn-outline:hover { background: var(--gray-100); }
+
+/* Inputs */
+.rsv-page .input, .rsv-page .select-input, .rsv-page .textarea { width: 100%; border: 1px solid var(--gray-300); border-radius: 6px; padding: 0 12px; font-size: 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: #fff; color: var(--gray-900); font-family: inherit; }
+.rsv-page .input:focus, .rsv-page .select-input:focus, .rsv-page .textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(225, 27, 43, 0.1); }
+.rsv-page .input { height: 48px; }
+.rsv-page .select-input { height: 48px; appearance: none; cursor: pointer; padding-right: 32px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.rsv-page .textarea { padding: 12px; min-height: 90px; resize: none; }
+.rsv-page .form-label { display: block; font-size: 14px; font-weight: 700; color: var(--gray-700); margin-bottom: 8px; }
+.rsv-page .form-label .required { color: #ef4444; }
+.rsv-page .form-group { margin-bottom: 24px; }
+
+/* ===== GUIDE (랜딩) ===== */
+.rsv-page .guide-main { flex: 1; width: 100%; max-width: 960px; margin: 0 auto; padding: 48px 24px 72px; }
+.rsv-page .guide-hero { text-align: center; margin-bottom: 52px; }
+.rsv-page .guide-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: var(--primary); margin-bottom: 10px; }
+.rsv-page .guide-title { font-size: 34px; font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
+.rsv-page .guide-sub { font-size: 16px; color: var(--gray-500); margin-bottom: 26px; }
+.rsv-page .guide-cta { height: 50px; padding: 0 36px; font-size: 16px; font-weight: 700; border-radius: 9999px; }
+.rsv-page .guide-section { margin-bottom: 46px; }
+.rsv-page .guide-h2 { font-size: 20px; font-weight: 800; color: var(--gray-900); margin-bottom: 22px; text-align: center; }
+.rsv-page .guide-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.rsv-page .guide-step { display: flex; gap: 12px; align-items: flex-start; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 12px; padding: 16px; }
+.rsv-page .gs-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; font-size: 14px; display: grid; place-items: center; }
+.rsv-page .guide-step b { font-size: 14px; color: var(--gray-900); }
+.rsv-page .guide-step p { font-size: 12px; color: var(--gray-500); margin-top: 3px; }
+.rsv-page .guide-spaces { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+.rsv-page .guide-space { border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: 0.15s; display: flex; flex-direction: column; }
+.rsv-page .guide-space:hover { border-color: var(--primary); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.rsv-page .guide-space__photo { width: 100%; aspect-ratio: 16 / 10; background: var(--gray-100) center/cover no-repeat; }
+.rsv-page .guide-space__body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+.rsv-page .guide-space__name { font-size: 17px; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; }
+.rsv-page .guide-space__meta { font-size: 13px; color: var(--gray-500); }
+.rsv-page .guide-space__price { margin-top: 10px; font-size: 16px; font-weight: 700; color: var(--primary); }
+.rsv-page .guide-space__price .per { font-size: 12px; color: var(--gray-400); font-weight: 500; }
+.rsv-page .guide-space__btn { margin-top: 14px; height: 42px; font-size: 14px; font-weight: 700; border-radius: 9999px; width: 100%; }
+
+/* ===== BOOKING CARD ===== */
+.rsv-page .booking-main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 40px 16px; width: 100%; }
+.rsv-page .booking-card { background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.04); border: 1px solid var(--gray-100); border-radius: 12px; width: 100%; max-width: 960px; display: flex; flex-direction: row; min-height: 480px; }
+.rsv-page .booking-left { width: 24%; padding: 28px 24px; border-right: 1px solid rgba(243,244,246,0.8); display: flex; flex-direction: column; background: #fff; }
+.rsv-page .booking-label { color: var(--gray-500); font-weight: 600; margin-bottom: 12px; font-size: 14px; letter-spacing: 0.5px; }
+.rsv-page .display-space { display: flex; gap: 10px; align-items: center; }
+.rsv-page .display-space .ds-photo { width: 52px; height: 40px; border-radius: 6px; background: var(--gray-100) center/cover no-repeat; flex-shrink: 0; }
+.rsv-page .display-space .ds-name { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+.rsv-page .display-space .ds-price { font-size: 12px; color: var(--primary); font-weight: 600; margin-top: 2px; }
+.rsv-page .selected-datetime { margin-top: 24px; padding: 16px; background: rgba(253,235,237,0.8); border-radius: 8px; color: #9a0d1a; font-weight: 500; display: flex; align-items: flex-start; gap: 12px; }
+.rsv-page .selected-datetime .dt-icon { color: #cf2030; margin-top: 2px; }
+.rsv-page .selected-datetime .dt-time { font-size: 20px; font-weight: 700; margin-top: 4px; }
+
+.rsv-page .booking-middle { width: 48%; padding: 28px; border-right: 1px solid rgba(243,244,246,0.8); background: #fff; display: flex; flex-direction: column; }
+.rsv-page .booking-middle h2 { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--gray-900); }
+
+/* Calendar */
+.rsv-page .calendar { width: 100%; max-width: 450px; margin: 0 auto; }
+.rsv-page .calendar-header { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px 16px; }
+.rsv-page .calendar-title { font-size: 18px; font-weight: 600; color: var(--gray-700); }
+.rsv-page .calendar-nav { display: flex; gap: 4px; }
+.rsv-page .calendar-nav button { width: 32px; height: 32px; background: transparent; border: none; cursor: pointer; border-radius: 50%; color: var(--gray-400); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.rsv-page .calendar-nav button:hover { background: var(--gray-100); color: var(--gray-900); }
+.rsv-page .calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 8px; }
+.rsv-page .calendar-weekdays span { font-size: 13px; color: var(--gray-400); padding: 4px; }
+.rsv-page .calendar-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 4px 0; }
+.rsv-page .calendar-day { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: none; background: transparent; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--gray-600); transition: all 0.2s; margin: 0 auto; }
+.rsv-page .calendar-day:hover { background: #fdebed; color: var(--primary); }
+.rsv-page .calendar-day.selected { background: var(--primary); color: #fff; font-weight: 700; }
+.rsv-page .calendar-day.disabled { color: var(--gray-300); opacity: 0.5; cursor: default; }
+
+/* Time slots */
+.rsv-page .booking-right { width: 28%; background: #fdfdfd; }
+.rsv-page .booking-right-header { padding: 28px 20px 0; }
+.rsv-page .booking-right-header h2 { font-size: 16px; font-weight: 600; color: var(--gray-900); margin-bottom: 6px; }
+.rsv-page .booking-right-header p { color: var(--gray-600); font-size: 14px; margin-bottom: 16px; }
+.rsv-page .time-slots { padding: 0 16px 24px; display: flex; flex-direction: column; gap: 8px; max-height: 440px; overflow-y: auto; }
+.rsv-page .time-slot-btn { width: 100%; height: 48px; font-size: 16px; font-weight: 500; border-radius: 4px; border: 1px solid var(--gray-200); background: #fff; color: var(--primary); cursor: pointer; transition: all 0.2s; }
+.rsv-page .time-slot-btn:hover { border-color: var(--primary); }
+.rsv-page .time-slot-btn.selected { background: var(--primary); color: #fff; border-color: transparent; }
+.rsv-page .time-slot-btn.unavailable { background: var(--gray-50); color: var(--gray-400); border-color: var(--gray-100); cursor: not-allowed; opacity: 0.6; text-decoration: line-through; }
+
+/* Options / amount */
+.rsv-page .booking-form-area { flex: 1; padding: 32px 48px; background: #fff; }
+.rsv-page .booking-form-area h2 { font-size: 22px; font-weight: 700; color: var(--gray-900); margin-bottom: 28px; }
+.rsv-page .opt-free { font-size: 11px; font-weight: 700; color: #137333; background: #e6f4ea; border-radius: 9999px; padding: 2px 8px; margin-left: 4px; }
+.rsv-page .opt-paid { font-size: 11px; font-weight: 700; color: var(--primary); background: #fdebed; border-radius: 9999px; padding: 2px 8px; margin-left: 4px; }
+.rsv-page .facility-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+.rsv-page .facility-list li { position: relative; padding-left: 22px; font-size: 14px; color: var(--gray-600); }
+.rsv-page .facility-list li::before { content: "✓"; position: absolute; left: 0; color: #137333; font-weight: 700; }
+.rsv-page .addon-list { display: flex; flex-direction: column; gap: 8px; }
+.rsv-page .addon { display: flex; align-items: center; gap: 10px; border: 1px solid var(--gray-200); border-radius: 8px; padding: 12px 14px; cursor: pointer; transition: border-color 0.15s; }
+.rsv-page .addon:hover { border-color: var(--primary); }
+.rsv-page .addon input { accent-color: var(--primary); width: 16px; height: 16px; }
+.rsv-page .addon-name { flex: 1; font-size: 14px; color: var(--gray-900); }
+.rsv-page .addon-price { font-size: 14px; font-weight: 700; color: var(--primary); }
+.rsv-page .duration-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.rsv-page .duration-chip { border: 1px solid var(--gray-200); background: #fff; color: var(--gray-700); border-radius: 8px; padding: 9px 16px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.rsv-page .duration-chip:hover { border-color: var(--primary); }
+.rsv-page .duration-chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.rsv-page .amount-box { margin-top: 24px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 12px; padding: 16px 18px; }
+.rsv-page .amount-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--gray-600); padding: 5px 0; }
+.rsv-page .amount-row.total { border-top: 1px solid var(--gray-200); margin-top: 6px; padding-top: 12px; font-size: 18px; font-weight: 800; color: var(--gray-900); }
+.rsv-page .amount-row.total span:last-child { color: var(--primary); }
+.rsv-page .booking-submit { width: 100%; height: 48px; font-size: 18px; font-weight: 700; border-radius: 6px; margin-top: 20px; }
+
+/* My bookings */
+.rsv-page .home-main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 64px 24px; }
+.rsv-page .my-booking-container { width: 100%; max-width: 520px; }
+.rsv-page .home-title { font-size: 26px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; line-height: 1.3; }
+.rsv-page .home-subtitle { font-size: 16px; color: var(--gray-500); margin-bottom: 32px; }
+
+.rsv-page .hidden { display: none !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rsv-page .booking-card { flex-direction: column; }
+  .rsv-page .booking-left, .rsv-page .booking-middle, .rsv-page .booking-right, .rsv-page .booking-form-area { width: 100% !important; }
+  .rsv-page .booking-left { border-right: none; border-bottom: 1px solid var(--gray-100); }
+  .rsv-page .booking-middle { border-right: none; border-bottom: 1px solid var(--gray-100); padding: 28px 16px; }
+  .rsv-page .calendar { max-width: 100%; }
+  .rsv-page .calendar-day { width: 36px; height: 36px; font-size: 14px; }
+  .rsv-page .guide-steps { grid-template-columns: repeat(2, 1fr); }
+  .rsv-page .guide-title { font-size: 26px; }
+  .rsv-page .booking-form-area { padding: 28px 20px; }
+}

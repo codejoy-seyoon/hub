@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
 /* ============================================================
-   BNI Hub — 브랜드 토큰 (기존 shared/brand.css 계승)
+   BNI Hub — 브랜드 토큰
+   - bni-* : Next.js 내부 페이지(스토어/예약/체크아웃 등)에서 사용
+   - 무접두( red/ink/body/soft/line ) : legacy 마크업과 1:1 호환용 별칭
+     (legacy tailwind.config 의 색/radius 스케일을 그대로 재현)
    ============================================================ */
 @theme {
+  /* --- bni-* 토큰 (기존 유지) --- */
   --color-bni-red: #e11b2b;
   --color-bni-red-strong: #cf2030;
   --color-bni-red-dark: #9a0d1a;
@@ -12,6 +16,20 @@
   --color-bni-body: #5b6168;
   --color-bni-soft: #eef0f2;
   --color-bni-line: #e7e8ea;
+
+  /* --- legacy 별칭 (legacy/index.html tailwind.config 그대로) --- */
+  --color-red: #e11b2b;
+  --color-red-dark: #c0121f;
+  --color-red-soft: #fdebed;
+  --color-ink: #222428;
+  --color-body: #5b6168;
+  --color-soft: #eef0f2;
+  --color-line: #e7e8ea;
+
+  /* radius 스케일 (legacy 오버라이드) */
+  --radius-xl: 0.9rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
 
   --font-sans: "Pretendard", "Pretendard Variable", system-ui, -apple-system,
     "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
@@ -23,8 +41,9 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-bni-ink);
+  color: #222428;
   background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Pretendard 웹폰트 */
@@ -35,4 +54,346 @@ body {
   font-display: swap;
   src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2")
     format("woff2-variations");
+}
+
+/* ============================================================
+   Legacy 컴포넌트 CSS (legacy/index.html <style> 정밀 이식)
+   ============================================================ */
+
+/* 콘텐츠 컨테이너 */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* 머티리얼 아이콘 */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+/* 버튼 시스템 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  padding: 14px 30px;
+  transition: 0.2s;
+  text-transform: uppercase;
+}
+.btn-red {
+  background: linear-gradient(180deg, #e8222f, #cf1320);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.14);
+}
+.btn-red:hover {
+  filter: brightness(1.07);
+}
+.btn-line {
+  background: #fff;
+  color: #222428;
+  border: 2px solid #222428;
+}
+.btn-line:hover {
+  background: #222428;
+  color: #fff;
+}
+
+/* 카드 */
+.card {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 30px rgba(20, 20, 30, 0.08);
+}
+
+/* ===== BNI header + hero (exact spec) ===== */
+:root {
+  --bni-red: #cf2030;
+  --bni-red-dark: #9a0d1a;
+  --bni-light: #f2f2f2;
+  --bni-text: #111;
+  --bni-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  --header-pad-y: 18px;
+  --nav-height: 65px;
+  --nav-radius: 80px;
+  --nav-cta-width: 175px;
+  --logo-width: 124px;
+  --hero-radius: 24px;
+  --hero-ratio-w: 1500;
+  --hero-ratio-h: 718;
+}
+.bni-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  box-shadow: var(--bni-shadow);
+  padding: var(--header-pad-y) 0;
+}
+.bni-header__inner {
+  width: min(1310px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.bni-logo {
+  flex: 0 0 auto;
+  width: var(--logo-width);
+  text-decoration: none;
+  color: var(--bni-red);
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.bni-nav {
+  flex: 1;
+  height: var(--nav-height);
+  background: var(--bni-light);
+  border-radius: var(--nav-radius);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bni-nav__spacer {
+  flex: 1 1 0;
+}
+.bni-nav__menu {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.bni-nav__menu a,
+.bni-nav__email {
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.bni-nav__menu a:hover,
+.bni-nav__email:hover {
+  color: var(--bni-red);
+}
+.bni-nav__right {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+.bni-nav__cta {
+  width: var(--nav-cta-width);
+  height: 42px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #cf2030 63.67%, #9a0d1a 100%);
+  box-shadow: 0 6px 14px rgba(207, 32, 48, 0.18);
+}
+.bni-hero {
+  padding-top: 28px;
+}
+.bni-hero__inner {
+  position: relative;
+  width: min(1310px, calc(100% - 48px));
+  margin: 0 auto;
+}
+.bni-hero__media {
+  position: relative;
+  aspect-ratio: calc(var(--hero-ratio-w) / var(--hero-ratio-h));
+  --notch: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201500%20718'%20preserveAspectRatio='none'%3E%3Cpath%20d='M24%200%20H1476%20A24%2024%200%200%201%201500%2024%20V581%20A22%2022%200%200%201%201478%20603%20H1104%20A36%2036%200%200%200%201068%20639%20V688%20A30%2030%200%200%201%201038%20718%20H24%20A24%2024%200%200%201%200%20694%20V24%20A24%2024%200%200%201%2024%200%20Z'%20fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask: var(--notch) no-repeat;
+  mask: var(--notch) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+.bni-hero__media img,
+.bni-hero__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bni-hero__headline {
+  position: absolute;
+  left: 34px;
+  bottom: 22px;
+  color: #fff;
+  font-size: clamp(32px, 5.5vw, 75px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+.bni-hero__eyebrow {
+  display: block;
+  font-size: 0.3em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  opacity: 0.92;
+  text-transform: none;
+}
+/* word rotator */
+.rot {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  line-height: 1;
+  vertical-align: bottom;
+}
+.rot__in {
+  display: block;
+  animation: rotWords 9s infinite cubic-bezier(0.86, 0, 0.07, 1);
+}
+.rot__in > span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+@keyframes rotWords {
+  0%, 16% { transform: translateY(-4em); }
+  20%, 36% { transform: translateY(-3em); }
+  40%, 56% { transform: translateY(-2em); }
+  60%, 76% { transform: translateY(-1em); }
+  80%, 100% { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rot__in { animation: none; }
+}
+.bni-hero__cta-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 26.9%;
+  aspect-ratio: 352 / 72;
+  border-radius: 16px 16px 24px 16px;
+  background: linear-gradient(90deg, #cf2030 63.67%, #9a0d1a 100%);
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(11px, 1.15vw, 15px);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 14px rgba(207, 32, 48, 0.22);
+}
+/* hamburger */
+.bni-nav__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.bni-nav__burger span {
+  display: block;
+  height: 2px;
+  width: 22px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .bni-nav__menu,
+  .bni-nav__email,
+  .bni-nav__spacer {
+    display: none;
+  }
+  .bni-header__inner {
+    justify-content: space-between;
+  }
+  .bni-nav {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 14px;
+  }
+  .bni-nav__right {
+    flex: 0 0 auto;
+  }
+  .bni-nav__burger {
+    display: flex;
+  }
+}
+/* ===== Mobile ===== */
+@media (max-width: 640px) {
+  .bni-header {
+    padding: 12px 0;
+  }
+  .bni-header__inner {
+    gap: 12px;
+    width: calc(100% - 32px);
+  }
+  .bni-logo {
+    font-size: 38px;
+    width: auto;
+  }
+  .bni-nav {
+    height: 50px;
+    padding: 0 8px 0 14px;
+    gap: 8px;
+  }
+  .bni-nav__cta {
+    width: auto;
+    padding: 0 16px;
+    height: 36px;
+    font-size: 13px;
+  }
+  .bni-hero {
+    padding-top: 16px;
+  }
+  .bni-hero__inner {
+    width: calc(100% - 32px);
+  }
+  .bni-hero__media {
+    -webkit-mask: none;
+    mask: none;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .bni-hero__headline {
+    font-size: clamp(22px, 6.5vw, 32px);
+    left: 18px;
+    bottom: 16px;
+  }
+  .bni-hero__cta-btn {
+    position: static;
+    width: 100%;
+    aspect-ratio: auto;
+    height: 36px;
+    margin-top: 12px;
+    padding: 0;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
 }

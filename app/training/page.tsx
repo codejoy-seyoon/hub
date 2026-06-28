@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { TRAININGS, trainingImg } from "@/lib/data/trainings";
 import { won } from "@/lib/format";
+import { HubShell } from "@/components/HubShell";
 
 export const metadata = { title: "트레이닝 | BNI KOREA HUB" };
 
@@ -14,6 +15,7 @@ export default function TrainingPage() {
   const list = [...TRAININGS].sort((a, b) => a.day - b.day);
 
   return (
+    <HubShell>
     <main className="mx-auto max-w-6xl px-5 py-12">
       <header className="mb-8">
         <h1 className="text-3xl font-extrabold">트레이닝</h1>
@@ -50,5 +52,6 @@ export default function TrainingPage() {
         ))}
       </div>
     </main>
+    </HubShell>
   );
 }
