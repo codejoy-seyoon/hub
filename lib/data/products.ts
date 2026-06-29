@@ -24,9 +24,12 @@ export function getProduct(id: string): Product | undefined {
  * 이미지는 store-img 버킷에 호스팅됨 (scripts/migrate-images.mjs 로 업로드).
  * 키는 ASCII 안전 경로 (예: "renewal-1/332A9392.jpg", "goods/welcome.png").
  */
-const STORAGE_BASE = `${
-  process.env.NEXT_PUBLIC_SUPABASE_URL ?? ""
-}/storage/v1/object/public/store-img`;
+// Supabase 프로젝트 URL은 공개 정보(공개 버킷 주소)이므로, Vercel 환경변수가
+// 비어 있어도 이미지가 깨지지 않도록 하드코딩 폴백을 둔다.
+const SUPABASE_URL =
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  "https://tewnbrlwveyottrrwqoc.supabase.co";
+const STORAGE_BASE = `${SUPABASE_URL}/storage/v1/object/public/store-img`;
 
 export function productImg(file: string): string {
   if (!file) return "";
