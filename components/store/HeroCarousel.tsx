@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { productImg } from "@/lib/data/products";
 
 type Slide = {
   img: string;
@@ -12,7 +13,7 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    img: "/store-img/bni_korea_goods_img/BNI Korea_pouch_mug set.png",
+    img: "goods/BNI-Korea_pouch_mug-set-6623b5.png",
     eyebrow: "Official Goods 2026",
     title: (
       <>
@@ -25,7 +26,7 @@ const SLIDES: Slide[] = [
     cta: "컬렉션 둘러보기",
   },
   {
-    img: "/store-img/bni_korea_goods_img/BNI Korea_로고 실크 스카프_레드.jpg",
+    img: "goods/BNI-Korea_-_-787fa0.jpg",
     eyebrow: "Signature",
     title: (
       <>
@@ -38,7 +39,7 @@ const SLIDES: Slide[] = [
     cta: "자세히 보기",
   },
   {
-    img: "/store-img/bni_korea_goods_img/BNI Korea_클래식 타이 (1).jpg",
+    img: "goods/BNI-Korea_-1-832e62.jpg",
     eyebrow: "Business Class",
     title: (
       <>
@@ -68,7 +69,7 @@ export function HeroCarousel() {
     <header className="hero-carousel">
       <div
         className="hero-slide"
-        style={{ backgroundImage: `url('${encodeURI(s.img)}')` }}
+        style={{ backgroundImage: `url('${productImg(s.img)}')` }}
       >
         <div className="hero-caption">
           <p className="hero-eyebrow">{s.eyebrow}</p>

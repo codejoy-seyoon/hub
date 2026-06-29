@@ -1,10 +1,15 @@
-import { PRODUCTS } from "@/lib/data/products";
+import { PRODUCTS, productImg } from "@/lib/data/products";
 import { StoreGrid } from "./StoreGrid";
 import { HeroCarousel } from "@/components/store/HeroCarousel";
 
 export const metadata = { title: "BNI KOREA STORE | 공식 굿즈 스토어" };
 
-const IMG = "/store-img/bni_korea_goods_img";
+// 히어로/카테고리 카드 이미지 (Supabase Storage 키)
+const HERO = {
+  tee: "goods/x-bc6b90.jpg", // 카라티 블랙
+  hoodie: "goods/x-bf3d05.png", // 후드집업 앞
+  tie: "goods/BNI-Korea_-1-59de74.jpg", // 자동 타이
+};
 
 export default function StorePage() {
   return (
@@ -19,7 +24,7 @@ export default function StorePage() {
             <div
               className="feature-img"
               style={{
-                backgroundImage: `url('${encodeURI(`${IMG}/카라티 블랙.jpg`)}')`,
+                backgroundImage: `url('${productImg(HERO.tee)}')`,
               }}
             />
             <div className="flex items-center justify-center">
@@ -47,7 +52,7 @@ export default function StorePage() {
               <div
                 className="gift-img"
                 style={{
-                  backgroundImage: `url('${encodeURI(`${IMG}/후드집업 앞.png`)}')`,
+                  backgroundImage: `url('${productImg(HERO.hoodie)}')`,
                 }}
               />
               <div className="gift-overlay text-center">
@@ -59,7 +64,7 @@ export default function StorePage() {
               <div
                 className="gift-img"
                 style={{
-                  backgroundImage: `url('${encodeURI(`${IMG}/BNI Korea_자동 타이 (1).jpg`)}')`,
+                  backgroundImage: `url('${productImg(HERO.tie)}')`,
                 }}
               />
               <div className="gift-overlay text-center">

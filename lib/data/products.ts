@@ -19,14 +19,20 @@ export function getProduct(id: string): Product | undefined {
   return BY_ID.get(id);
 }
 
-/** 이미지 파일명을 public 경로로 변환 (기존 store/img 규칙 계승) */
+/**
+ * 상품 이미지 키를 Supabase Storage 공개 URL로 변환.
+ * 이미지는 store-img 버킷에 호스팅됨 (scripts/migrate-images.mjs 로 업로드).
+ * 키는 ASCII 안전 경로 (예: "renewal-1/332A9392.jpg", "goods/welcome.png").
+ */
+const STORAGE_BASE = `${
+  process.env.NEXT_PUBLIC_SUPABASE_URL ?? ""
+}/storage/v1/object/public/store-img`;
+
 export function productImg(file: string): string {
   if (!file) return "";
-  // 하위 폴더(/ 포함)면 store-img 루트, 아니면 bni_korea_goods_img 폴더
-  const path = file.includes("/")
-    ? `/store-img/${file}`
-    : `/store-img/bni_korea_goods_img/${file}`;
-  return encodeURI(path);
+  // 과거 데이터(폴더 없는 파일명) 호환: goods 폴더로 간주
+  const key = file.includes("/") ? file : `goods/${file}`;
+  return `${STORAGE_BASE}/${encodeURI(key)}`;
 }
 
 export function productImages(p: Product): string[] {
