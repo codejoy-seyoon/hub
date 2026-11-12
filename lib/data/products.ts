@@ -20,16 +20,18 @@ export function getProduct(id: string): Product | undefined {
 }
 
 /**
- * 상품 이미지 키를 Supabase Storage 공개 URL로 변환.
- * 이미지는 store-img 버킷에 호스팅됨 (scripts/migrate-images.mjs 로 업로드).
+ * 상품 이미지 키를 사진 주소로 변환.
  * 키는 ASCII 안전 경로 (예: "renewal-1/332A9392.jpg", "goods/welcome.png").
+ *
+ * 2026-11-12: 사진을 올려 둔 Supabase 프로젝트(tewnbrlwveyottrrwqoc) 주소가 사라져
+ * 사진이 전부 빈칸이 됐다. 그래서 사이트가 직접 사진을 갖도록 바꿨다.
+ * - 기본: public/store-web/<키>  (scripts/build-local-images.mjs 로 원본에서 생성)
+ * - 외부 저장소를 다시 쓰려면 NEXT_PUBLIC_STORE_IMG_BASE 에 그 주소를 넣는다
+ *   (예: https://<프로젝트>.supabase.co/storage/v1/object/public/store-img).
  */
-// Supabase 프로젝트 URL은 공개 정보(공개 버킷 주소)이므로, Vercel 환경변수가
-// 비어 있어도 이미지가 깨지지 않도록 하드코딩 폴백을 둔다.
-const SUPABASE_URL =
-  process.env.NEXT_PUBLIC_SUPABASE_URL ||
-  "https://tewnbrlwveyottrrwqoc.supabase.co";
-const STORAGE_BASE = `${SUPABASE_URL}/storage/v1/object/public/store-img`;
+const STORAGE_BASE = (
+  process.env.NEXT_PUBLIC_STORE_IMG_BASE || "/store-web"
+).replace(/\/+$/, "");
 
 export function productImg(file: string): string {
   if (!file) return "";
