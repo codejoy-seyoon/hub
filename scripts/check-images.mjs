@@ -57,6 +57,10 @@ for (const p of products) {
   addStore(p.img, `상품 ${p.id}`);
   for (const f of p.images ?? []) addStore(f, `상품 ${p.id}`);
 }
+const studioProducts = JSON.parse(read("lib/data/_studio-products.json"));
+for (const [id, images] of Object.entries(studioProducts)) {
+  for (const image of images) addStore(image, `스튜디오 사진 ${id}`);
+}
 // 화면 코드에 직접 적힌 키 (배너·카테고리 카드 등)
 const KEY_RE = /["'`]((?:goods|renewal-\d+)\/[^"'`\s]+\.(?:png|jpe?g|webp))["'`]/g;
 for (const f of sources) {

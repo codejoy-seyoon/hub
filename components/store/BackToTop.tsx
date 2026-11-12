@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { StoreIcon } from "./StoreIcon";
 
 export function BackToTop() {
   const [show, setShow] = useState(false);
@@ -17,9 +18,9 @@ export function BackToTop() {
       type="button"
       aria-label="맨 위로"
       className={`btn-back-top ${show ? "show" : ""}`}
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })}
     >
-      <i className="bi bi-arrow-up" />
+      <StoreIcon name="up" />
     </button>
   );
 }

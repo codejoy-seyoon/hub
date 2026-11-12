@@ -15,7 +15,7 @@ export function StoreCheckoutClient() {
 
   if (!product) {
     return (
-      <main className="mx-auto max-w-2xl px-5 py-16">
+      <main id="store-main" className="mx-auto max-w-2xl px-5 py-16">
         <h1 className="mb-3 text-2xl font-extrabold">상품을 찾을 수 없습니다</h1>
         <Link href="/store" className="font-semibold text-bni-red">스토어로 돌아가기</Link>
       </main>
@@ -60,7 +60,7 @@ export function StoreCheckoutClient() {
   );
 
   return (
-    <main className="mx-auto max-w-2xl px-5 py-12">
+    <main id="store-main" className="mx-auto max-w-2xl px-5 py-12">
       <h1 className="mb-6 text-2xl font-extrabold">주문 / 결제</h1>
       <CheckoutPanel makeRequest={makeRequest} amount={total} summary={summary} />
     </main>

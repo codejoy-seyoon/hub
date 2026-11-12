@@ -1,0 +1,2 @@
+# Preserve the supplied header reference byte-for-byte across checkouts.
+design-references/BNI-STORE-header.html -text

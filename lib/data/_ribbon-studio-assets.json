@@ -1,0 +1,916 @@
+{
+  "provider": "Higgsfield",
+  "models": [
+    "gpt_image_2_6",
+    "seedream_v5_pro"
+  ],
+  "date": "2026-11-12",
+  "reference": "renewal-1/332A9579.jpg",
+  "assets": [
+    {
+      "id": "renew-007",
+      "jobId": "57f27224-c03b-4096-b784-a01df1abcde9",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9623.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"AMBASSADOR\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"AMBASSADOR\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "624d4b9a-2b2e-469a-b06d-c138afcf89b2",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/624d4b9a-2b2e-469a-b06d-c138afcf89b2.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "98fdc115-77e7-48cf-8db9-c8cc9f153cfd",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/98fdc115-77e7-48cf-8db9-c8cc9f153cfd.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-007.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-007.png",
+        "bytes": 7282331,
+        "sha256": "8a724a2b04944b2cb21389cbb74edbf08e381a95850099dff57791ee65a75f17"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-007.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-007.webp",
+        "bytes": 512976,
+        "sha256": "3182584dbad060acb9507babe340b4a19f8e80b53dfa1e57c47cbf570d1057f4"
+      }
+    },
+    {
+      "id": "renew-008",
+      "jobId": "ada8bbd1-9897-4988-9122-6abda8dff6c1",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9628.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"ADVANCED TRAINING GRADUATE\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"ADVANCED TRAINING GRADUATE\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "94440600-932d-4f00-a607-d5d5a6d80b44",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/94440600-932d-4f00-a607-d5d5a6d80b44.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "7ebc40a4-659d-44e1-bc4a-03503ef26791",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/7ebc40a4-659d-44e1-bc4a-03503ef26791.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-008.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-008.png",
+        "bytes": 7270988,
+        "sha256": "eff09245284b68f77373d5dc9192272bfae99785eaa97e871e6cc71c1555f9a7"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-008.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-008.webp",
+        "bytes": 580700,
+        "sha256": "e9a2a08920b4ffb9e281d174eb4c2291d1cb6edd0eb41c84c444e82bc2965e98"
+      }
+    },
+    {
+      "id": "renew-009",
+      "jobId": "bae8c883-e47a-4cde-b332-b94fb7038b35",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9636.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"EVENT CO-ORDINATOR\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"EVENT CO-ORDINATOR\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "5cd9776d-ccbc-4d9e-aa92-2884806d50d7",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/5cd9776d-ccbc-4d9e-aa92-2884806d50d7.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "ade53f28-32dd-43b3-a0cf-5664d8859931",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/ade53f28-32dd-43b3-a0cf-5664d8859931.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-009.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-009.png",
+        "bytes": 4131506,
+        "sha256": "3886ea202f118bca4e5b41555ddd4af5b067bf0ba1d67a8d8bcdf1e31845540d"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-009.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-009.webp",
+        "bytes": 402604,
+        "sha256": "eaac3c136c5a73a740dc398e3274d57dcc97099ec6422cefc7ee08f04b8d5317"
+      }
+    },
+    {
+      "id": "renew-010",
+      "jobId": "dc200c46-cbd7-4ed5-a8bf-a085b0a5eb78",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9646.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"VICE PRESIDENT\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"VICE PRESIDENT\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "168ffd8f-7e03-4827-8170-e28a9581d374",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/168ffd8f-7e03-4827-8170-e28a9581d374.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "13482199-ca4f-4b5d-88c3-812d01df8138",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/13482199-ca4f-4b5d-88c3-812d01df8138.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-010.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-010.png",
+        "bytes": 4019100,
+        "sha256": "e6407c35c457b00b413d8790ee923b3cc4709bfabeb6f72dcf4b10f61f803e54"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-010.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-010.webp",
+        "bytes": 371244,
+        "sha256": "21beddfc5ea9d407f8a98da865d70564cf6e0e502746cced729b6fe74d7ea7cf"
+      }
+    },
+    {
+      "id": "renew-011",
+      "jobId": "e862179e-2db3-4676-a46e-83d69d8d0a15",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9648.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"SECRETARY TREASURER\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"SECRETARY TREASURER\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "7c671413-05c7-4a5b-91b5-f7b7f81e30e6",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/7c671413-05c7-4a5b-91b5-f7b7f81e30e6.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "a4839e7e-847c-4640-add6-015247140134",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/a4839e7e-847c-4640-add6-015247140134.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-011.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-011.png",
+        "bytes": 4300015,
+        "sha256": "d03e48a6908803e1d5540a75d4b5e980610698120d36bd6d4052fd6317ef217c"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-011.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-011.webp",
+        "bytes": 417204,
+        "sha256": "681120396228f75bc7e83c7ad09b26948bba16c13ea8c9ca50a9138e365e6fbf"
+      }
+    },
+    {
+      "id": "renew-025",
+      "jobId": "35493226-4a52-4b40-8b3a-ba367e85a05c",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9599.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"CHAPTER GROWTH CO-ORDINATOR\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"CHAPTER GROWTH CO-ORDINATOR\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "d140476c-a13a-4633-b754-a79fe7fdc7f0",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/d140476c-a13a-4633-b754-a79fe7fdc7f0.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "8297a30e-da67-4563-ae25-1ae0eba724a8",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/8297a30e-da67-4563-ae25-1ae0eba724a8.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-025.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-025.png",
+        "bytes": 4098127,
+        "sha256": "16a8cb25ab8a89a2910b97e06bb21f95c183e08951885ab800553142fc6a7cf1"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-025.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-025.webp",
+        "bytes": 414630,
+        "sha256": "b7c032514ecaa2acb0aa7fcf3ee304987e9df6c95cb16b6198d6a7128de6c33c"
+      }
+    },
+    {
+      "id": "renew-026",
+      "jobId": "13a379ff-db4b-428e-ac9c-43913c1d4b5a",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9633.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"3 YEAR MEMBER\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"3 YEAR MEMBER\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "97baa80b-68af-4d39-a9d9-fe2505a5a7ed",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/97baa80b-68af-4d39-a9d9-fe2505a5a7ed.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "dcda43f3-5b88-4c53-b49f-87f3a24eeeaf",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/dcda43f3-5b88-4c53-b49f-87f3a24eeeaf.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-026.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-026.png",
+        "bytes": 1063942,
+        "sha256": "ce6b58f4706024af0682839545b8e1e648967891bab55fc9681e709e13f1f92d"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-026.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-026.webp",
+        "bytes": 118786,
+        "sha256": "4044e6233ea012c31b8352a217beae494dd34b7b6495c014994e5f0ffede951b"
+      }
+    },
+    {
+      "id": "renew-059",
+      "jobId": "df1a2e3d-a831-41b7-a19d-ed8fcb658b01",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9582.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"MEMBER OVER 10 YEARS\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"MEMBER OVER 10 YEARS\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "75b094a1-a688-4abb-88a0-896ef31fafb6",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/75b094a1-a688-4abb-88a0-896ef31fafb6.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "6c881a7c-e875-463d-a9b5-eb1218a9c89a",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/6c881a7c-e875-463d-a9b5-eb1218a9c89a.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-059.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-059.png",
+        "bytes": 6920133,
+        "sha256": "563f1563160b1e7118ad650f412e546abd11b9f5082025ca55cf2c54ad00c2aa"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-059.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-059.webp",
+        "bytes": 532404,
+        "sha256": "6eb5029d9766749976bde8b75edb56bde4aca9b61fd55f9f411386b7f2147ff6"
+      }
+    },
+    {
+      "id": "renew-064",
+      "jobId": "deee9543-9d83-44a0-bfa3-388f599cb1ae",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9588.jpg",
+      "prompt": "Edit this already straight, horizontal ribbon product photograph. Keep the entire composition absolutely unchanged: background, lighting, zero-degree horizontal orientation, ribbon size, centering, black fabric, serrated edges and white adhesive strip. Replace ONLY the large number 3 on the black ribbon with 6, so the product reads exactly \"6 YEAR\" on the first line and \"MEMBER\" on the second line. Preserve the existing bold metallic-gold font and letter size. Do NOT rotate, tilt, enlarge, shrink or reposition the ribbon. Keep exact 3:2 landscape canvas and the existing approximately 50%-width centered ribbon bounding box. This is a precise product-variant photo edit; one ribbon, no added text or objects.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "7c21ff96-8be1-43c5-93e7-8f039b0de713",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/7c21ff96-8be1-43c5-93e7-8f039b0de713.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-064.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-064.png",
+        "bytes": 5514790,
+        "sha256": "da247c2a9e400fc802d70e218fb37ab0372836dccaa915d229eec10fd25f47b2"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-064.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-064.webp",
+        "bytes": 291782,
+        "sha256": "f249bd1d807734bcea13f37b69ba509a62128b160c8e18919355c0de293a7d84"
+      }
+    },
+    {
+      "id": "renew-066",
+      "jobId": "e9e849b0-91fd-4ffd-8c8b-7b7d522175b9",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9590.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"1 YEAR MEMBER\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"1 YEAR MEMBER\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "94a63020-4b6f-477f-aa5f-d1cf6fed4d65",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/94a63020-4b6f-477f-aa5f-d1cf6fed4d65.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "8c6aef3a-d9b7-4f2c-b228-7dfdba2d72bb",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/8c6aef3a-d9b7-4f2c-b228-7dfdba2d72bb.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-066.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-066.png",
+        "bytes": 7266908,
+        "sha256": "2a8463d066d01009c013b6d4458e6ad41eb9b3953d017f3855d6753dd91ad563"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-066.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-066.webp",
+        "bytes": 483742,
+        "sha256": "eeb2db06b431f57137de41b8e1f9098cb63a4320f4cbab00232812680818f4b5"
+      }
+    },
+    {
+      "id": "renew-068",
+      "jobId": "4d592f9a-e9cf-44ff-827d-e7aaaa33689e",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9592.jpg",
+      "prompt": "Edit this already straight, horizontal ribbon product photograph. Keep the entire composition absolutely unchanged: background, lighting, zero-degree horizontal orientation, ribbon size, centering, black fabric, serrated edges and white adhesive strip. Replace ONLY the large number 3 on the black ribbon with 2, so the product reads exactly \"2 YEAR\" on the first line and \"MEMBER\" on the second line. Preserve the existing bold metallic-gold font and letter size. Do NOT rotate, tilt, enlarge, shrink or reposition the ribbon. Keep exact 3:2 landscape canvas and the existing approximately 50%-width centered ribbon bounding box. This is a precise product-variant photo edit; one ribbon, no added text or objects.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "d5d991b0-7cea-4504-b1f2-3d049133b9a4",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/d5d991b0-7cea-4504-b1f2-3d049133b9a4.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-068.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-068.png",
+        "bytes": 5406506,
+        "sha256": "ed97de6c06804131d8b67c2e4385cf077aa7c87995438e643464dc113d4e6554"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-068.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-068.webp",
+        "bytes": 275816,
+        "sha256": "290b18229a579842ada774be1304054622d24870b50c2554047c9cd21b7da92c"
+      }
+    },
+    {
+      "id": "renew-069",
+      "jobId": "3ccf5356-afd6-4b3c-8abc-d6145f52d599",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9593.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"MEMBER SUCCESS PROGRAM GRADUATE\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"MEMBER SUCCESS PROGRAM GRADUATE\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "836c7c43-0fc0-4727-bbf0-e8cff4b98464",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/836c7c43-0fc0-4727-bbf0-e8cff4b98464.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "2dcb73be-3cf5-432a-b9f7-ddcc888fe372",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/2dcb73be-3cf5-432a-b9f7-ddcc888fe372.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-069.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-069.png",
+        "bytes": 6982322,
+        "sha256": "f0a571d17b70a20554b7e353307ecff7b000ddcc03903fd43c3ad092606f1682"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-069.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-069.webp",
+        "bytes": 538446,
+        "sha256": "946c5a72403b39fcec2117b30541eda702c50c98b14a213bd4d6fb252d6ad1ca"
+      }
+    },
+    {
+      "id": "renew-070",
+      "jobId": "36cdca57-2ab1-44fe-b9eb-e5e87155a9d0",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9602.jpg",
+      "prompt": "Make one tiny product-variant edit to this exact photo: change the numeral 9 to the numeral 8, so the ribbon reads \"8 YEAR\" then \"MEMBER\". Keep every other aspect IDENTICAL, including the thin regular-weight filled light-gold sans-serif font, letter size, black fabric, plain white strip, serrated edges, perfectly horizontal orientation, size, centered position, pale beige fibrous background and lighting. The new 8 must be a solid filled glyph of the same thin stroke weight as the original 9, never an outlined glyph. Do not make any letters bold. Do not rotate, reframe, resize or move the product. Return the same landscape 3:2 photo with only 9 replaced by 8.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "9d4a25ec-6b23-40df-9671-7eb329cf97b5",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/9d4a25ec-6b23-40df-9671-7eb329cf97b5_resize.jpg"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-070.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-070.png",
+        "bytes": 6336888,
+        "sha256": "d2c6ac0c6b89302df6068fcb0b53a1a04958f6250c89aafcd4d9033851961d66"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-070.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-070.webp",
+        "bytes": 463778,
+        "sha256": "f2306f0e8b23e67fb983b071d14bc09bcd0806ac9fc77907429b302f685bd694"
+      }
+    },
+    {
+      "id": "renew-071",
+      "jobId": "f7febe93-8bac-4427-8d5b-4761abc36101",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9603.jpg",
+      "prompt": "Edit the single attached product photo. The product is a ribbon bearing exactly \"REGIONAL TRAINER\". Preserve THIS ribbon identity, bright fluorescent yellow-green ribbon fabric, dark red lettering, its original typography, serrated edges, white adhesive backing strip and weave. Only straighten the product to an exact overhead/front-facing view with absolutely horizontal top and bottom edges, no slant or perspective; center it in the frame. Product bounding box must be x=25% to 75%, y=28% to 68% of a landscape 3:2 frame. Match a professional studio photograph: pale ivory/beige softly fibrous paper/felt background, uniform neutral soft diffuse light, subtle natural contact shadow. One ribbon. The exact lettering \"REGIONAL TRAINER\" must remain unchanged. Never change this to another role or year. Do not substitute a white fabric ribbon for the original bright fluorescent yellow-green ribbon fabric, dark red lettering. No text outside product, no frame, no watermark. Flat horizontal orientation is mandatory.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "aca5c552-6cf5-4093-9e5a-50c23f795f68",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/aca5c552-6cf5-4093-9e5a-50c23f795f68.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-071.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-071.png",
+        "bytes": 6577272,
+        "sha256": "340551c55d8942165afd78d0de6b7c001a5618ab701f50b4d03806c4029d678d"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-071.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-071.webp",
+        "bytes": 476132,
+        "sha256": "8024e0851a71b1e11589e588b27907a2846ee865e77e3c0ea26dc07dceeb3759"
+      }
+    },
+    {
+      "id": "renew-072",
+      "jobId": "18208393-dcd0-401b-810b-7a517b995cf7",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9609.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"EDUCATION CO-ORDINATOR\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"EDUCATION CO-ORDINATOR\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "13e45405-b99b-4b3f-beda-f074bcaab240",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/13e45405-b99b-4b3f-beda-f074bcaab240.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "5f487d5e-a233-40c6-a932-f6121c0ab9f7",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/5f487d5e-a233-40c6-a932-f6121c0ab9f7.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-072.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-072.png",
+        "bytes": 4144095,
+        "sha256": "76a34059cfbf97df2828efb9fbb082d470831d106ea0294f98ef0cb8fee9f4a7"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-072.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-072.webp",
+        "bytes": 413612,
+        "sha256": "9f34f58a5bf7b39c07a8ba6f2344dea69091d008c701f2943eb2493c435c740b"
+      }
+    },
+    {
+      "id": "renew-073",
+      "jobId": "bb689a34-0233-43cd-bd84-409dd3a5293b",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9611.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"PR CO-ORDINATOR\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"PR CO-ORDINATOR\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "65eecd92-6857-4ac3-b222-a3abb1747b8a",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/65eecd92-6857-4ac3-b222-a3abb1747b8a.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "801225a4-a9ac-4c02-ae8c-81998b8543b1",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/801225a4-a9ac-4c02-ae8c-81998b8543b1.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-073.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-073.png",
+        "bytes": 7262060,
+        "sha256": "d95d8047b0f3149672875d15217eabb12565c47669a2aa62d36692e2bc710c0e"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-073.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-073.webp",
+        "bytes": 618218,
+        "sha256": "bf82198d04c7fe981b513da946ac6723c4778b435c7d6bfc0d5fbd6032918c8e"
+      }
+    },
+    {
+      "id": "renew-074",
+      "jobId": "1a431af0-a079-4bde-84e8-8c53d8e1ec41",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9616.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"MENTOR CO-ORDINATOR\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"MENTOR CO-ORDINATOR\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "85c88701-605d-452d-81c2-526c000e9f72",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/85c88701-605d-452d-81c2-526c000e9f72.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "fcdd1ed0-a88a-49aa-a877-771e22b5c6fd",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/fcdd1ed0-a88a-49aa-a877-771e22b5c6fd.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-074.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-074.png",
+        "bytes": 3918685,
+        "sha256": "03834c90d827f9e5200a1f16ab14a3adfccd4178edc61296894af046dc191ca4"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-074.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-074.webp",
+        "bytes": 385662,
+        "sha256": "bb30698f5bde988f282f8e075506d1672b7cf2178f071a739f85e0fc81b01d93"
+      }
+    },
+    {
+      "id": "renew-075",
+      "jobId": "94d42d82-be69-4cdf-a1fd-705ec6e646a7",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9617.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"MEMBERSHIP COMMITTEE\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"MEMBERSHIP COMMITTEE\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "2ef64b31-ee69-4c51-9185-710a0126bda8",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/2ef64b31-ee69-4c51-9185-710a0126bda8.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "08be4d6c-9bb3-40be-bd08-295a02d77462",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/08be4d6c-9bb3-40be-bd08-295a02d77462.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-075.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-075.png",
+        "bytes": 4090502,
+        "sha256": "91747464d146ddd6a62e7ba66ab2a873d7fd2b8e3a96a0f50dd6959702b6a470"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-075.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-075.webp",
+        "bytes": 396048,
+        "sha256": "51d72f0ecad2b905f442bb35cd5665df2904b10947e4443bb560584461386621"
+      }
+    },
+    {
+      "id": "renew-076",
+      "jobId": "b6679a32-8297-4e6c-ab98-d3fc4707eb3f",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9618.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"4 YEAR MEMBER\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"4 YEAR MEMBER\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "d1ad91c0-0429-4a1c-b740-23acf6aa2a13",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/d1ad91c0-0429-4a1c-b740-23acf6aa2a13.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "883295b4-8edf-438a-a4c8-6e09732ad0bb",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/883295b4-8edf-438a-a4c8-6e09732ad0bb.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-076.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-076.png",
+        "bytes": 7016984,
+        "sha256": "6c427c45f4396409ecc0cc94e27a901d7a50d2c1de6c0b00efe7451402c6615e"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-076.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-076.webp",
+        "bytes": 499252,
+        "sha256": "d7a1be6cac28b4a1a832e5950ec14087e8b82579cf4efb53f7976839d2755d9f"
+      }
+    },
+    {
+      "id": "renew-077",
+      "jobId": "1716f00b-287f-4e41-a1df-5534bc43a9e4",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9620.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"VISITOR HOST\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"VISITOR HOST\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "2232fe80-21e9-4c8f-a5a0-ef91223e9169",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/2232fe80-21e9-4c8f-a5a0-ef91223e9169.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "3f9bde75-7dcf-4701-96db-20055f59e7f8",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/3f9bde75-7dcf-4701-96db-20055f59e7f8.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-077.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-077.png",
+        "bytes": 4249157,
+        "sha256": "ed23d56e0e5356a06fa50458a0d043bcb8443653be63cd95f9a6dc9533b200b5"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-077.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-077.webp",
+        "bytes": 399826,
+        "sha256": "054f9d29549748b8568f3e44b15826ada3418286a9eef4b2b321ff3cd50b23ee"
+      }
+    },
+    {
+      "id": "renew-078",
+      "jobId": "f950de81-cb67-4e3b-a1a5-a36abd1e694a",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9621.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"MENTOR\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"MENTOR\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "16ac8e0b-df94-4bbf-8eb6-0b2860ee7175",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/16ac8e0b-df94-4bbf-8eb6-0b2860ee7175.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "38654e6c-6f53-42c1-9c3d-f7e13692937b",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/38654e6c-6f53-42c1-9c3d-f7e13692937b.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-078.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-078.png",
+        "bytes": 3995720,
+        "sha256": "d332d1d6e8358f2cdc593ab7aaad8fe6d584c4cb92c4ce6bf1f7f650491f1419"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-078.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-078.webp",
+        "bytes": 387192,
+        "sha256": "84e804aa0535d57e747b3e9ce7e62f438a2a2a43ff047113222189f371a53654"
+      }
+    },
+    {
+      "id": "renew-079",
+      "jobId": "8a8e00c1-31e4-47e7-a487-19bc99cdd005",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9622.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"9 YEAR MEMBER\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"9 YEAR MEMBER\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "5c47ff67-18c1-429d-ae62-0cb64619e1b4",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/5c47ff67-18c1-429d-ae62-0cb64619e1b4.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "56ee2465-70f9-4bbb-baaa-5a5825d899df",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/56ee2465-70f9-4bbb-baaa-5a5825d899df.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-079.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-079.png",
+        "bytes": 6732757,
+        "sha256": "6a710a74e24cb8bcf661dd546013a4ddc5848a25890eeaf52cb9e42e16d1ff00"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-079.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-079.webp",
+        "bytes": 510980,
+        "sha256": "de89cf0c3d8a22653e6c44ea268fe608e3ecbe00913098ce5abb9f7d1840ad80"
+      }
+    },
+    {
+      "id": "renew-081",
+      "jobId": "71bbe261-1ab5-44dc-b1aa-65d2e7716f20",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9641.jpg",
+      "prompt": "Edit this already straight, horizontal ribbon product photograph. Keep the entire composition absolutely unchanged: background, lighting, zero-degree horizontal orientation, ribbon size, centering, black fabric, serrated edges and white adhesive strip. Replace ONLY the large number 3 on the black ribbon with 7, so the product reads exactly \"7 YEAR\" on the first line and \"MEMBER\" on the second line. Preserve the existing bold metallic-gold font and letter size. Do NOT rotate, tilt, enlarge, shrink or reposition the ribbon. Keep exact 3:2 landscape canvas and the existing approximately 50%-width centered ribbon bounding box. This is a precise product-variant photo edit; one ribbon, no added text or objects.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "148bf925-f051-4b2a-9ce0-a09d4186b0d0",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/148bf925-f051-4b2a-9ce0-a09d4186b0d0.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-081.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-081.png",
+        "bytes": 5318113,
+        "sha256": "70b80fdb8e52cd5db73888c5f4c75b8ef1935f9ce0a80cf8173df156602ef705"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-081.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-081.webp",
+        "bytes": 262120,
+        "sha256": "8e6136a25665c169caa352bcfaaa7aa307b80658aa0681975e07477080c2ae9e"
+      }
+    },
+    {
+      "id": "renew-082",
+      "jobId": "d36bdd42-a870-4dcc-a057-6dcac3276bbf",
+      "model": "gpt_image_2_6",
+      "source": "renewal-1/332A9644.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"5 YEAR MEMBER\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"5 YEAR MEMBER\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "ff7f4265-8306-42da-9073-724f04e95d98",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/ff7f4265-8306-42da-9073-724f04e95d98.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "735d0368-578c-4a4d-8a7d-b2db6791c0e0",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/735d0368-578c-4a4d-8a7d-b2db6791c0e0.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/renew-082.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/renew-082.png",
+        "bytes": 1060386,
+        "sha256": "dfcf6abe8a8f165eca4a14b5ee1413a6c2e4d1378c833113dc00ec67483a1de1"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/renew-082.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/renew-082.webp",
+        "bytes": 115292,
+        "sha256": "daf28cc247a324074ac22a9ffbfd6ef2bf5f654a2dc9f5779ae5cbcd4993b7f3"
+      }
+    },
+    {
+      "id": "ribbon-member-trainer",
+      "jobId": "c9039dc9-1432-4184-8a33-a71467e57bf8",
+      "model": "seedream_v5_pro",
+      "source": "renewal-1/332A9630.jpg",
+      "prompt": "Use case: precise-object-edit. Product catalog standardization.\nImage 1 is the ONLY product to edit: a single physical ribbon with the exact main lettering \"MEMBER TRAINER\". Image 2 is the PRESIDENT ribbon reference ONLY for background, viewpoint, position and scale.\nRephotograph image 1's SAME physical ribbon in an exactly flat front-facing overhead view, horizontal with zero in-plane rotation and no perspective skew. Match image 2's framing precisely in a 3:2 canvas: ribbon left edge at 25.5% canvas width, right edge at 75%; total ribbon top edge including white adhesive strip at 28% canvas height, bottom edge at 68%; centered about x50%, y48%. All ribbons must occupy the SAME rectangular bounding box as the PRESIDENT reference, not fill the canvas. Horizontal parallel top/bottom edges, vertical side edges with original serrations. Single ribbon only.\nReplace background with image 2's pale neutral ivory/beige fibrous paper/felt studio surface, same texture scale, lighting and natural subtle contact shadow. No yellow cast, no vignette, no gradient, no frames or padding bands.\nKeep image 1's EXACT fabric color, metallic or printed lettering color, typography, correct text \"MEMBER TRAINER\", original line breaks, weave, serrated edges and white adhesive backing strip, including any tiny blue markings that actually exist. Do not turn colored ribbons white and do not copy PRESIDENT text or product from image 2. Correct only angle, perspective, framing, background and exposure. Preserve the real product identity. Do not invent text, abbreviations, extra objects, UI badges, watermark or decorations. This is one photograph of one ribbon, not a grid or collage. High-fidelity commercial studio photo.",
+      "referenceInputs": [
+        {
+          "role": "image",
+          "data": {
+            "id": "07c4c2ff-0c6e-4b7b-9ca2-9978650598fc",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/07c4c2ff-0c6e-4b7b-9ca2-9978650598fc.png"
+          }
+        },
+        {
+          "role": "image",
+          "data": {
+            "id": "cbe0d057-6462-43dc-a9be-49b02be2272c",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KLjM3JSHDdoJViWk3M7UpJIF5T/cbe0d057-6462-43dc-a9be-49b02be2272c.png"
+          }
+        }
+      ],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/ribbon-member-trainer.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/ribbon-member-trainer.png",
+        "bytes": 7333970,
+        "sha256": "3e1d99f233b4df9f821791cd7109997d4dca24b3a1a7b62f08b1e8a16729b4ba"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/ribbon-member-trainer.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/ribbon-member-trainer.webp",
+        "bytes": 568312,
+        "sha256": "b5755fe38afd2fdb6b76584a235ba5f8de8e79ebfa33730f6a87c87fa650662e"
+      }
+    },
+    {
+      "id": "ribbon-role-set",
+      "jobId": "046716c1-05a4-4ea2-8a45-c32ae85bda72",
+      "model": "gpt_image_2_6",
+      "source": "global-store/ribbons/role-ribbon-set-01.webp",
+      "prompt": "Use case: precise-object-edit. Edit target: reference image 1 is the existing product photograph of the role-ribbon collection. Supporting style reference: image 2 shows one PRESIDENT ribbon; use ONLY its background.\nReplace ONLY the yellowish background of image 1 with the exact bright neutral warm ivory/beige fine fibrous paper/felt surface texture, tone and soft diffuse studio lighting seen in image 2. Match image 2 closely, not a yellow or green gradient. Output a square full-bleed product photograph, no frame or letterbox bands. Center the entire existing ribbon collection with generous even breathing room and no cropping of any ribbon. Preserve all eleven physical ribbons shown in the original, their exact arrangement, angle, relative positions, shapes, serrated edges, fabric colors, surface textures, lettering and small adhesive backing details. These show 10 unique roles with MEMBERSHIP COMMITTEE appearing twice: do not remove the duplicate or invent other ribbons. Preserve every letter exactly: EVENT CO-ORDINATOR; PR COORDINATOR; PRESIDENT; CHAPTER GROWTH CO-ORDINATOR; SECRETARY TREASURER; MEMBERSHIP COMMITTEE (twice); VICE PRESIDENT; VISITOR HOST; EDUCATION CO-ORDINATOR; MENTOR CO-ORDINATOR. Do not copy the single PRESIDENT ribbon from image 2 into the scene. No labels, UI, NEW badge, watermark, added objects, decorative elements, or color changes to the products. Only change and extend the background. Photorealistic studio catalog result.",
+      "referenceInputs": [],
+      "original": {
+        "key": "studio-originals/2026-11-12/ribbons/ribbon-role-set.png",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio-originals/2026-11-12/ribbons/ribbon-role-set.png",
+        "bytes": 1892816,
+        "sha256": "c298aa19f3840cddfb20c5cf77b4a4c112f30b3b15bb71f0cd6bfbe5d89d707c"
+      },
+      "optimized": {
+        "key": "studio/2026-11-12/ribbons/ribbon-role-set.webp",
+        "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/studio/2026-11-12/ribbons/ribbon-role-set.webp",
+        "bytes": 279374,
+        "sha256": "4790041709577cab0c9f18ab74d066a94858e2599b7722313980ae9af6e365cc"
+      }
+    }
+  ]
+}

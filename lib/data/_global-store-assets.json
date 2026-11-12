@@ -1,0 +1,573 @@
+{
+  "bucket": "store-img",
+  "source": "글로벌 스토어 굿즈 이미지",
+  "sourceFileCount": 40,
+  "uniqueOriginalCount": 39,
+  "assets": [
+    {
+      "key": "global-store/badges/gold-club-member-1-stone.jpeg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/badges/gold-club-member-1-stone.jpeg",
+      "bytes": 607851,
+      "sha256": "1d07d4148de9c6a9c3ef304f785c98bdce34bf90531f4dd67e9b1554ebc922e2",
+      "action": "uploaded",
+      "category": "badge",
+      "kind": "product",
+      "sourceFiles": [
+        "뱃지/골드클럽멤버_1다이아.jpeg"
+      ],
+      "width": 1770,
+      "height": 1398
+    },
+    {
+      "key": "global-store/badges/gold-club-member-2-stone.jpeg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/badges/gold-club-member-2-stone.jpeg",
+      "bytes": 652856,
+      "sha256": "2fed132a9f47bb86d74faaf551bbb2bc6e732e2650c079f294dfc9e69838768e",
+      "action": "uploaded",
+      "category": "badge",
+      "kind": "product",
+      "sourceFiles": [
+        "뱃지/골드클럽멤버_2다이아.jpeg"
+      ],
+      "width": 1842,
+      "height": 1392
+    },
+    {
+      "key": "global-store/badges/gold-club-member-3-stone.jpeg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/badges/gold-club-member-3-stone.jpeg",
+      "bytes": 681056,
+      "sha256": "13b807d91b2a23e90333d15b8efe0ae745daa4721cf1880a542c59a742022d72",
+      "action": "uploaded",
+      "category": "badge",
+      "kind": "product",
+      "sourceFiles": [
+        "뱃지/골드클럽멤버_3다이아.jpeg"
+      ],
+      "width": 1848,
+      "height": 1359
+    },
+    {
+      "key": "global-store/badges/gold-club-member-4-stone.jpeg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/badges/gold-club-member-4-stone.jpeg",
+      "bytes": 677985,
+      "sha256": "73f2ee42e97dc5f93ecabfb535d6c87ba6d93b91953b43e6214b726c61a676cf",
+      "action": "uploaded",
+      "category": "badge",
+      "kind": "product",
+      "sourceFiles": [
+        "뱃지/골드클럽멤버_4다이아.jpeg"
+      ],
+      "width": 1821,
+      "height": 1353
+    },
+    {
+      "key": "global-store/badges/leadership-team.jpeg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/badges/leadership-team.jpeg",
+      "bytes": 487093,
+      "sha256": "26b5ad5677431cccf71b77312fcbfe8868402b8165123e3f270013fd611db325",
+      "action": "uploaded",
+      "category": "badge",
+      "kind": "product",
+      "sourceFiles": [
+        "뱃지/리더십팀뱃지.jpeg"
+      ],
+      "width": 2133,
+      "height": 1614
+    },
+    {
+      "key": "global-store/badges/member.jpeg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/badges/member.jpeg",
+      "bytes": 112016,
+      "sha256": "c1cb12725d15a09343510bdaa2d40cf6ed83e2dc408207db0eb20dec7ba33a78",
+      "action": "uploaded",
+      "category": "badge",
+      "kind": "product",
+      "sourceFiles": [
+        "뱃지/멤버뱃지.jpeg"
+      ],
+      "width": 500,
+      "height": 399
+    },
+    {
+      "key": "global-store/badges/platinum.jpeg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/badges/platinum.jpeg",
+      "bytes": 506149,
+      "sha256": "d3f7b9b3e00f5d5f6c2cd3c8c315a9fd84a4674460af2aa9c2ef0cd6c53f8747",
+      "action": "uploaded",
+      "category": "badge",
+      "kind": "product",
+      "sourceFiles": [
+        "뱃지/플래티넘뱃지.jpeg"
+      ],
+      "width": 2133,
+      "height": 1614
+    },
+    {
+      "key": "global-store/ribbons/ambassador.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/ambassador.png",
+      "bytes": 66874,
+      "sha256": "12d6357d08ee51c25de23cb586bfbba3469487274c978437d78346301cd5de87",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/엠베서더 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/chapter-growth-coordinator.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/chapter-growth-coordinator.png",
+      "bytes": 97646,
+      "sha256": "ce2b136990674dd3610e442f3fee3df08872715d05b719e781eba5f4986a4350",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/성장코디네이터 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/door-person.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/door-person.jpg",
+      "bytes": 6395,
+      "sha256": "025ee97ff9507aed70cd9677fd1b26b6a9f1abc5a04993f81892695c657c26c0",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/Door Person.jpg"
+      ],
+      "width": 257,
+      "height": 146
+    },
+    {
+      "key": "global-store/ribbons/education-coordinator.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/education-coordinator.jpg",
+      "bytes": 11196,
+      "sha256": "83efec4ae7aa9c41218d75a462b0f72bcc40c8ac2d97e00345cb6422d2851506",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/교육코디.jpg"
+      ],
+      "width": 272,
+      "height": 152
+    },
+    {
+      "key": "global-store/ribbons/education-coordinator.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/education-coordinator.png",
+      "bytes": 94921,
+      "sha256": "63eda9a0a3811d8a2ac7293c9863bd4a8a01785017a00bf1fc587899067de16b",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/교육 코디네이터 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/event-coordinator.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/event-coordinator.png",
+      "bytes": 84766,
+      "sha256": "ef4bb54d1643f0b530a191bc5537a1b86c598223f02480f3d5912cf10513da9d",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/이벤트 코디네이터 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/groups/role-ribbon-set-01.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/groups/role-ribbon-set-01.jpg",
+      "bytes": 4739279,
+      "sha256": "b58d49022ede7ea344c8cde33e081141cb7f9d22102ccdbc19a7c25b4d1643a8",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "collection",
+      "sourceFiles": [
+        "리본/444.JPG"
+      ],
+      "width": 6720,
+      "height": 4480
+    },
+    {
+      "key": "global-store/ribbons/groups/role-ribbon-set-02.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/groups/role-ribbon-set-02.jpg",
+      "bytes": 3535212,
+      "sha256": "5d842021485c8eae18b40c38b2aa3b0ffb61097ce33db302d64cb137cf54675e",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "collection",
+      "sourceFiles": [
+        "리본/리본 이미지.JPG",
+        "리본/리본사진_챕터물품.JPG"
+      ],
+      "width": 6720,
+      "height": 4480
+    },
+    {
+      "key": "global-store/ribbons/leadership-team.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/leadership-team.jpg",
+      "bytes": 26493,
+      "sha256": "7258b3fbb3ef7385b3f985b3aac4d028ffd1566e560f3c3832119d992fc2054d",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/리더십 팀.jpg"
+      ],
+      "width": 512,
+      "height": 287
+    },
+    {
+      "key": "global-store/ribbons/leadership-team.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/leadership-team.png",
+      "bytes": 89478,
+      "sha256": "e68aba1238ee379f274bc45eb703759389c0a94ce9a3f737edad106af638a47e",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/리더십 팀 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-1-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-1-year.png",
+      "bytes": 74028,
+      "sha256": "f8832f4d8c57c44788beb501c55304c78b906ec3929edc109a2b83cf81f75bfd",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/1년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-2-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-2-year.png",
+      "bytes": 82172,
+      "sha256": "dcd7fce58219387ba87d3a8654f4241a30affd3d91abc53df07f292cec194c24",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/2년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-3-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-3-year.png",
+      "bytes": 60104,
+      "sha256": "96bc94a046ce7ac9ec44e14aafc1a48d4cae422ce1e1104e25475300bffb4834",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/3년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-4-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-4-year.png",
+      "bytes": 48236,
+      "sha256": "e36b08db69c4b4e32ced5d13503cc26db34b91efe2eca0646fd6ef0d0dafbbf3",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/4년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-5-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-5-year.png",
+      "bytes": 53191,
+      "sha256": "f951140aabe186a49caadf25760923e1cdd541c9b9b5f61de04ba7322d87f7dc",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/5년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-6-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-6-year.png",
+      "bytes": 85656,
+      "sha256": "c972f96f55f86c7b746122ec82b45e47715baded82d61e0f63833a7793978301",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/6년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-7-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-7-year.png",
+      "bytes": 83095,
+      "sha256": "93fc6d77db4108743f143ddc0c4ec5319607b55b97ea0f38435982e7696a5444",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/7년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-8-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-8-year.png",
+      "bytes": 85205,
+      "sha256": "4e460c3a2995c672ae197214cac5d69982b93da40566537e4274500737806272",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/8년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-9-year.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-9-year.png",
+      "bytes": 91623,
+      "sha256": "3a92586b29fecab1e89708f8a6373f5fdd9324273e6f88017beb21839b264e7e",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/9년차 멤버 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/member-success-program-graduate.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/member-success-program-graduate.png",
+      "bytes": 89324,
+      "sha256": "1964437c3abaf09ba472ff51717b1fb1335ba1971356b22ed2240c4d371e5b9d",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/MSP 수료자 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/membership-committee.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/membership-committee.png",
+      "bytes": 84047,
+      "sha256": "91ec87609d5b3cf8b7e7182e29101904e1ee81ed278e756fb6a5fd0dc60c04ab",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/멤버십 위원회 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/mentor-coordinator.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/mentor-coordinator.png",
+      "bytes": 78471,
+      "sha256": "886451d8e7ee2778dad262417100a52adb8e7ade0e7ddbddb7e4b58ba837668b",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/멘토 코디네이터 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/mentor.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/mentor.png",
+      "bytes": 77267,
+      "sha256": "e4d98b4df04c6c3415d502a72f61c791d6dbd87eef1dd57ae5d61d86c7d3d6ef",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/멘토 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/pr-coordinator.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/pr-coordinator.jpg",
+      "bytes": 17002,
+      "sha256": "9f4c6ce075ec9b36fb23f013b051954b748ff3838832f6a0cca26d0f7f3f6d35",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/PR.jpg"
+      ],
+      "width": 333,
+      "height": 146
+    },
+    {
+      "key": "global-store/ribbons/president.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/president.jpg",
+      "bytes": 13602,
+      "sha256": "1e8ff090d6f5d774f944c72f21b2a83e23f7f4762c088bca16a1481ad003a932",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/President.jpg"
+      ],
+      "width": 355,
+      "height": 187
+    },
+    {
+      "key": "global-store/ribbons/president.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/president.png",
+      "bytes": 95067,
+      "sha256": "edc724c989457e1f8b9685790b7557246259fdeba407bc7abba3ffae91793c4f",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/의장 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/secretary-treasurer-01.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/secretary-treasurer-01.jpg",
+      "bytes": 11011,
+      "sha256": "b36a441ebe08941106a97a0262504888500a30c0906756baca0abfd0bbb51756",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "ST.jpg"
+      ],
+      "width": 262,
+      "height": 166
+    },
+    {
+      "key": "global-store/ribbons/secretary-treasurer-02.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/secretary-treasurer-02.jpg",
+      "bytes": 20000,
+      "sha256": "89ee99519f638e0c8ace996c208b60bd6940ae14c37010abcc62581715a176d1",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/ST.jpg"
+      ],
+      "width": 362,
+      "height": 196
+    },
+    {
+      "key": "global-store/ribbons/secretary-treasurer.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/secretary-treasurer.png",
+      "bytes": 95426,
+      "sha256": "16e1a8cdc96c603fabe76b8ea694d5c113df6f2f2b9d59a6ed3690a558b7ac4b",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/ST리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/vice-president.jpg",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/vice-president.jpg",
+      "bytes": 26519,
+      "sha256": "fda9068200bb2c574879dbda85ec7bb03cd8c8175c8a39b03c1ecf3252d5074a",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/VP.jpg"
+      ],
+      "width": 436,
+      "height": 230
+    },
+    {
+      "key": "global-store/ribbons/vice-president.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/vice-president.png",
+      "bytes": 90438,
+      "sha256": "2dea9fbacddd253fc8d20331a279947ff7bbdd63467fb55b1b4f249334110490",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/부의장 리본.png"
+      ],
+      "width": 315,
+      "height": 220
+    },
+    {
+      "key": "global-store/ribbons/visitor-host.png",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/visitor-host.png",
+      "bytes": 79332,
+      "sha256": "7f28ebdd606d5db033f8085b7096f3f908b23f922aec35738a75c518eb136ef4",
+      "action": "uploaded",
+      "category": "ribbon",
+      "kind": "product",
+      "sourceFiles": [
+        "리본/비지터 호스트.png"
+      ],
+      "width": 315,
+      "height": 220
+    }
+  ],
+  "webImages": [
+    {
+      "key": "global-store/ribbons/role-ribbon-set-01.webp",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/role-ribbon-set-01.webp",
+      "bytes": 254382,
+      "sha256": "a28e516cb63f2fcffda8a79118257f8b92d90e981def7408606243e9fdb7f3d6",
+      "action": "uploaded",
+      "sourceFile": "리본/444.JPG"
+    },
+    {
+      "key": "global-store/ribbons/role-ribbon-set-02.webp",
+      "url": "https://tewnbrlwveyottrrwqoc.supabase.co/storage/v1/object/public/store-img/global-store/ribbons/role-ribbon-set-02.webp",
+      "bytes": 212532,
+      "sha256": "fe54d884161ff081468234261f77454e63cc1b59f559cd3408da9e8e98cc1833",
+      "action": "uploaded",
+      "sourceFile": "리본/리본 이미지.JPG"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { StoreCheckoutClient } from "./StoreCheckoutClient";
 
-export const metadata = { title: "주문/결제 | BNI KOREA STORE" };
+export const metadata = { title: "주문/결제 | BNI STORE" };
 
 export default function StoreCheckoutPage() {
   return (

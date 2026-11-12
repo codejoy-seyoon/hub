@@ -1,53 +1,16 @@
 import Link from "next/link";
-
+import { storeHref } from "@/lib/storefront";
 export function StoreFooter() {
   return (
-    <footer className="lv-footer">
-      <div className="lv-container">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div>
-            <h6 className="footer-title">고객지원</h6>
-            <ul className="footer-list">
-              <li><a href="#">문의하기</a></li>
-              <li><a href="#">자주 묻는 질문</a></li>
-              <li><a href="#">배송 안내</a></li>
-              <li><a href="#">교환 / 반품</a></li>
-            </ul>
-          </div>
-          <div>
-            <h6 className="footer-title">서비스</h6>
-            <ul className="footer-list">
-              <li><a href="#">이메일 구독</a></li>
-              <li><a href="#">단체 주문</a></li>
-              <li><a href="#">챕터 굿즈</a></li>
-              <li><a href="#">기프트</a></li>
-            </ul>
-          </div>
-          <div>
-            <h6 className="footer-title">BNI KOREA</h6>
-            <ul className="footer-list">
-              <li><Link href="/">허브 홈</Link></li>
-              <li><Link href="/training">트레이닝</Link></li>
-              <li><Link href="/ebook">eBook</Link></li>
-              <li><a href="#">브랜드 소개</a></li>
-            </ul>
-          </div>
-          <div>
-            <h6 className="footer-title">팔로우</h6>
-            <div className="footer-social">
-              <a href="#" aria-label="instagram"><i className="bi bi-instagram" /></a>
-              <a href="#" aria-label="facebook"><i className="bi bi-facebook" /></a>
-              <a href="#" aria-label="youtube"><i className="bi bi-youtube" /></a>
-              <a href="#" aria-label="link"><i className="bi bi-link-45deg" /></a>
-            </div>
-            <div className="footer-ship mt-4">
-              <i className="bi bi-geo-alt" /> 배송 지역: 대한민국
-            </div>
-          </div>
+    <footer className="store-footer">
+      <div className="store-wrap">
+        <div className="store-footer-main">
+          <div><Link href="/store" className="store-footer-brand">BNI STORE<span>공식 스토어</span></Link><p>멤버와 챕터를 위한 공식 스토어.<br />BNI 활동에 필요한 물품을 만나보세요.</p></div>
+          <div><h2>쇼핑하기</h2><Link href={storeHref()}>전체 상품</Link><Link href={storeHref("gift")}>웰컴팩</Link><Link href={storeHref("sets")}>세트 상품</Link></div>
+          <div><h2>이용 안내</h2><Link href="/orders">주문 조회</Link><span>배송비 3,000원</span><span>5만 원 이상 무료배송</span></div>
+          <div><h2>BNI와 함께</h2><Link href="/">BNI 허브 ↗</Link><Link href="/training">트레이닝</Link><Link href="/ebook">전자책</Link></div>
         </div>
-        <div className="footer-bottom">
-          <p className="mb-0">© 2026 BNI KOREA. All rights reserved.</p>
-        </div>
+        <div className="store-footer-bottom"><span>© 2026 BNI KOREA. All rights reserved.</span><span>대한민국 · 한국어</span></div>
       </div>
     </footer>
   );

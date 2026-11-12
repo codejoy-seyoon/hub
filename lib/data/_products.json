@@ -157,7 +157,8 @@
     "images": [
       "renewal-1/332A9485.jpg",
       "renewal-1/332A9486.jpg",
-      "renewal-1/332A9489.jpg"
+      "renewal-1/332A9489.jpg",
+      "renewal-1/332A9480.jpg"
     ],
     "stock": 20
   },
@@ -189,29 +190,108 @@
   },
   {
     "id": "renew-006",
-    "name": "BNI 레드 핀 뱃지",
+    "name": "BNI 레드 핀 뱃지 (TITANIUM CHAPTER)",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9550.jpg",
     "images": [
-      "renewal-1/332A9550.jpg",
-      "renewal-1/332A9551.jpg",
-      "renewal-1/332A9555.jpg",
-      "renewal-1/332A9559.jpg",
-      "renewal-1/332A9563.jpg",
-      "renewal-1/332A9565.jpg",
-      "renewal-1/332A9570.jpg",
-      "renewal-1/332A9571.jpg",
-      "renewal-1/332A9574.jpg",
+      "renewal-1/332A9550.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-black-stone-1",
+    "name": "BNI 블랙 핀 뱃지 (스톤 1개)",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9551.jpg",
+    "images": [
+      "renewal-1/332A9551.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-red-logo",
+    "name": "BNI 레드 로고 핀 뱃지",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9555.jpg",
+    "images": [
+      "renewal-1/332A9555.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-platinum",
+    "name": "BNI 플래티넘 챕터 뱃지",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9559.jpg",
+    "images": [
+      "renewal-1/332A9559.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-gold-stone-3",
+    "name": "BNI 골드 클럽 멤버 뱃지 (스톤 3개)",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9563.jpg",
+    "images": [
+      "renewal-1/332A9563.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-diamond",
+    "name": "BNI 다이아몬드 챕터 뱃지",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9565.jpg",
+    "images": [
+      "renewal-1/332A9565.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-white-logo",
+    "name": "BNI 화이트 로고 핀 뱃지",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9570.jpg",
+    "images": [
+      "renewal-1/332A9570.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-leadership",
+    "name": "BNI 리더십 팀 뱃지",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9574.jpg",
+    "images": [
+      "renewal-1/332A9574.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "badge-gold-stone-4",
+    "name": "BNI 골드 클럽 멤버 뱃지 (스톤 4개)",
+    "category": "신상품",
+    "price": 25000,
+    "img": "renewal-1/332A9575.jpg",
+    "images": [
       "renewal-1/332A9575.jpg"
     ],
     "stock": 20
   },
   {
     "id": "renew-007",
-    "name": "BNI 직책 명패 (AMBASSADOR)",
+    "name": "BNI 직책 리본 (AMBASSADOR)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9623.jpg",
     "images": [
       "renewal-1/332A9623.jpg",
@@ -222,33 +302,44 @@
   },
   {
     "id": "renew-008",
-    "name": "BNI 직책 명패 (옐로우)",
+    "name": "BNI 수료 리본 (ADVANCED TRAINING GRADUATE)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9628.jpg",
     "images": [
-      "renewal-1/332A9628.jpg",
+      "renewal-1/332A9628.jpg"
+    ],
+    "stock": 20
+  },
+  {
+    "id": "ribbon-member-trainer",
+    "name": "BNI 직책 리본 (MEMBER TRAINER)",
+    "category": "신상품",
+    "price": 1000,
+    "img": "renewal-1/332A9630.jpg",
+    "images": [
       "renewal-1/332A9630.jpg"
     ],
     "stock": 20
   },
   {
     "id": "renew-009",
-    "name": "BNI 직책 명패 (그린)",
+    "name": "BNI 직책 리본 (EVENT COORDINATOR)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9636.jpg",
     "images": [
       "renewal-1/332A9636.jpg",
-      "renewal-1/332A9638.jpg"
+      "renewal-1/332A9638.jpg",
+      "renewal-1/332A9639.jpg"
     ],
     "stock": 20
   },
   {
     "id": "renew-010",
-    "name": "BNI 직책 명패 (VICE PRESIDENT)",
+    "name": "BNI 직책 리본 (부의장 · VICE PRESIDENT)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9646.jpg",
     "images": [
       "renewal-1/332A9646.jpg",
@@ -258,9 +349,9 @@
   },
   {
     "id": "renew-011",
-    "name": "BNI 직책 명패 (SECRETARY TREASURER)",
+    "name": "BNI 직책 리본 (ST · SECRETARY TREASURER)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9648.jpg",
     "images": [
       "renewal-1/332A9648.jpg",
@@ -284,7 +375,7 @@
   },
   {
     "id": "renew-013",
-    "name": "BNI 텀블러 (화이트)",
+    "name": "BNI 멤버 성공 프로그램 워크북",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9726.jpg",
@@ -324,7 +415,7 @@
   },
   {
     "id": "renew-016",
-    "name": "BNI 메탈 펜 세트 (네이비)",
+    "name": "BNI 파일 타공기",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9758.jpg",
@@ -351,11 +442,13 @@
     "id": "renew-018",
     "name": "BNI 화이트 펜",
     "category": "신상품",
-    "price": 25000,
+    "price": 8500,
     "img": "renewal-2/332A2276.jpg",
     "images": [
       "renewal-2/332A2276.jpg",
-      "renewal-2/332A2279.jpg"
+      "renewal-2/332A2279.jpg",
+      "renewal-1/332A9439.jpg",
+      "renewal-1/332A9443.jpg"
     ],
     "stock": 20
   },
@@ -390,14 +483,20 @@
     "name": "BNI 웰컴 기프트 박스 세트",
     "category": "신상품",
     "price": 25000,
-    "img": "renewal-2/332A2311.jpg",
+    "img": "renewal-1/332A9405.jpg",
     "images": [
-      "renewal-2/332A2311.jpg",
-      "renewal-2/332A2325.jpg",
-      "renewal-2/332A2331.jpg",
-      "renewal-2/332A2335.jpg",
-      "renewal-2/332A2339.jpg",
-      "renewal-2/332A2342.jpg"
+      "renewal-1/332A9405.jpg",
+      "renewal-1/332A9406.jpg",
+      "renewal-1/332A9407.jpg",
+      "renewal-1/332A9413.jpg",
+      "renewal-1/332A9417.jpg",
+      "renewal-1/332A9419.jpg",
+      "renewal-1/332A9421.jpg",
+      "renewal-1/332A9422.jpg",
+      "renewal-1/332A9423.jpg",
+      "renewal-1/332A9428.jpg",
+      "renewal-1/332A9434.jpg",
+      "renewal-1/332A9436.jpg"
     ],
     "stock": 20
   },
@@ -447,9 +546,9 @@
   },
   {
     "id": "renew-025",
-    "name": "BNI 직책 명패 (CHAPTER GROWTH COORDINATOR)",
+    "name": "BNI 직책 리본 (CHAPTER GROWTH COORDINATOR)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9599.jpg",
     "images": [
       "renewal-1/332A9599.jpg",
@@ -459,9 +558,9 @@
   },
   {
     "id": "renew-026",
-    "name": "BNI 직책 명패 (3 YEAR MEMBER)",
+    "name": "BNI 멤버 리본 (3년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9633.jpg",
     "images": [
       "renewal-1/332A9633.jpg",
@@ -510,7 +609,7 @@
   },
   {
     "id": "renew-031",
-    "name": "BNI 굿즈 (리뉴얼) 129",
+    "name": "후보자 지원서",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-2/332A2261.jpg",
@@ -518,7 +617,7 @@
   },
   {
     "id": "renew-032",
-    "name": "BNI 굿즈 (리뉴얼) 130",
+    "name": "갱신지원서",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-2/332A2264.jpg",
@@ -678,23 +777,32 @@
   },
   {
     "id": "renew-052",
-    "name": "BNI 레드 미니 기프트 박스",
+    "name": "BNI MASTER CONNECTOR 명찰",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9548.jpg",
+    "images": [
+      "renewal-1/332A9548.jpg",
+      "renewal-2/332A2304.jpg",
+      "renewal-2/332A2306.jpg"
+    ],
     "stock": 20
   },
   {
     "id": "renew-053",
-    "name": "BNI 굿즈 (리뉴얼) 038",
+    "name": "BNI 골드 클럽 멤버 뱃지 (스톤 1개)",
     "category": "신상품",
     "price": 25000,
-    "img": "renewal-1/332A9554.jpg",
-    "stock": 20
+    "img": "renewal-1/332A9571.jpg",
+    "stock": 20,
+    "images": [
+      "renewal-1/332A9571.jpg",
+      "renewal-1/332A9554.jpg"
+    ]
   },
   {
     "id": "renew-054",
-    "name": "BNI 굿즈 (리뉴얼) 040",
+    "name": "BNI 그린 멤버 뱃지",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9556.jpg",
@@ -702,7 +810,7 @@
   },
   {
     "id": "renew-055",
-    "name": "BNI 굿즈 (리뉴얼) 042",
+    "name": "BNI 블랙 핀 뱃지 (스톤 2개)",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9561.jpg",
@@ -710,7 +818,7 @@
   },
   {
     "id": "renew-056",
-    "name": "BNI 굿즈 (리뉴얼) 045",
+    "name": "BNI 36주년 기념 뱃지",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9567.jpg",
@@ -718,7 +826,7 @@
   },
   {
     "id": "renew-057",
-    "name": "BNI 굿즈 (리뉴얼) 046",
+    "name": "BNI 골드 클럽 멤버 뱃지 (스톤 5개)",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9569.jpg",
@@ -726,19 +834,26 @@
   },
   {
     "id": "renew-058",
-    "name": "BNI 굿즈 (리뉴얼) 051",
+    "name": "BNI 직책 리본 (의장 · PRESIDENT)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9579.jpg",
     "stock": 20
   },
   {
     "id": "renew-059",
-    "name": "BNI 굿즈 (리뉴얼) 052",
+    "name": "BNI 멤버 리본 (MEMBER OVER 10 YEARS)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9582.jpg",
-    "stock": 20
+    "stock": 20,
+    "images": [
+      "renewal-1/332A9582.jpg",
+      "renewal-1/332A9583.jpg",
+      "renewal-1/332A9584.jpg",
+      "renewal-1/332A9586.jpg",
+      "renewal-1/332A9587.jpg"
+    ]
   },
   {
     "id": "renew-060",
@@ -774,11 +889,15 @@
   },
   {
     "id": "renew-064",
-    "name": "BNI 굿즈 (리뉴얼) 057",
+    "name": "BNI 멤버 리본 (6년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9588.jpg",
-    "stock": 20
+    "stock": 20,
+    "images": [
+      "renewal-1/332A9588.jpg",
+      "renewal-1/332A9589.jpg"
+    ]
   },
   {
     "id": "renew-065",
@@ -790,11 +909,15 @@
   },
   {
     "id": "renew-066",
-    "name": "BNI 굿즈 (리뉴얼) 059",
+    "name": "BNI 멤버 리본 (1년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9590.jpg",
-    "stock": 20
+    "stock": 20,
+    "images": [
+      "renewal-1/332A9590.jpg",
+      "renewal-1/332A9591.jpg"
+    ]
   },
   {
     "id": "renew-067",
@@ -806,97 +929,97 @@
   },
   {
     "id": "renew-068",
-    "name": "BNI 굿즈 (리뉴얼) 061",
+    "name": "BNI 멤버 리본 (2년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9592.jpg",
     "stock": 20
   },
   {
     "id": "renew-069",
-    "name": "BNI 굿즈 (리뉴얼) 062",
+    "name": "BNI 수료 리본 (MEMBER SUCCESS PROGRAM GRADUATE)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9593.jpg",
     "stock": 20
   },
   {
     "id": "renew-070",
-    "name": "BNI 굿즈 (리뉴얼) 065",
+    "name": "BNI 멤버 리본 (8년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9602.jpg",
     "stock": 20
   },
   {
     "id": "renew-071",
-    "name": "BNI 굿즈 (리뉴얼) 066",
+    "name": "BNI 직책 리본 (REGIONAL TRAINER)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9603.jpg",
     "stock": 20
   },
   {
     "id": "renew-072",
-    "name": "BNI 굿즈 (리뉴얼) 067",
+    "name": "BNI 직책 리본 (EDUCATION COORDINATOR)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9609.jpg",
     "stock": 20
   },
   {
     "id": "renew-073",
-    "name": "BNI 굿즈 (리뉴얼) 068",
+    "name": "BNI 직책 리본 (PR COORDINATOR)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9611.jpg",
     "stock": 20
   },
   {
     "id": "renew-074",
-    "name": "BNI 굿즈 (리뉴얼) 069",
+    "name": "BNI 직책 리본 (MENTOR COORDINATOR)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9616.jpg",
     "stock": 20
   },
   {
     "id": "renew-075",
-    "name": "BNI 굿즈 (리뉴얼) 070",
+    "name": "BNI 직책 리본 (MEMBERSHIP COMMITTEE)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9617.jpg",
     "stock": 20
   },
   {
     "id": "renew-076",
-    "name": "BNI 굿즈 (리뉴얼) 071",
+    "name": "BNI 멤버 리본 (4년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9618.jpg",
     "stock": 20
   },
   {
     "id": "renew-077",
-    "name": "BNI 굿즈 (리뉴얼) 072",
+    "name": "BNI 직책 리본 (VISITOR HOST)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9620.jpg",
     "stock": 20
   },
   {
     "id": "renew-078",
-    "name": "BNI 굿즈 (리뉴얼) 073",
+    "name": "BNI 직책 리본 (MENTOR)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9621.jpg",
     "stock": 20
   },
   {
     "id": "renew-079",
-    "name": "BNI 굿즈 (리뉴얼) 074",
+    "name": "BNI 멤버 리본 (9년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9622.jpg",
     "stock": 20
   },
@@ -910,17 +1033,17 @@
   },
   {
     "id": "renew-081",
-    "name": "BNI 굿즈 (리뉴얼) 085",
+    "name": "BNI 멤버 리본 (7년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9641.jpg",
     "stock": 20
   },
   {
     "id": "renew-082",
-    "name": "BNI 굿즈 (리뉴얼) 086",
+    "name": "BNI 멤버 리본 (5년차)",
     "category": "신상품",
-    "price": 25000,
+    "price": 1000,
     "img": "renewal-1/332A9644.jpg",
     "stock": 20
   },
@@ -1051,5 +1174,32 @@
     "price": 25000,
     "img": "renewal-1/332A9724.jpg",
     "stock": 20
+  },
+  {
+    "id": "ribbon-role-set",
+    "name": "BNI 직책 리본 세트 (10종)",
+    "category": "세트",
+    "price": 10000,
+    "img": "studio/2026-11-12/ribbons/ribbon-role-set.webp",
+    "images": [
+      "studio/2026-11-12/ribbons/ribbon-role-set.webp",
+      "global-store/ribbons/role-ribbon-set-02.webp"
+    ],
+    "stock": 20,
+    "stockUnit": "세트",
+    "fit": "contain",
+    "contents": [
+      "의장 (PRESIDENT)",
+      "부의장 (VICE PRESIDENT)",
+      "ST (SECRETARY TREASURER)",
+      "멤버십 위원회 (MEMBERSHIP COMMITTEE)",
+      "교육 코디네이터 (EDUCATION COORDINATOR)",
+      "비지터 호스트 (VISITOR HOST)",
+      "성장 코디네이터 (CHAPTER GROWTH COORDINATOR)",
+      "멘토 코디네이터 (MENTOR COORDINATOR)",
+      "PR 코디네이터 (PR COORDINATOR)",
+      "이벤트 코디네이터 (EVENT COORDINATOR)"
+    ],
+    "contentsNote": "직책별 리본 1개씩, 총 10개 구성입니다. 촬영 사진에는 멤버십 위원회 리본이 2개 보이지만 실제 세트에는 1개만 포함됩니다."
   }
 ]
