@@ -59,9 +59,10 @@ const PLACEHOLDERS = ["YOUR_PROJECT", "YOUR_SUPABASE", "YOUR_", ""];
 export function isSupabaseConfigured(): boolean {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
-  const svc = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
+  // 서버용 증표: store 방 전용 역할(store_app)로 서명한 토큰
+  const storeJwt = (process.env.SUPABASE_STORE_JWT ?? "").trim();
   const bad = (v: string) => !v || PLACEHOLDERS.some((p) => p && v.includes(p));
-  return !bad(url) && url.startsWith("http") && !bad(anon) && !bad(svc);
+  return !bad(url) && url.startsWith("http") && !bad(anon) && !bad(storeJwt);
 }
 
 /* ---------------- 인메모리 저장소 ---------------- */

@@ -11,11 +11,14 @@ import {
 export const runtime = "nodejs";
 
 function createOrderNo() {
-  const d = new Date();
+  // 주문번호의 날짜·시각은 항상 한국 시간으로 찍는다.
+  // 서버(Cloudflare) 시계는 세계 표준시라 그대로 쓰면 자정~오전 9시 주문이 하루 전 날짜가 된다.
+  // 한국은 서머타임이 없어 9시간을 더한 뒤 표준시 기준으로 읽으면 된다.
+  const d = new Date(Date.now() + 9 * 60 * 60 * 1000);
   const pad = (n: number) => String(n).padStart(2, "0");
   const ts =
-    `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}` +
-    `${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+    `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}` +
+    `${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}`;
   return `ORD-${ts}-${crypto.randomUUID().slice(0, 8)}`;
 }
 
