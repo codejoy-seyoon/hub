@@ -1,4 +1,5 @@
 "use client";
+import { storePath } from "@/lib/storefront";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -23,7 +24,7 @@ export function ProductBuy({ productId, price, stock, backHref }: { productId: s
       </>}
       <div className="pd-actions">
         <Link href={backHref} className="store-button">목록으로</Link>
-        <button type="button" disabled={soldOut} onClick={() => router.push(`/store/checkout?productId=${productId}&qty=${qty}`)} className="store-button store-button-primary">{soldOut ? "품절" : "구매하기"}<StoreIcon name="arrow" size={18} /></button>
+        <button type="button" disabled={soldOut} onClick={() => router.push(storePath(`/checkout?productId=${productId}&qty=${qty}`))} className="store-button store-button-primary">{soldOut ? "품절" : "구매하기"}<StoreIcon name="arrow" size={18} /></button>
       </div>
       {!soldOut && <p className="store-purchase-shipping">{subtotal >= 50000 ? "무료배송 대상 상품입니다." : `${won(50000 - subtotal)} 더 담으면 무료배송`}</p>}
     </div>

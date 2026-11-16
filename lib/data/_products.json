@@ -3,7 +3,7 @@
     "id": "pouch-mug-set",
     "name": "웰컴 머그 & 파우치 세트",
     "category": "세트",
-    "price": 45000,
+    "price": 35000,
     "img": "goods/BNI-Korea_pouch_mug-set-6623b5.png",
     "stock": 12,
     "fit": "contain"
@@ -12,7 +12,7 @@
     "id": "mug",
     "name": "BNI KOREA 텀블러 머그 (대나무 뚜껑)",
     "category": "리빙",
-    "price": 18000,
+    "price": 9000,
     "img": "goods/BNI-Korea_mug-1-e6fd93.jpg",
     "stock": 30
   },
@@ -28,7 +28,7 @@
     "id": "scarf-white",
     "name": "로고 실크 100% 스카프 (화이트)",
     "category": "액세서리",
-    "price": 45000,
+    "price": 39000,
     "img": "goods/BNI-Korea_-100-_-dc466c.jpg",
     "stock": 6
   },
@@ -60,7 +60,7 @@
     "id": "hoodie",
     "name": "BNI 후드 집업 (그레이)",
     "category": "의류",
-    "price": 58000,
+    "price": 39000,
     "img": "goods/_-removebg-preview-e42eb0.png",
     "stock": 15,
     "fit": "contain"
@@ -94,7 +94,7 @@
     "id": "tablecloth",
     "name": "BNI 테이블보 (레드)",
     "category": "리빙",
-    "price": 42000,
+    "price": 170000,
     "img": "goods/BNI-Korea_-dd49f9.jpg",
     "stock": 10
   },
@@ -102,7 +102,7 @@
     "id": "badge-torch",
     "name": "횃불 엠블럼 뱃지",
     "category": "뱃지",
-    "price": 12000,
+    "price": 7000,
     "img": "goods/BNI-Korea_-69a918.png",
     "stock": 50
   },
@@ -110,7 +110,7 @@
     "id": "badge-nc26",
     "name": "2026 National Conference 기념 뱃지",
     "category": "뱃지",
-    "price": 15000,
+    "price": 7000,
     "img": "goods/BNI-Korea_nc26-1-ad1946.jpg",
     "stock": 50
   },
@@ -118,7 +118,7 @@
     "id": "renew-001",
     "name": "BNI 크라프트 기프트백",
     "category": "신상품",
-    "price": 25000,
+    "price": 50,
     "img": "renewal-1/332A9392.jpg",
     "images": [
       "renewal-1/332A9392.jpg",
@@ -152,7 +152,7 @@
     "id": "renew-003",
     "name": "BNI 레드 다이어리",
     "category": "신상품",
-    "price": 25000,
+    "price": 8000,
     "img": "renewal-1/332A9485.jpg",
     "images": [
       "renewal-1/332A9485.jpg",
@@ -173,13 +173,13 @@
       "renewal-1/332A9494.jpg",
       "renewal-1/332A9497.jpg"
     ],
-    "stock": 20
+    "stock": 0
   },
   {
     "id": "renew-005",
     "name": "BNI 뱃지 프레젠테이션 박스",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9542.jpg",
     "images": [
       "renewal-1/332A9542.jpg",
@@ -192,7 +192,7 @@
     "id": "renew-006",
     "name": "BNI 레드 핀 뱃지 (TITANIUM CHAPTER)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9550.jpg",
     "images": [
       "renewal-1/332A9550.jpg"
@@ -203,7 +203,7 @@
     "id": "badge-black-stone-1",
     "name": "BNI 블랙 핀 뱃지 (스톤 1개)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9551.jpg",
     "images": [
       "renewal-1/332A9551.jpg"
@@ -214,7 +214,7 @@
     "id": "badge-red-logo",
     "name": "BNI 레드 로고 핀 뱃지",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9555.jpg",
     "images": [
       "renewal-1/332A9555.jpg"
@@ -225,7 +225,7 @@
     "id": "badge-platinum",
     "name": "BNI 플래티넘 챕터 뱃지",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9559.jpg",
     "images": [
       "renewal-1/332A9559.jpg"
@@ -236,7 +236,7 @@
     "id": "badge-gold-stone-3",
     "name": "BNI 골드 클럽 멤버 뱃지 (스톤 3개)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9563.jpg",
     "images": [
       "renewal-1/332A9563.jpg"
@@ -247,7 +247,7 @@
     "id": "badge-diamond",
     "name": "BNI 다이아몬드 챕터 뱃지",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9565.jpg",
     "images": [
       "renewal-1/332A9565.jpg"
@@ -258,7 +258,7 @@
     "id": "badge-white-logo",
     "name": "BNI 화이트 로고 핀 뱃지",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9570.jpg",
     "images": [
       "renewal-1/332A9570.jpg"
@@ -269,7 +269,7 @@
     "id": "badge-leadership",
     "name": "BNI 리더십 팀 뱃지",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9574.jpg",
     "images": [
       "renewal-1/332A9574.jpg"
@@ -280,7 +280,7 @@
     "id": "badge-gold-stone-4",
     "name": "BNI 골드 클럽 멤버 뱃지 (스톤 4개)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9575.jpg",
     "images": [
       "renewal-1/332A9575.jpg"
@@ -361,9 +361,9 @@
   },
   {
     "id": "renew-012",
-    "name": "Referral Marketing 도서",
-    "category": "신상품",
-    "price": 25000,
+    "name": "Referral Marketing 리퍼럴 마케팅",
+    "category": "도서",
+    "price": 9000,
     "img": "renewal-1/332A9664.jpg",
     "images": [
       "renewal-1/332A9664.jpg",
@@ -376,7 +376,7 @@
   {
     "id": "renew-013",
     "name": "BNI 멤버 성공 프로그램 워크북",
-    "category": "신상품",
+    "category": "도서",
     "price": 25000,
     "img": "renewal-1/332A9726.jpg",
     "images": [
@@ -399,13 +399,13 @@
       "renewal-1/332A9737.jpg",
       "renewal-1/332A9742.jpg"
     ],
-    "stock": 20
+    "stock": 0
   },
   {
     "id": "renew-015",
     "name": "BNI 서비스 벨",
     "category": "신상품",
-    "price": 25000,
+    "price": 3000,
     "img": "renewal-1/332A9748.jpg",
     "images": [
       "renewal-1/332A9748.jpg",
@@ -456,7 +456,7 @@
     "id": "renew-019",
     "name": "BNI 뱃지 케이스 (레드벨벳)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-2/332A2283.jpg",
     "images": [
       "renewal-2/332A2283.jpg",
@@ -480,7 +480,7 @@
   },
   {
     "id": "renew-021",
-    "name": "BNI 웰컴 기프트 박스 세트",
+    "name": "멤버팩",
     "category": "신상품",
     "price": 25000,
     "img": "renewal-1/332A9405.jpg",
@@ -504,7 +504,7 @@
     "id": "renew-022",
     "name": "BNI 스마트 폰링",
     "category": "신상품",
-    "price": 25000,
+    "price": 500,
     "img": "renewal-1/332A9457.jpg",
     "images": [
       "renewal-1/332A9457.jpg",
@@ -519,7 +519,7 @@
     "id": "renew-023",
     "name": "BNI 만년필",
     "category": "신상품",
-    "price": 25000,
+    "price": 15000,
     "img": "renewal-1/332A9469.jpg",
     "images": [
       "renewal-1/332A9469.jpg",
@@ -570,8 +570,8 @@
   },
   {
     "id": "renew-027",
-    "name": "BNI 안내 브로슈어",
-    "category": "신상품",
+    "name": "BNI 안내 브로슈어 (1)",
+    "category": "도서",
     "price": 25000,
     "img": "renewal-1/332A9507.jpg",
     "images": [
@@ -585,8 +585,8 @@
   },
   {
     "id": "renew-028",
-    "name": "BNI 굿즈 (리뉴얼) 126",
-    "category": "신상품",
+    "name": "BNI 탐구생활",
+    "category": "도서",
     "price": 25000,
     "img": "renewal-2/332A2246.jpg",
     "stock": 20
@@ -610,16 +610,16 @@
   {
     "id": "renew-031",
     "name": "후보자 지원서",
-    "category": "신상품",
-    "price": 25000,
+    "category": "도서",
+    "price": 1000,
     "img": "renewal-2/332A2261.jpg",
     "stock": 20
   },
   {
     "id": "renew-032",
     "name": "갱신지원서",
-    "category": "신상품",
-    "price": 25000,
+    "category": "도서",
+    "price": 1000,
     "img": "renewal-2/332A2264.jpg",
     "stock": 20
   },
@@ -705,8 +705,8 @@
   },
   {
     "id": "renew-043",
-    "name": "BNI 굿즈 (리뉴얼) 020",
-    "category": "신상품",
+    "name": "BNI 안내 브로슈어 (3)",
+    "category": "도서",
     "price": 25000,
     "img": "renewal-1/332A9505.jpg",
     "stock": 20
@@ -761,16 +761,16 @@
   },
   {
     "id": "renew-050",
-    "name": "BNI 굿즈 (리뉴얼) 034",
-    "category": "신상품",
-    "price": 25000,
+    "name": "BNI 멤버 규정 브로슈어(4단접지)",
+    "category": "도서",
+    "price": 1000,
     "img": "renewal-1/332A9535.jpg",
     "stock": 20
   },
   {
     "id": "renew-051",
-    "name": "BNI 굿즈 (리뉴얼) 035",
-    "category": "신상품",
+    "name": "BNI 코리아 멤버 가이드",
+    "category": "도서",
     "price": 25000,
     "img": "renewal-1/332A9538.jpg",
     "stock": 20
@@ -779,7 +779,7 @@
     "id": "renew-052",
     "name": "BNI MASTER CONNECTOR 명찰",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9548.jpg",
     "images": [
       "renewal-1/332A9548.jpg",
@@ -792,7 +792,7 @@
     "id": "renew-053",
     "name": "BNI 골드 클럽 멤버 뱃지 (스톤 1개)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9571.jpg",
     "stock": 20,
     "images": [
@@ -804,7 +804,7 @@
     "id": "renew-054",
     "name": "BNI 그린 멤버 뱃지",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9556.jpg",
     "stock": 20
   },
@@ -812,7 +812,7 @@
     "id": "renew-055",
     "name": "BNI 블랙 핀 뱃지 (스톤 2개)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9561.jpg",
     "stock": 20
   },
@@ -820,7 +820,7 @@
     "id": "renew-056",
     "name": "BNI 36주년 기념 뱃지",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9567.jpg",
     "stock": 20
   },
@@ -828,7 +828,7 @@
     "id": "renew-057",
     "name": "BNI 골드 클럽 멤버 뱃지 (스톤 5개)",
     "category": "신상품",
-    "price": 25000,
+    "price": 7000,
     "img": "renewal-1/332A9569.jpg",
     "stock": 20
   },
@@ -1049,65 +1049,65 @@
   },
   {
     "id": "renew-083",
-    "name": "BNI 굿즈 (리뉴얼) 091",
-    "category": "신상품",
-    "price": 25000,
+    "name": "연결하라",
+    "category": "도서",
+    "price": 9000,
     "img": "renewal-1/332A9651.jpg",
     "stock": 20
   },
   {
     "id": "renew-084",
-    "name": "BNI 굿즈 (리뉴얼) 092",
-    "category": "신상품",
-    "price": 25000,
+    "name": "나는 오지랖으로 돈을 번다",
+    "category": "도서",
+    "price": 9000,
     "img": "renewal-1/332A9654.jpg",
     "stock": 20
   },
   {
     "id": "renew-085",
-    "name": "BNI 굿즈 (리뉴얼) 093",
-    "category": "신상품",
-    "price": 25000,
+    "name": "당신은 마스터 커넥터입니까?",
+    "category": "도서",
+    "price": 9000,
     "img": "renewal-1/332A9655.jpg",
     "stock": 20
   },
   {
     "id": "renew-086",
-    "name": "BNI 굿즈 (리뉴얼) 094",
-    "category": "신상품",
-    "price": 25000,
+    "name": "코어 트랜스포메이션",
+    "category": "도서",
+    "price": 9000,
     "img": "renewal-1/332A9660.jpg",
     "stock": 20
   },
   {
     "id": "renew-087",
-    "name": "BNI 굿즈 (리뉴얼) 099",
-    "category": "신상품",
-    "price": 25000,
+    "name": "장인의 장사",
+    "category": "도서",
+    "price": 9000,
     "img": "renewal-1/332A9685.jpg",
     "stock": 20
   },
   {
     "id": "renew-088",
-    "name": "BNI 굿즈 (리뉴얼) 100",
+    "name": "BNI 상장 케이스(Navy)",
     "category": "신상품",
-    "price": 25000,
+    "price": 2000,
     "img": "renewal-1/332A9688.jpg",
     "stock": 20
   },
   {
     "id": "renew-089",
-    "name": "BNI 굿즈 (리뉴얼) 101",
-    "category": "신상품",
-    "price": 25000,
+    "name": "개인정보의 수집, 이용, 제공 및 마케팅 활용 동의서",
+    "category": "도서",
+    "price": 1000,
     "img": "renewal-1/332A9694.jpg",
     "stock": 20
   },
   {
     "id": "renew-090",
-    "name": "BNI 굿즈 (리뉴얼) 102",
-    "category": "신상품",
-    "price": 25000,
+    "name": "멤버 규정 설명 확인서",
+    "category": "도서",
+    "price": 1000,
     "img": "renewal-1/332A9697.jpg",
     "stock": 20
   },
@@ -1129,9 +1129,9 @@
   },
   {
     "id": "renew-093",
-    "name": "BNI 굿즈 (리뉴얼) 105",
-    "category": "신상품",
-    "price": 25000,
+    "name": "인터뷰 후 결제 절차 안내서",
+    "category": "도서",
+    "price": 1000,
     "img": "renewal-1/332A9708.jpg",
     "stock": 20
   },
@@ -1153,8 +1153,8 @@
   },
   {
     "id": "renew-096",
-    "name": "BNI 굿즈 (리뉴얼) 108",
-    "category": "신상품",
+    "name": "멤버 석세스 프로그램 워크북",
+    "category": "도서",
     "price": 25000,
     "img": "renewal-1/332A9714.jpg",
     "stock": 20

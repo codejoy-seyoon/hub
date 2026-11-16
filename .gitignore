@@ -29,3 +29,8 @@ next-env.d.ts
 public/store-img/BNI goods 1차_리뉴얼 스튜디오 촬영버전/
 public/store-img/BNI goods 2차_리뉴얼 스튜디오 촬영버전/
 *.zip
+
+# Cloudflare(OpenNext) 빌드 산출물
+/.open-next/
+/.wrangler/
+.dev.vars

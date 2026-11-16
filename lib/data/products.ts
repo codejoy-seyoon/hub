@@ -33,7 +33,16 @@ const PRODUCT_ALIASES: Record<string, string> = {
   "renew-080": "renew-009",
 };
 // 판매에서 삭제한 게시물은 원본 사진·기록만 보관한다.
-const REMOVED_PRODUCT_IDS = new Set(["renew-017", "renew-033", "renew-034", "renew-041", "renew-042"]);
+const REMOVED_PRODUCT_IDS = new Set([
+  "renew-017", "renew-033", "renew-034", "renew-041", "renew-042",
+  // 2026-11-16 도서: 같은 상품 사진이 따로 올라가 있던 11건 삭제
+  // (리뉴얼 026·027·030·031·103·104·106·107·110·127·128)
+  "renew-044", "renew-045", "renew-046", "renew-047",
+  "renew-091", "renew-092", "renew-094", "renew-095", "renew-098",
+  "renew-029", "renew-030",
+  // 2026-11-16 도서: 리뉴얼 109 삭제
+  "renew-097",
+]);
 export const PRODUCTS: Product[] = (raw as Product[]).filter((product) => !PRODUCT_ALIASES[product.id] && !REMOVED_PRODUCT_IDS.has(product.id)).map((product) => {
   const images = STUDIO_IMAGES[product.id];
   return images?.length ? { ...product, img: images[0], images, fit: "cover" } : product;

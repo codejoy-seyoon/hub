@@ -1,0 +1,2 @@
+# Cloudflare 업로드에서 제외: 사이트가 쓰지 않는 원본 사진(파일 이름에 공백·괄호가 있어 업로드가 거부됨)
+store-img/bni_korea_goods_img/

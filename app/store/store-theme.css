@@ -186,7 +186,7 @@
 .lv-page .store-header { background: #fff; position: sticky; top: 0; z-index: 30; }
 .lv-page .store-header-main { position: relative; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 35px; width: 100%; height: 104px; padding: 0 40px; background: #fff; color: #000; }
 .lv-page .store-brand { display: inline-flex; align-items: center; gap: 13px; flex-shrink: 0; color: #000; white-space: nowrap; }
-.lv-page .store-brand-logo { display: block; width: 138px; height: auto; flex-shrink: 0; }
+.lv-page .store-brand-logo { display: block; width: auto; height: 68px; flex-shrink: 0; }
 .lv-page .store-brand-store { font-family: "Montserrat Store", sans-serif; font-size: 25px; font-style: normal; font-weight: 600; font-synthesis: none; line-height: 1; letter-spacing: .12em; color: #000; }
 .lv-page .store-primary-nav { display: flex; align-items: center; gap: 29px; }
 .lv-page .store-primary-nav a { color: #4a4a4a; font-size: 13px; white-space: nowrap; }
@@ -247,7 +247,7 @@
 @media (max-width: 800px) {
   .lv-page .store-header-main { height: 80px; padding: 0 22px; gap: 12px; }
   .lv-page .store-brand { gap: 10px; }
-  .lv-page .store-brand-logo { width: 108px; }
+  .lv-page .store-brand-logo { height: 54px; }
   .lv-page .store-brand-store { font-size: 20px; }
   .lv-page .store-primary-nav { display: none; }
   .lv-page .store-header-actions { gap: 16px; }
@@ -258,7 +258,7 @@
 @media (max-width: 360px) {
   .lv-page .store-header-main { padding-inline: 16px; }
   .lv-page .store-brand { gap: 8px; }
-  .lv-page .store-brand-logo { width: 92px; }
+  .lv-page .store-brand-logo { height: 50px; }
   .lv-page .store-brand-store { font-size: 18px; }
   .lv-page .store-header-actions { gap: 4px; }
   .lv-page .store-header-search-panel { right: 16px; width: calc(100vw - 32px); }
@@ -343,3 +343,29 @@
   .lv-page .store-catalog-heading h1 { font-size: 29px; }
   .lv-page .store-catalog-heading p { font-size: 12px; margin-top: 9px; }
 }
+
+/* 헤더 한 줄 정리(2026-11-16): 넓은 화면에서는 카테고리 메뉴를 로고 줄로 올리고 아래 줄은 숨긴다. */
+.lv-page .store-header-nav { display: flex; flex: 1; min-width: 0; align-items: center; justify-content: center; gap: 34px; }
+.lv-page .store-header-nav a { padding-block: 10px; font-size: 13px; font-weight: 550; white-space: nowrap; }
+.lv-page .store-header-nav a:hover { color: var(--store-red); }
+.lv-page .store-header-nav a[aria-current="page"] { color: var(--store-red); box-shadow: inset 0 -2px var(--store-red); }
+@media (min-width: 1101px) {
+  .lv-page .store-header { border-bottom: 1px solid var(--store-line); }
+  .lv-page .store-navigation { display: none; }
+}
+@media (max-width: 1100px) {
+  .lv-page .store-header-nav { display: none; }
+}
+
+/* 메뉴 글자(2026-11-16): 평소엔 한글, 마우스를 올리면 영문. 두 글자를 같은 칸에 겹쳐 두어 폭이 흔들리지 않게 한다. */
+.lv-page .store-header-nav a, .lv-page .store-navigation-inner a { display: inline-grid; justify-items: center; align-items: center; }
+.lv-page .store-nav-en, .lv-page .store-nav-ko { grid-area: 1 / 1; transition: opacity .15s ease; }
+.lv-page .store-nav-en { letter-spacing: .02em; }
+.lv-page .store-nav-en { opacity: 0; }
+@media (hover: hover) {
+  .lv-page :is(.store-header-nav, .store-navigation-inner) a:is(:hover, :focus-visible) .store-nav-ko { opacity: 0; }
+  .lv-page :is(.store-header-nav, .store-navigation-inner) a:is(:hover, :focus-visible) .store-nav-en { opacity: 1; }
+}
+
+/* 비매품 배지(2026-11-16): NEW와 같은 모양, 글자만 파란색 */
+.lv-page .store-product-tag.is-notforsale { color: #1d4ed8; }

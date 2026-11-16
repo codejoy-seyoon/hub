@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getProduct, productImg } from "@/lib/data/products";
-import { categoryLabel, storeHref } from "@/lib/storefront";
+import { categoryLabel, hasNewBadge, storeHref, storePath } from "@/lib/storefront";
 import { won } from "@/lib/format";
 import { StoreIcon } from "@/components/store/StoreIcon";
 
@@ -40,7 +40,7 @@ export default async function StorePage({ searchParams }: {
             <p className="store-campaign-description">함께하는 마음을 담은 BNI 컬렉션.<br />매일 쓰는 물건에서 새로운 연결을 만나보세요.</p>
             <Link href={storeHref("gift")} className="store-button store-button-light">웰컴팩 만나보기 <StoreIcon name="arrow" /></Link>
           </div>
-          <Link href="/store/pouch-mug-set" className="store-campaign-product">웰컴 머그 &amp; 파우치 세트 <StoreIcon name="arrow" size={18} /></Link>
+          <Link href={storePath("/pouch-mug-set")} className="store-campaign-product">웰컴 머그 &amp; 파우치 세트 <StoreIcon name="arrow" size={18} /></Link>
         </div>
       </section>
 
@@ -58,7 +58,7 @@ export default async function StorePage({ searchParams }: {
           {FREQUENT_PRODUCTS.map(({ id, placement, image }) => {
             const product = getProduct(id);
             if (!product) return null;
-            return <Link href={`/store/${id}`} key={id} className={`store-mosaic-tile store-mosaic-${placement}${product.fit === "contain" ? " is-contain" : ""}`} aria-label={`${product.name}, ${won(product.price)}, 자세히 보기`}>
+            return <Link href={storePath(`/${id}`)} key={id} className={`store-mosaic-tile store-mosaic-${placement}${product.fit === "contain" ? " is-contain" : ""}`} aria-label={`${product.name}, ${won(product.price)}, 자세히 보기`}>
               <img src={productImg(image ?? product.img)} alt={product.name} loading="lazy" />
               <div className="store-mosaic-caption"><span><strong>{product.name}</strong><small>{won(product.price)}</small></span><StoreIcon name="arrow" size={22} /></div>
               <span className="store-mosaic-open" aria-hidden="true"><StoreIcon name="arrow" size={20} /></span>
@@ -73,8 +73,8 @@ export default async function StorePage({ searchParams }: {
           {NEW_PRODUCTS.map((id) => {
             const product = getProduct(id);
             if (!product || product.category !== "신상품") return null;
-            return <Link href={`/store/${id}`} key={id} className="store-collection-card">
-              <div className="store-collection-image"><img src={productImg(product.img)} alt={product.name} loading="lazy" /><span className="store-product-tag">NEW</span></div>
+            return <Link href={storePath(`/${id}`)} key={id} className="store-collection-card">
+              <div className="store-collection-image"><img src={productImg(product.img)} alt={product.name} loading="lazy" />{hasNewBadge(product) ? <span className="store-product-tag">NEW</span> : null}</div>
               <p>{categoryLabel(product)}</p><h3>{product.name}<StoreIcon name="arrow" size={22} /></h3><span className="store-collection-price">{won(product.price)}</span>
             </Link>;
           })}

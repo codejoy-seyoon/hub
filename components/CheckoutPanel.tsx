@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { loadTossPayments } from "@tosspayments/tosspayments-sdk";
-import type { Customer, OrderRequest } from "@/lib/catalog";
+import type { Customer, OrderRequest, Shipping } from "@/lib/catalog";
+import { REGIONS, REGION_NONE, CHAPTER_OTHER, chaptersOf } from "@/lib/data/regions";
 
 type PreparedOrder = {
   orderId: string;
@@ -26,7 +27,9 @@ const METHODS: { key: PayMethod; label: string }[] = [
 ];
 
 type Props = {
-  makeRequest: (customer: Customer) => OrderRequest;
+  makeRequest: (customer: Customer, shipping?: Shipping) => OrderRequest;
+  /** 실물 배송 주문(스토어)일 때 배송지와 지역·챕터를 함께 받는다. */
+  withShipping?: boolean;
   amount: number;
   summary?: React.ReactNode;
   disabledReason?: string;
@@ -35,6 +38,8 @@ type Props = {
 
 const TOSS_CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY!;
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "";
+// 테스트 키로 연결된 동안에는 화면에 테스트 안내를 띄운다.
+const IS_TEST_MODE = (TOSS_CLIENT_KEY ?? "").startsWith("test_");
 
 export function CheckoutPanel({
   makeRequest,
@@ -42,11 +47,19 @@ export function CheckoutPanel({
   summary,
   disabledReason,
   defaultCustomer,
+  withShipping = false,
 }: Props) {
   const [customer, setCustomer] = useState<Customer>({
     name: defaultCustomer?.name ?? "",
     email: defaultCustomer?.email ?? "",
     phone: defaultCustomer?.phone ?? "",
+  });
+  const [shipping, setShipping] = useState<Shipping>({
+    postcode: "",
+    address1: "",
+    address2: "",
+    region: "",
+    chapter: "",
   });
   const [prepared, setPrepared] = useState<PreparedOrder | null>(null);
   const [payment, setPayment] = useState<PaymentInstance | null>(null);
@@ -56,18 +69,33 @@ export function CheckoutPanel({
   const [paying, setPaying] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // 결제 키가 연결되지 않은 배포에서는 주문을 받지 않는다.
+  const blockedReason =
+    disabledReason ?? (TOSS_CLIENT_KEY ? undefined : "결제 준비 중입니다");
+
   async function prepareOrder() {
+    if (blockedReason) return;
     setError(null);
     if (!customer.name || !customer.email || !customer.phone) {
       setError("이름·이메일·전화번호를 모두 입력하세요.");
       return;
+    }
+    if (withShipping) {
+      if (!/^\d{5}$/.test(shipping.postcode) || shipping.address1.trim().length < 2) {
+        setError("배송지 우편번호(5자리)와 주소를 입력하세요.");
+        return;
+      }
+      if (!shipping.region || !shipping.chapter) {
+        setError("지역과 챕터를 선택하세요.");
+        return;
+      }
     }
     setPreparing(true);
     try {
       const res = await fetch("/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(makeRequest(customer)),
+        body: JSON.stringify(makeRequest(customer, withShipping ? shipping : undefined)),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message ?? "주문 생성에 실패했습니다.");
@@ -159,8 +187,37 @@ export function CheckoutPanel({
 
   const won = (n: number) => "₩" + n.toLocaleString("ko-KR");
 
+  // 우편번호 찾기(카카오 우편번호 서비스). 창이 안 열리면 직접 입력해도 된다.
+  function openPostcode() {
+    type DaumWindow = Window & {
+      daum?: { Postcode: new (o: { oncomplete: (d: { zonecode: string; roadAddress: string; jibunAddress: string }) => void }) => { open: () => void } };
+    };
+    const w = window as DaumWindow;
+    const open = () =>
+      new w.daum!.Postcode({
+        oncomplete: (d) =>
+          setShipping((p) => ({ ...p, postcode: d.zonecode, address1: d.roadAddress || d.jibunAddress })),
+      }).open();
+    if (w.daum?.Postcode) return open();
+    const script = document.createElement("script");
+    // 2026-11-30에 t1.daumcdn.net 주소가 종료돼 카카오 새 주소를 쓴다.
+    script.src = "https://t1.kakaocdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+    script.onload = open;
+    script.onerror = () => setError("주소 찾기를 불러오지 못했습니다. 우편번호와 주소를 직접 입력해 주세요.");
+    document.head.appendChild(script);
+  }
+
+  const field =
+    "h-12 rounded-xl border border-bni-line px-4 outline-none focus:border-bni-red disabled:bg-bni-soft";
+  const chapterOptions = chaptersOf(shipping.region);
+
   return (
     <div className="space-y-6">
+      {IS_TEST_MODE && (
+        <p className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900">
+          테스트 결제 모드입니다. 실제로 결제되거나 배송되지 않습니다.
+        </p>
+      )}
       {summary}
 
       <section className="rounded-2xl border border-bni-line p-5">
@@ -191,15 +248,97 @@ export function CheckoutPanel({
           />
         </div>
 
+        {withShipping && (
+          <>
+            <h3 className="mb-3 mt-6 text-base font-bold">배송지</h3>
+            <div className="grid gap-3">
+              <div className="flex gap-2">
+                <input
+                  value={shipping.postcode}
+                  onChange={(e) => setShipping((p) => ({ ...p, postcode: e.target.value.replace(/\D/g, "").slice(0, 5) }))}
+                  placeholder="우편번호"
+                  inputMode="numeric"
+                  autoComplete="postal-code"
+                  disabled={!!prepared}
+                  className={`${field} min-w-0 flex-1`}
+                />
+                <button
+                  type="button"
+                  onClick={openPostcode}
+                  disabled={!!prepared}
+                  className="h-12 flex-none rounded-xl border border-bni-ink px-4 text-sm font-semibold disabled:opacity-50"
+                >
+                  주소 찾기
+                </button>
+              </div>
+              <input
+                value={shipping.address1}
+                onChange={(e) => setShipping((p) => ({ ...p, address1: e.target.value }))}
+                placeholder="주소"
+                autoComplete="address-line1"
+                disabled={!!prepared}
+                className={field}
+              />
+              <input
+                value={shipping.address2}
+                onChange={(e) => setShipping((p) => ({ ...p, address2: e.target.value }))}
+                placeholder="상세 주소 (동·호수 등)"
+                autoComplete="address-line2"
+                disabled={!!prepared}
+                className={field}
+              />
+            </div>
+
+            <h3 className="mb-3 mt-6 text-base font-bold">소속</h3>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <select
+                value={shipping.region}
+                onChange={(e) => {
+                  const region = e.target.value;
+                  setShipping((p) => ({ ...p, region, chapter: region === REGION_NONE ? REGION_NONE : "" }));
+                }}
+                aria-label="지역"
+                disabled={!!prepared}
+                className={`${field} bg-white`}
+              >
+                <option value="">지역 선택</option>
+                {REGIONS.map((entry) => (
+                  <option key={entry.region} value={entry.region}>{entry.region}</option>
+                ))}
+                <option value={REGION_NONE}>{REGION_NONE} (멤버 아님)</option>
+              </select>
+              <select
+                value={shipping.chapter}
+                onChange={(e) => setShipping((p) => ({ ...p, chapter: e.target.value }))}
+                aria-label="챕터"
+                disabled={!!prepared || !shipping.region || shipping.region === REGION_NONE}
+                className={`${field} bg-white`}
+              >
+                {shipping.region === REGION_NONE ? (
+                  <option value={REGION_NONE}>{REGION_NONE}</option>
+                ) : (
+                  <>
+                    <option value="">{shipping.region ? "챕터 선택" : "지역을 먼저 선택"}</option>
+                    {chapterOptions.map((name) => (
+                      <option key={name} value={name}>{name}</option>
+                    ))}
+                    {shipping.region && <option value={CHAPTER_OTHER}>{CHAPTER_OTHER}</option>}
+                  </>
+                )}
+              </select>
+            </div>
+          </>
+        )}
+
         {!prepared ? (
           <button
             type="button"
             onClick={prepareOrder}
-            disabled={preparing || !!disabledReason}
+            disabled={preparing || !!blockedReason}
             className="mt-4 w-full rounded-xl bg-bni-red py-3.5 font-bold text-white transition hover:bg-bni-red-strong disabled:opacity-50"
           >
-            {disabledReason
-              ? disabledReason
+            {blockedReason
+              ? blockedReason
               : preparing
                 ? "주문 생성 중..."
                 : `${won(amount)} 주문 생성하기`}

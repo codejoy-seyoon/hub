@@ -1,5 +1,6 @@
 "use client";
 
+import { storePath } from "@/lib/storefront";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -34,7 +35,7 @@ type ConfirmResponse = {
 };
 
 const DOMAIN_DONE: Record<string, { title: string; desc: string; backHref: string; backLabel: string }> = {
-  store: { title: "주문이 완료되었습니다", desc: "상품 주문과 결제가 정상 확정되었습니다.", backHref: "/store", backLabel: "스토어로" },
+  store: { title: "주문이 완료되었습니다", desc: "상품 주문과 결제가 정상 확정되었습니다.", backHref: storePath(), backLabel: "스토어로" },
   ebook: { title: "구매가 완료되었습니다", desc: "전자책 열람 권한이 부여되었습니다.", backHref: "/ebook", backLabel: "이북으로" },
   training: { title: "수강 신청이 완료되었습니다", desc: "트레이닝 수강 신청과 결제가 확정되었습니다.", backHref: "/training", backLabel: "트레이닝으로" },
   reservation: { title: "예약이 완료되었습니다", desc: "대관 예약과 결제가 정상 확정되었습니다.", backHref: "/reserve", backLabel: "대관 예약으로" },

@@ -3,6 +3,7 @@ import { getProduct } from "./data/products";
 import { getBook } from "./data/books";
 import { getTraining } from "./data/trainings";
 import { getSpace, getAddon } from "./data/spaces";
+import { isValidAffiliation } from "./data/regions";
 
 /* ============================================================
    통합 주문 카탈로그
@@ -18,9 +19,20 @@ export const customerSchema = z.object({
 });
 export type Customer = z.infer<typeof customerSchema>;
 
+// 스토어(실물 배송) 주문에서만 받는 배송지와 소속
+export const shippingSchema = z.object({
+  postcode: z.string().regex(/^\d{5}$/, "우편번호 5자리를 입력하세요."),
+  address1: z.string().min(2, "주소를 입력하세요.").max(200),
+  address2: z.string().max(100).optional().default(""),
+  region: z.string().min(1, "지역을 선택하세요."),
+  chapter: z.string().min(1, "챕터를 선택하세요."),
+});
+export type Shipping = z.infer<typeof shippingSchema>;
+
 const storeCart = z.object({
   domain: z.literal("store"),
   customer: customerSchema,
+  shipping: shippingSchema,
   items: z
     .array(
       z.object({
@@ -113,6 +125,9 @@ export function buildOrder(req: OrderRequest): BuiltOrder {
         lineTotal: p.price * it.quantity,
       };
     });
+    if (!isValidAffiliation(req.shipping.region, req.shipping.chapter)) {
+      throw new Error("지역·챕터를 다시 선택해 주세요.");
+    }
     const subtotal = lines.reduce((s, l) => s + l.lineTotal, 0);
     const shipping = subtotal >= 50000 ? 0 : 3000;
     return {
@@ -120,7 +135,15 @@ export function buildOrder(req: OrderRequest): BuiltOrder {
       lines,
       orderName: orderName(lines),
       amounts: { subtotal, discount: 0, shipping, total: subtotal + shipping },
-      fulfillment: {},
+      // 배송지와 소속은 주문의 부가 정보(fulfillment)에 함께 저장한다. DB 표 구조는 그대로다.
+      fulfillment: {
+        shipping: {
+          postcode: req.shipping.postcode,
+          address1: req.shipping.address1,
+          address2: req.shipping.address2 ?? "",
+        },
+        member: { region: req.shipping.region, chapter: req.shipping.chapter },
+      },
     };
   }
 

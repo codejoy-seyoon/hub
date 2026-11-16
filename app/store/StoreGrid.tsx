@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { FormEvent } from "react";
 import { type Product, productImg } from "@/lib/data/products";
-import { STORE_CATEGORIES, matchesCategory, categoryLabel, defaultProductOrder, storeHref } from "@/lib/storefront";
+import { STORE_CATEGORIES, matchesCategory, categoryLabel, defaultProductOrder, hasNewBadge, isNotForSale, storeHref, storePath } from "@/lib/storefront";
 import { won } from "@/lib/format";
 import { StoreIcon } from "@/components/store/StoreIcon";
 
@@ -56,7 +56,7 @@ export function StoreGrid({ products }: { products: Product[] }) {
 
   return (
     <>
-      <nav className="pd-breadcrumb" aria-label="현재 위치"><Link href="/store">스토어 홈</Link><StoreIcon name="chevron" size={12} /><span>{query ? "검색 결과" : category.label}</span></nav>
+      <nav className="pd-breadcrumb" aria-label="현재 위치"><Link href={storePath()}>스토어 홈</Link><StoreIcon name="chevron" size={12} /><span>{query ? "검색 결과" : category.label}</span></nav>
       <div className="store-catalog-heading"><h1>{query ? "검색 결과" : category.label}</h1><p>{query ? `‘${query}’에 해당하는 상품을 살펴보세요.` : category.id === "books" ? "도서와 브로슈어, BNI 안내 책자를 만나보세요." : category.id === "stationery" ? "매일의 기록을 위한 노트와 필기구를 만나보세요." : "일상에 함께할 BNI 굿즈를 만나보세요."}</p></div>
       <div className="store-filter-bar">
         <form onSubmit={search} className="store-catalog-search" role="search" aria-label="현재 분류에서 검색" key={query}>
@@ -70,10 +70,10 @@ export function StoreGrid({ products }: { products: Product[] }) {
         <select aria-label="상품 정렬" value={sort} onChange={(event) => update("sort", event.target.value)}><option value="default">{category.id === "ribbon" ? "직책·연차순" : "기본순"}</option><option value="price-asc">낮은 가격순</option><option value="price-desc">높은 가격순</option><option value="name">이름순</option></select>
       </div>
       {shown.length ? <div className="store-product-grid">
-        {shown.map((product) => <Link key={product.id} href={`/store/${product.id}${params.size ? `?browse=${encodeURIComponent(params.toString())}` : ""}`} className="store-product-card">
+        {shown.map((product) => <Link key={product.id} href={storePath(`/${product.id}`) + `${params.size ? `?browse=${encodeURIComponent(params.toString())}` : ""}`} className="store-product-card">
           <div className={`store-product-image ${product.fit === "contain" ? "is-contain" : ""}`}>
             <img src={productImg(product.img)} alt={product.name} loading="lazy" />
-            {product.stock <= 0 ? <span className="store-product-tag is-soldout">품절</span> : product.category === "신상품" ? <span className="store-product-tag">NEW</span> : null}
+            {product.stock <= 0 ? <span className="store-product-tag is-soldout">품절</span> : isNotForSale(product) ? <span className="store-product-tag is-notforsale">비매품</span> : hasNewBadge(product) ? <span className="store-product-tag">NEW</span> : null}
             <span className="store-product-view">상품 자세히 보기 <StoreIcon name="arrow" size={18} /></span>
           </div>
           <div className="store-product-info"><span className="store-product-category">{categoryLabel(product)}</span><h3>{product.name}</h3><p className="store-product-price">{won(product.price)}</p><span className="store-product-extra">{product.stock <= 0 ? "다음 입고를 기다려 주세요" : product.price >= 50000 ? "무료배송" : "5만 원 이상 구매 시 무료배송"}</span></div>

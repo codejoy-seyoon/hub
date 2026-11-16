@@ -1,3 +1,4 @@
+import { storePath } from "@/lib/storefront";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { PRODUCTS } from "@/lib/data/products";
@@ -16,7 +17,7 @@ export default async function StoreProductsPage({ searchParams }: {
       const value = params[key];
       if (typeof value === "string" && value) next.set(key, value.slice(0, 100));
     }
-    redirect(`/store/products?${next}`);
+    redirect(storePath(`/products?${next}`));
   }
 
   return (

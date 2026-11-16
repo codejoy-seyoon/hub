@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getProduct, productImages } from "@/lib/data/products";
-import { categoryLabel, productCategory, storeHref } from "@/lib/storefront";
+import { categoryLabel, productCategory, storeHref, storePath } from "@/lib/storefront";
 import { won } from "@/lib/format";
 import { ProductGallery } from "@/components/store/ProductGallery";
 import { StoreIcon } from "@/components/store/StoreIcon";
+import { WelcomePackDetail } from "@/components/store/WelcomePackDetail";
 import { ProductBuy } from "./ProductBuy";
 
 export default async function ProductDetailPage({ params, searchParams }: {
@@ -22,14 +23,14 @@ export default async function ProductDetailPage({ params, searchParams }: {
     if (value) preserved.set(key, value.slice(0, 100));
   }
   if (product.id !== id) {
-    redirect(`/store/${product.id}${preserved.size ? `?browse=${encodeURIComponent(preserved.toString())}` : ""}`);
+    redirect(storePath(`/${product.id}`) + `${preserved.size ? `?browse=${encodeURIComponent(preserved.toString())}` : ""}`);
   }
   const backHref = `${storeHref()}${preserved.size ? `?${preserved}` : ""}`;
   const soldOut = product.stock <= 0;
   return (
     <main className="store-detail store-wrap" id="store-main">
       <nav className="pd-breadcrumb" aria-label="현재 위치">
-        <Link href="/store">스토어</Link><StoreIcon name="chevron" size={12} />
+        <Link href={storePath()}>스토어</Link><StoreIcon name="chevron" size={12} />
         <Link href={storeHref(productCategory(product))}>{categoryLabel(product)}</Link><StoreIcon name="chevron" size={12} /><span>{product.name}</span>
       </nav>
       <div className="store-detail-grid">
@@ -49,6 +50,7 @@ export default async function ProductDetailPage({ params, searchParams }: {
           </section> : null}
         </div>
       </div>
+      <WelcomePackDetail productId={product.id} productName={product.name} />
     </main>
   );
 }

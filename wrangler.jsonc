@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // BNI STORE — Cloudflare Workers 배포 (OpenNext)
+  "name": "bni-store",
+  "account_id": "a48a48d0d7bd246d4ad0ddfcba935356",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "workers_dev": true,
+  "preview_urls": false,
+  "routes": [{ "pattern": "store.bnikorea.com", "custom_domain": true }],
+  "observability": { "enabled": true }
+}

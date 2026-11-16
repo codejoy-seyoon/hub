@@ -1,11 +1,12 @@
 "use client";
 
+import { storePath } from "@/lib/storefront";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { getProduct, productImg } from "@/lib/data/products";
 import { won } from "@/lib/format";
 import { CheckoutPanel } from "@/components/CheckoutPanel";
-import type { Customer, OrderRequest } from "@/lib/catalog";
+import type { Customer, OrderRequest, Shipping } from "@/lib/catalog";
 
 export function StoreCheckoutClient() {
   const sp = useSearchParams();
@@ -17,7 +18,7 @@ export function StoreCheckoutClient() {
     return (
       <main id="store-main" className="mx-auto max-w-2xl px-5 py-16">
         <h1 className="mb-3 text-2xl font-extrabold">상품을 찾을 수 없습니다</h1>
-        <Link href="/store" className="font-semibold text-bni-red">스토어로 돌아가기</Link>
+        <Link href={storePath()} className="font-semibold text-bni-red">스토어로 돌아가기</Link>
       </main>
     );
   }
@@ -26,9 +27,10 @@ export function StoreCheckoutClient() {
   const shipping = subtotal >= 50000 ? 0 : 3000;
   const total = subtotal + shipping;
 
-  const makeRequest = (customer: Customer): OrderRequest => ({
+  const makeRequest = (customer: Customer, shipping?: Shipping): OrderRequest => ({
     domain: "store",
     customer,
+    shipping: shipping!,
     items: [{ productId: product.id, quantity: qty }],
   });
 
@@ -62,7 +64,7 @@ export function StoreCheckoutClient() {
   return (
     <main id="store-main" className="mx-auto max-w-2xl px-5 py-12">
       <h1 className="mb-6 text-2xl font-extrabold">주문 / 결제</h1>
-      <CheckoutPanel makeRequest={makeRequest} amount={total} summary={summary} />
+      <CheckoutPanel makeRequest={makeRequest} amount={total} summary={summary} withShipping />
     </main>
   );
 }

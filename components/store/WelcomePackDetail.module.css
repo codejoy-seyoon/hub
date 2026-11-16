@@ -1,0 +1,61 @@
+.detail { margin-top: 88px; border-top: 1px solid #deded8; color: #242621; }
+.navigation { display: flex; justify-content: center; gap: 48px; padding: 22px 0; border-bottom: 1px solid #deded8; font-size: 13px; }
+.navigation a { color: inherit; text-decoration: none; }
+.navigation a:hover { color: #cf152d; }
+.detail a:focus-visible { outline: 2px solid #cf152d; outline-offset: 5px; }
+.detail section[id], .detail h2[id] { scroll-margin-top: 130px; }
+.eyebrow { margin: 0 0 20px; color: #9a2432; font-size: 12px; font-weight: 600; letter-spacing: .08em; }
+.intro { padding-top: 76px; text-align: center; }
+.intro h2, .sectionHeading h2, .sectionCopy h2 { font-size: clamp(29px, 3.2vw, 48px); font-weight: 500; letter-spacing: -.045em; line-height: 1.35; margin: 0 0 24px; text-wrap: balance; }
+.lead, .sectionHeading > p:last-child, .sectionCopy > p { color: #686a63; line-height: 1.9; font-size: 15px; }
+.intro > img { display: block; width: 100%; height: auto; max-height: 680px; object-fit: contain; margin: 32px auto 0; background: #f5f5f3; }
+.included { text-align: left; background: #f6f4ef; padding: 26px 32px; display: grid; grid-template-columns: 118px 1fr; gap: 10px 24px; }
+.included > span { font-size: 12px; color: #72736d; align-self: center; }
+.included > strong { font-size: 16px; font-weight: 600; }
+.included > p { grid-column: 2; margin: 0; color: #686a63; font-size: 12px; line-height: 1.8; }
+.storage { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 52px; padding: 100px 0; }
+.storage figure, .lifestyle figure { margin: 0; }
+.storage figure img { width: 100%; height: auto; display: block; }
+.storage figcaption, .lifestyle figcaption { font-size: 12px; color: #777970; padding-top: 16px; }
+.storageList { margin: 32px 0 0; padding: 0; list-style: none; }
+.storageList li { display: flex; gap: 22px; border-top: 1px solid #e4e4de; padding: 19px 0; }
+.storageList li > span { color: #b3b0a6; font-size: 13px; padding-top: 2px; }
+.storageList h3 { margin: 0 0 7px; font-size: 15px; font-weight: 600; }
+.storageList p { margin: 0; color: #777970; font-size: 12px; line-height: 1.8; }
+.sectionHeading { text-align: center; margin-bottom: 38px; }
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px 30px; }
+.feature img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: #f5f5f3; }
+.feature h3 { font-size: 19px; margin: 22px 0 10px; font-weight: 500; letter-spacing: -.03em; }
+.feature p { margin: 0; font-size: 14px; color: #686a63; line-height: 1.85; max-width: 42em; }
+.everyday { margin-top: 100px; }
+.lifestyle { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.lifestyle img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.guide { margin: 90px 0 15px; padding: 42px; background: #f3f1eb; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px 36px; }
+.guide .eyebrow { margin-bottom: 13px; }
+.guide h2 { margin: 0 0 12px; font-size: 25px; font-weight: 500; letter-spacing: -.04em; }
+.guide p:not(.eyebrow) { font-size: 13px; color: #686a63; line-height: 1.8; margin: 0; }
+.guide a { display: flex; gap: 28px; align-items: center; padding: 17px 22px; background: #fff; color: #242621; text-decoration: none; font-size: 13px; white-space: nowrap; }
+.guide .guideNote { grid-column: 1 / -1; padding-top: 21px; border-top: 1px solid #deddd4; font-size: 11px !important; }
+@media (max-width: 760px) {
+  .detail { margin-top: 48px; }
+  .navigation { justify-content: space-between; gap: 12px; font-size: 11px; padding: 20px 0; }
+  .intro { padding-top: 46px; }
+  .eyebrow { font-size: 10px; margin-bottom: 15px; }
+  .lead, .sectionHeading > p:last-child, .sectionCopy > p { font-size: 13px; }
+  .intro > img { margin-top: 24px; }
+  .included { display: block; padding: 22px; }
+  .included > span { display: block; margin-bottom: 9px; }
+  .included > strong { font-size: 14px; }
+  .included > p { font-size: 11px; margin-top: 12px; }
+  .storage { grid-template-columns: 1fr; padding: 58px 0; gap: 24px; }
+  .storageList { margin-top: 24px; }
+  .features { gap: 32px 18px; }
+  .feature h3 { font-size: 15px; line-height: 1.5; margin: 15px 0 9px; }
+  .feature p { font-size: 12px; }
+  .everyday { margin-top: 60px; }
+  .lifestyle { grid-template-columns: 1fr; gap: 24px; }
+  .guide { margin-top: 60px; padding: 25px; grid-template-columns: 1fr; gap: 20px; }
+  .guide h2 { font-size: 22px; line-height: 1.5; }
+  .guide a { justify-content: space-between; }
+}
+@media (max-width: 420px) { .features { grid-template-columns: 1fr; } }

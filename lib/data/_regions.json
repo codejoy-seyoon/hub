@@ -1,0 +1,342 @@
+{
+  "generated": "2026-11-16",
+  "sources": {
+    "pay": "pay.bnikorea.com 라이브 지역·챕터(직영, 활성만) — _pay_live_dataapi_20261116_after_iris_hanbat.json",
+    "connect": "BNI Connect 챕터 관리(비직영, 활동중+코어 그룹) — _connect_chapters_20261116_2.json"
+  },
+  "regions": [
+    {
+      "region": "강남",
+      "source": "pay",
+      "chapters": [
+        "D100",
+        "굿",
+        "더강남",
+        "마스터",
+        "미다스",
+        "바이킹",
+        "블리스",
+        "스마트",
+        "어썸",
+        "엑설런트",
+        "올그린",
+        "올인원",
+        "위너스",
+        "이노베이션",
+        "찬스",
+        "큐브",
+        "트윈스",
+        "프리마",
+        "플러스",
+        "하모니",
+        "해피",
+        "헬퍼스"
+      ]
+    },
+    {
+      "region": "경남1",
+      "source": "pay",
+      "chapters": [
+        "포워드"
+      ]
+    },
+    {
+      "region": "고양",
+      "source": "pay",
+      "chapters": [
+        "빅뱅",
+        "선샤인",
+        "원팀",
+        "최강"
+      ]
+    },
+    {
+      "region": "대구1",
+      "source": "connect",
+      "chapters": [
+        "Elite",
+        "glory",
+        "Legend",
+        "Miracle",
+        "Perfect",
+        "Phoenix",
+        "SKY",
+        "Wonderful",
+        "World"
+      ]
+    },
+    {
+      "region": "대구2",
+      "source": "connect",
+      "chapters": [
+        "Amazing",
+        "Boom",
+        "Bridge",
+        "Fantastic",
+        "Lions",
+        "Nova",
+        "Supreme",
+        "TOP"
+      ]
+    },
+    {
+      "region": "대전",
+      "source": "pay",
+      "chapters": [
+        "CEO",
+        "라온",
+        "리더"
+      ]
+    },
+    {
+      "region": "마포",
+      "source": "connect",
+      "chapters": [
+        "Alliance",
+        "Attitude",
+        "K",
+        "MapoValue",
+        "Matrix",
+        "Max",
+        "Nice",
+        "Poseidon",
+        "Present",
+        "Rise",
+        "Stella",
+        "Stoneworks",
+        "TITAN",
+        "Together",
+        "Topclass",
+        "Unicorn",
+        "WeCan",
+        "Zeus"
+      ]
+    },
+    {
+      "region": "부산1",
+      "source": "pay",
+      "chapters": [
+        "그래비티",
+        "빌리브",
+        "썬업",
+        "오션",
+        "자이언츠",
+        "파이어니어"
+      ]
+    },
+    {
+      "region": "부천",
+      "source": "pay",
+      "chapters": [
+        "패스파인더",
+        "프론티어"
+      ]
+    },
+    {
+      "region": "서울 남부",
+      "source": "pay",
+      "chapters": [
+        "웰니스"
+      ]
+    },
+    {
+      "region": "서울 동부",
+      "source": "pay",
+      "chapters": [
+        "트라이브"
+      ]
+    },
+    {
+      "region": "서울 동북부",
+      "source": "pay",
+      "chapters": [
+        "브레이크스루",
+        "포레스트"
+      ]
+    },
+    {
+      "region": "서울 북부",
+      "source": "pay",
+      "chapters": []
+    },
+    {
+      "region": "서울 서부",
+      "source": "pay",
+      "chapters": [
+        "비스타",
+        "컴퍼니"
+      ]
+    },
+    {
+      "region": "서울 서북부",
+      "source": "pay",
+      "chapters": []
+    },
+    {
+      "region": "서초",
+      "source": "connect",
+      "chapters": [
+        "Challenge",
+        "Expert",
+        "FULL COURSE",
+        "Honors",
+        "LINE",
+        "MAJOR",
+        "Medical",
+        "ONLY ONE",
+        "ORIGIN",
+        "Promise",
+        "Royal",
+        "SUMMIT",
+        "TOPs",
+        "UNIVERSE",
+        "W"
+      ]
+    },
+    {
+      "region": "성남",
+      "source": "connect",
+      "chapters": [
+        "Dream come true",
+        "Episode",
+        "Grand",
+        "K글로벌",
+        "K넥서스",
+        "K뷰티",
+        "K브랜드",
+        "THE UNION"
+      ]
+    },
+    {
+      "region": "센트럴",
+      "source": "pay",
+      "chapters": [
+        "뉴한남",
+        "아름",
+        "하이"
+      ]
+    },
+    {
+      "region": "수원1",
+      "source": "connect",
+      "chapters": [
+        "ALPHA",
+        "BLOOMING",
+        "Crown",
+        "CRYSTAL",
+        "ENERGY",
+        "GAON",
+        "GLOBAL",
+        "Hana",
+        "KHAN",
+        "Lucky",
+        "LUXE",
+        "Memory",
+        "STAR",
+        "ULTRA",
+        "UNIQUE",
+        "VIVA",
+        "Wide",
+        "WINWIN"
+      ]
+    },
+    {
+      "region": "안양",
+      "source": "pay",
+      "chapters": [
+        "베가",
+        "액시스",
+        "에이펙스",
+        "오메가",
+        "오빗",
+        "피너클"
+      ]
+    },
+    {
+      "region": "영등포",
+      "source": "connect",
+      "chapters": [
+        "Ace",
+        "Champion",
+        "Empire",
+        "First",
+        "Golden",
+        "GROW",
+        "leverage",
+        "Mega",
+        "Million",
+        "prime",
+        "professional",
+        "Synergy",
+        "THE DIAMOND",
+        "THE GOLD",
+        "THE WORLD",
+        "TRUST"
+      ]
+    },
+    {
+      "region": "용인",
+      "source": "pay",
+      "chapters": [
+        "오렌지"
+      ]
+    },
+    {
+      "region": "인천1",
+      "source": "pay",
+      "chapters": [
+        "히어로"
+      ]
+    },
+    {
+      "region": "인천2",
+      "source": "pay",
+      "chapters": [
+        "어센드"
+      ]
+    },
+    {
+      "region": "창원1",
+      "source": "pay",
+      "chapters": [
+        "뱅가드",
+        "이그나이트",
+        "익스팬드"
+      ]
+    },
+    {
+      "region": "천안",
+      "source": "pay",
+      "chapters": [
+        "링크온"
+      ]
+    },
+    {
+      "region": "청주",
+      "source": "pay",
+      "chapters": [
+        "로켓"
+      ]
+    },
+    {
+      "region": "하남",
+      "source": "pay",
+      "chapters": [
+        "넥시아",
+        "솔라리온",
+        "시그니아"
+      ]
+    },
+    {
+      "region": "화성",
+      "source": "pay",
+      "chapters": [
+        "넥서스",
+        "오아시스",
+        "인더스",
+        "토파즈",
+        "하이브"
+      ]
+    }
+  ]
+}

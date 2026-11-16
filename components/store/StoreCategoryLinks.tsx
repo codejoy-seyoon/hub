@@ -7,8 +7,10 @@ import { STORE_CATEGORIES, STORE_NAV_CATEGORIES, storeHref } from "@/lib/storefr
 
 function Links({ active }: { active?: string }) {
   return STORE_NAV_CATEGORIES.map((category) => (
-    <Link key={category.id} href={storeHref(category.id)} aria-current={active === category.id ? "page" : undefined} className={category.id === "sets" ? "store-nav-featured" : ""}>
-      {category.label}
+    <Link key={category.id} href={storeHref(category.id)} aria-label={category.label} aria-current={active === category.id ? "page" : undefined} className={category.id === "sets" ? "store-nav-featured" : ""}>
+      {/* 평소엔 한글, 마우스를 올리면 영문 */}
+      <span className="store-nav-en" aria-hidden="true">{category.en}</span>
+      <span className="store-nav-ko" aria-hidden="true">{category.label}</span>
     </Link>
   ));
 }
