@@ -8,7 +8,6 @@ import styles from "./StoreVideoHero.module.css";
 
 export function StoreVideoHero({ src, poster }: { src: string; poster: string }) {
   const video = useRef<HTMLVideoElement>(null);
-  const [paused, setPaused] = useState(true);
   const [unavailable, setUnavailable] = useState(false);
 
   useEffect(() => {
@@ -21,12 +20,6 @@ export function StoreVideoHero({ src, poster }: { src: string; poster: string })
     preference.addEventListener("change", syncPreference);
     return () => preference.removeEventListener("change", syncPreference);
   }, [src]);
-
-  const togglePlayback = () => {
-    if (!video.current) return;
-    if (video.current.paused) void video.current.play().catch(() => {});
-    else video.current.pause();
-  };
 
   return (
     <section className={styles.hero} aria-labelledby="store-title" style={{ backgroundImage: `url(${poster})` }}>
@@ -42,8 +35,6 @@ export function StoreVideoHero({ src, poster }: { src: string; poster: string })
         height={1080}
         className={styles.video}
         aria-label="BNI 굿즈와 함께하는 하루: 조깅, 배지 달기, 출근과 미팅, 드라이버 샷과 골프공 비행"
-        onPlay={() => setPaused(false)}
-        onPause={() => setPaused(true)}
         onError={() => setUnavailable(true)}
         hidden={unavailable}
       />
@@ -59,11 +50,25 @@ export function StoreVideoHero({ src, poster }: { src: string; poster: string })
           굿즈 만나보기 <StoreIcon name="arrow" size={18} />
         </Link>
       </div>
-      {!unavailable && (
-        <button className={styles.playback} type="button" onClick={togglePlayback} aria-label={paused ? "배너 영상 재생" : "배너 영상 일시정지"}>
-          <span aria-hidden="true">{paused ? "▶" : "Ⅱ"}</span>
-        </button>
-      )}
+      <aside className={styles.quickMenu} aria-label="BNI Store 안내">
+        <span className={styles.menuAccent} aria-hidden="true" />
+        <p className={styles.menuHeading}>BNI Store 안내</p>
+        {/* 연결 주소는 추후 지정한다. 현재는 링크 동작 없는 안내 UI만 표시한다. */}
+        <ul className={styles.menuItems}>
+          <li>
+            <span>이용안내</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" />
+            </svg>
+          </li>
+          <li>
+            <span>문의하기</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M6 18 18 6M6 6h12v12" />
+            </svg>
+          </li>
+        </ul>
+      </aside>
     </section>
   );
 }

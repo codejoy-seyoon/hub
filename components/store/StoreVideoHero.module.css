@@ -11,20 +11,31 @@
 .description { margin: 24px 0 30px; font-size: 15px; line-height: 1.8; text-shadow: 0 2px 12px #0007; animation: reveal 850ms 650ms ease-out both; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 32px; min-height: 52px; padding: 15px 25px; border: 1px solid #ffffffb3; background: #ffffffed; color: #242621; text-decoration: none; font-size: 13px; font-weight: 600; animation: reveal 850ms 820ms ease-out both; transition: background-color 180ms ease; }
 .button:hover { background: #fff; }
-.playback { position: absolute; z-index: 2; right: 28px; bottom: 26px; width: 44px; height: 44px; border: 1px solid #ffffffa6; border-radius: 50%; background: #0004; color: #fff; cursor: pointer; font-size: 14px; display: grid; place-items: center; }
-.hero a:focus-visible, .playback:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+.quickMenu { position: absolute; right: clamp(28px, 4.1vw, 76px); bottom: clamp(28px, 3vw, 50px); width: clamp(180px, 16vw, 228px); z-index: 2; isolation: isolate; color: #fff; text-shadow: 0 2px 10px #0006; }
+.quickMenu::before { content: ""; position: absolute; inset: -38px -76px -50px -65px; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at bottom right, #070b10ad, #070b102e 57%, transparent 76%); }
+.menuAccent { display: block; width: 25px; height: 3px; background: #ed3551; margin-bottom: 16px; }
+.menuHeading { font-size: 10px; letter-spacing: .18em; line-height: 1.6; color: #fffc; margin: 0 0 14px; }
+.menuItems { list-style: none; padding: 0; margin: 0; }
+.menuItems li { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 55px; padding: 14px 0; border-top: 1px solid #fff6; font-size: 16px; font-weight: 500; letter-spacing: -.035em; }
+.menuItems li:last-child { border-bottom: 1px solid #fff6; }
+.menuItems svg { width: 20px; height: 20px; flex-shrink: 0; }
+.hero a:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
 @keyframes titleReveal { from { opacity: 0; transform: translateY(105%); } to { opacity: 1; transform: translateY(0); } }
 @keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 760px) {
-  .hero { aspect-ratio: 4 / 5; min-height: 500px; max-height: 680px; background-position: 63% center; }
+  .hero { aspect-ratio: 4 / 5; min-height: 620px; max-height: 760px; background-position: 63% center; }
   .video { object-position: 63% center; }
   .shade { background: linear-gradient(180deg, #11150f26, #11150f66 50%, #11150f75); }
-  .copy { width: 88%; padding: 48px 0; }
+  .copy { width: 88%; padding: 24px 0 174px; }
   .kicker { font-size: 11px; margin-bottom: 22px; }
   .title { font-size: clamp(36px, 8.5vw, 52px); }
   .description { font-size: 12px; margin: 22px 0 26px; }
   .button { font-size: 12px; gap: 26px; min-height: 48px; }
-  .playback { right: 18px; bottom: 18px; }
+  .quickMenu { right: 24px; bottom: 24px; width: 156px; }
+  .menuAccent { width: 22px; margin-bottom: 10px; }
+  .menuHeading { font-size: 9px; margin-bottom: 9px; }
+  .menuItems li { min-height: 44px; padding: 10px 0; font-size: 14px; }
+  .menuItems svg { width: 18px; height: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .kicker, .line > span, .description, .button { animation: none; transition: none; }
