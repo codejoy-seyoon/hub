@@ -4,6 +4,7 @@ import { getProduct, productImg } from "@/lib/data/products";
 import { categoryLabel, hasNewBadge, storeHref, storePath } from "@/lib/storefront";
 import { won } from "@/lib/format";
 import { StoreIcon } from "@/components/store/StoreIcon";
+import { StoreVideoHero } from "@/components/store/StoreVideoHero";
 
 export const metadata = { title: "BNI STORE | 멤버와 챕터를 위한 공식 스토어" };
 
@@ -31,18 +32,10 @@ export default async function StorePage({ searchParams }: {
   if (browse.size) redirect(`${storeHref()}?${browse}`);
   return (
     <main id="store-main">
-      <section className="store-campaign" aria-labelledby="store-title">
-        <img className="store-campaign-image" src={productImg(getProduct("pouch-mug-set")!.img)} alt="대나무뚜껑 머그와 붉은 BNI KOREA 파우치" fetchPriority="high" />
-        <div className="store-wrap store-campaign-inner">
-          <div className="store-campaign-copy">
-            <p className="store-campaign-kicker">만남에서 일상으로</p>
-            <h1 id="store-title">좋은 연결을,<br />오래 곁에.</h1>
-            <p className="store-campaign-description">함께하는 마음을 담은 BNI 컬렉션.<br />매일 쓰는 물건에서 새로운 연결을 만나보세요.</p>
-            <Link href={storeHref("gift")} className="store-button store-button-light">웰컴팩 만나보기 <StoreIcon name="arrow" /></Link>
-          </div>
-          <Link href={storePath("/pouch-mug-set")} className="store-campaign-product">웰컴 머그 &amp; 파우치 세트 <StoreIcon name="arrow" size={18} /></Link>
-        </div>
-      </section>
+      <StoreVideoHero
+        src="/store-web/video/business-day-v7-20261117.mp4"
+        poster="/store-web/video/business-day-v7-20261117-poster.jpg"
+      />
 
       <div className="store-benefit-bar" aria-label="쇼핑 안내">
         <span><StoreIcon name="truck" size={22} />5만 원 이상 무료배송</span>
