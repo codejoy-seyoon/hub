@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckoutPanel } from "@/components/CheckoutPanel";
-import { audienceOf, eventPath, getEvent } from "@/lib/data/events";
-import { won } from "@/lib/format";
+import { audienceOf, currencyOf, eventPath, getEvent } from "@/lib/data/events";
+import { money } from "@/lib/format";
 import type { Customer, OrderRequest } from "@/lib/catalog";
 
-// 행사(event.bnikorea.com)는 스토어와 MID 가 다르다. 행사용 키가 들어오기 전에는 스토어 키를 함께 쓴다.
+// 행사(event.bnikorea.com)는 스토어와 MID 가 다르고, 행사 안에서도 국내결제 MID 와 해외카드 MID 가 나뉜다.
+// 행사용 키가 들어오기 전에는 앞 단계 키를 함께 쓴다(해외 → 행사 국내 → 스토어).
 const EVENT_CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_EVENT_CLIENT_KEY || undefined;
+const EVENT_INTL_CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_EVENT_INTL_CLIENT_KEY || EVENT_CLIENT_KEY;
 
 export function EventCheckoutClient({
   eventCode,
@@ -38,6 +40,8 @@ export function EventCheckoutClient({
   const t = (ko: string, en: string) => (intl ? en : ko);
   const qty = Math.max(1, Math.min(ticket.maxQuantity, Number(sp.get("qty")) || 1));
   const total = ticket.price * qty;
+  const currency = currencyOf(ticket);
+  const won = (n: number) => money(n, currency);
 
   const makeRequest = (customer: Customer): OrderRequest => ({
     domain: "event",
@@ -62,7 +66,7 @@ export function EventCheckoutClient({
       </div>
       <dl className="mt-4 grid gap-1.5 border-t border-bni-line pt-4 text-sm">
         <div className="flex justify-between text-base font-extrabold">
-          <dt>{t("총 결제금액", "Total (KRW)")}</dt>
+          <dt>{t("총 결제금액", `Total (${currency})`)}</dt>
           <dd className="text-bni-red">{won(total)}</dd>
         </div>
       </dl>
@@ -77,7 +81,8 @@ export function EventCheckoutClient({
         amount={total}
         summary={summary}
         eventAudience={audienceOf(ticket)}
-        tossClientKey={EVENT_CLIENT_KEY}
+        currency={currency}
+        tossClientKey={intl ? EVENT_INTL_CLIENT_KEY : EVENT_CLIENT_KEY}
         disabledReason={onSale ? undefined : t("판매가 종료된 행사입니다", "Sales have ended")}
       />
     </main>

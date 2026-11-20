@@ -4,7 +4,7 @@ import { getBook } from "./data/books";
 import { getTraining } from "./data/trainings";
 import { getSpace, getAddon } from "./data/spaces";
 import { isValidAffiliation } from "./data/regions";
-import { audienceOf, getEvent, getTicket, isOnSale } from "./data/events";
+import { audienceOf, currencyOf, getEvent, getTicket, isOnSale } from "./data/events";
 
 /* ============================================================
    통합 주문 카탈로그
@@ -98,6 +98,8 @@ export type OrderLine = {
 
 export type BuiltOrder = {
   domain: OrderRequest["domain"];
+  /** 결제 통화. 없으면 원화. 행사 국외용 티켓만 달러(USD). */
+  currency?: "KRW" | "USD";
   lines: OrderLine[];
   orderName: string;
   amounts: {
@@ -180,6 +182,7 @@ export function buildOrder(req: OrderRequest): BuiltOrder {
     ];
     return {
       domain: "event",
+      currency: currencyOf(ticket),
       lines,
       orderName: orderName(lines),
       amounts: { subtotal: lineTotal, discount: 0, shipping: 0, total: lineTotal },

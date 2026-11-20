@@ -4,13 +4,14 @@ import { notFound } from "next/navigation";
 import {
   EVENT_STATUS_LABEL,
   audienceOf,
+  currencyOf,
   eventBaseFromHost,
   eventPath,
   getEvent,
   isOnSale,
   type EventAudience,
 } from "@/lib/data/events";
-import { won } from "@/lib/format";
+import { money } from "@/lib/format";
 
 // 행사 한 개의 페이지(랜딩페이지 자리). 지금은 티켓 선택만 있고,
 // 행사 소개·일정·연사 등 본문은 행사별로 이 자리에 채운다.
@@ -74,19 +75,29 @@ export default async function EventPage({
 
       {intl && (
         <p className="mx-auto mt-4 max-w-xl text-center text-xs text-bni-body">
-          Prices are in KRW and charged in KRW. Your card issuer converts the amount to your currency.
+          Prices are in USD and charged in USD. International cards (Visa, Mastercard, JCB, AMEX) are accepted.
         </p>
       )}
 
       <ul className="mt-8 grid gap-5 sm:grid-cols-2">
         {tickets.map((x) => (
           <li key={x.id} className="flex flex-col rounded-2xl border border-bni-line p-6">
-            <h2 className="text-xl font-extrabold">{t(x.nameKo, x.name)}</h2>
+            {x.image && (
+              <Link href={eventPath(base, `/${event.code}/${x.id}`)} className="mb-5 block overflow-hidden rounded-xl bg-bni-soft">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={x.image} alt={x.name} className="aspect-[3/2] w-full object-cover" loading="lazy" />
+              </Link>
+            )}
+            <h2 className="text-xl font-extrabold">
+              <Link href={eventPath(base, `/${event.code}/${x.id}`)} className="hover:text-bni-red">
+                {t(x.nameKo, x.name)}
+              </Link>
+            </h2>
             {x.summary && <p className="mt-1 text-sm text-bni-body">{t(x.summary.ko, x.summary.en)}</p>}
 
             <div className="mt-5 flex items-center justify-between rounded-xl bg-bni-soft px-4 py-3">
               <span className="text-xs font-bold text-bni-body">{t("정상가", "REGULAR")}</span>
-              <span className="text-2xl font-extrabold text-bni-red">{won(x.price)}</span>
+              <span className="text-2xl font-extrabold text-bni-red">{money(x.price, currencyOf(x))}</span>
             </div>
 
             <ul className="mt-5 grid gap-2.5 text-sm">
@@ -104,6 +115,12 @@ export default async function EventPage({
             </ul>
 
             <div className="mt-auto pt-6">
+              <Link
+                href={eventPath(base, `/${event.code}/${x.id}`)}
+                className="mb-2 block rounded-xl border border-bni-line py-3 text-center text-sm font-bold transition hover:border-bni-ink"
+              >
+                {t("상세 보기", "View details")}
+              </Link>
               {onSale ? (
                 <Link
                   href={eventPath(base, `/${event.code}/checkout?ticket=${x.id}&qty=1`)}

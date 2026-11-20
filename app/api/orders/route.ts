@@ -73,7 +73,7 @@ export async function POST(req: Request) {
       user_id: userId,
       domain: built.domain,
       status: "pending_payment",
-      currency: "KRW",
+      currency: built.currency ?? "KRW",
       customer_name: customer.name,
       customer_email: customer.email,
       customer_phone: customer.phone,
@@ -101,7 +101,7 @@ export async function POST(req: Request) {
       attempt_no: 1,
       provider_order_id: tossOrderId,
       requested_amount: built.amounts.total,
-      currency: "KRW",
+      currency: built.currency ?? "KRW",
     });
 
     await logEvent({
@@ -124,6 +124,7 @@ export async function POST(req: Request) {
       domain: built.domain,
       orderName: built.orderName,
       amount: built.amounts.total,
+      currency: built.currency ?? "KRW",
       customerKey: userId ?? `guest-${orderNo}`,
       customer,
       lines: built.lines,

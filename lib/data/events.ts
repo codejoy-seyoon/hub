@@ -17,8 +17,15 @@ export type EventTicket = {
   name: string;
   /** 화면에 함께 보여 주는 한글 이름 */
   nameKo: string;
-  /** 원화 가격. 국내결제·해외카드 모두 이 금액으로 결제한다. */
+  /** 가격. 통화는 currency(없으면 원화). 달러는 달러 단위 숫자(480 = USD 480.00). */
   price: number;
+  /** 결제 통화. 국내용은 원화(KRW), 국외용은 달러(USD) — 토스 MID 가 통화별로 나뉜다. */
+  currency?: "KRW" | "USD";
+  /** 카페24 상품코드(출처 추적용) */
+  sku?: string;
+  /** 대표 이미지와 상세 이미지(public 아래 경로) */
+  image?: string;
+  detailImages?: string[];
   /** 한 주문에서 살 수 있는 최대 수량 */
   maxQuantity: number;
   /** 누구에게 파는 상품인가. 국내용은 국내 결제수단, 국외용은 해외카드 결제창(영문)이 뜬다. 없으면 국내용. */
@@ -31,6 +38,9 @@ export type EventTicket = {
 export type EventAudience = "domestic" | "international";
 export function audienceOf(ticket: EventTicket): EventAudience {
   return ticket.audience ?? "domestic";
+}
+export function currencyOf(ticket: EventTicket): "KRW" | "USD" {
+  return ticket.currency ?? "KRW";
 }
 
 export type EventInfo = {
@@ -48,50 +58,69 @@ export type EventInfo = {
 // 가격 출처: nc26-bnikorea.com 티켓 페이지(국내 참가자 탭, 원화), 2026-11-20 확인.
 // 다음 행사(nc27)는 일정·티켓·가격이 정해지면 status "on_sale" 로 추가한다.
 export const EVENTS: EventInfo[] = [
-  // ── 토스 결제창 심사용 임시 상품(2026-11-20). 실제 행사 티켓이 아니다.
-  //    가격은 토스에 알린 수준(티켓 38만 원대·부스 150만 원대)에 맞췄다. 심사가 끝나면 이 묶음을 지운다.
+  // ── 토스 결제창 심사용 테스트 상품(2026-11-20). 카페24에서 판매한 nc26 상품 5종을
+  //    상품명·가격·대표 이미지·상세 이미지 그대로 옮겼다(원화몰 shop1 = 국내용, 영문몰 shop2 = 국외용).
+  //    국내용은 원화 MID, 국외용은 달러 MID 로 결제한다. 심사가 끝나면 이 묶음을 지운다.
+  //    출처: bnikorea88.cafe24.com 상품목록(상품명 Conference 검색) · global.bnikoreastore.com 상품 상세.
   {
     code: "conference",
-    name: "BNI Korea National Conference",
-    nameKo: "BNI 코리아 내셔널 컨퍼런스",
-    year: 2027,
+    name: "2026 BNI Korea National Conference",
+    nameKo: "2026 BNI Korea National Conference",
+    year: 2026,
     status: "on_sale",
     tickets: [
-      // 국내용 — 국내 결제(신용카드·계좌이체·가상계좌)
+      // 국내용 — 원화(KRW). 카페24 한국어몰 판매가.
       {
-        id: "ticket-kr", audience: "domestic", name: "Conference Ticket", nameKo: "컨퍼런스 참가 티켓", price: 380000, maxQuantity: 10,
-        summary: { ko: "컨퍼런스 + 네트워킹 파티 포함", en: "Conference + Networking Party" },
-        features: [
-          { ko: "컨퍼런스 참석", en: "Conference Access" },
-          { ko: "네트워킹 파티", en: "Networking Party" },
-          { ko: "Day 1–2 참가", en: "Day 1–2 Included" },
-        ],
+        id: "ed-kr", sku: "P0000BDJ", audience: "domestic", currency: "KRW", price: 385000, maxQuantity: 10,
+        name: "2026 BNI Korea National Conference_for ED", nameKo: "2026 BNI Korea National Conference_for ED",
+        image: "/event/nc26/main-ko.png",
       },
       {
-        id: "booth-kr", audience: "domestic", name: "Exhibition Booth", nameKo: "부스 전시", price: 1500000, maxQuantity: 2,
-        summary: { ko: "Exhibition Booth (2m × 2m × 2.5m)", en: "Booth size: 2m × 2m × 2.5m" },
-        features: [
-          { ko: "상단 간판 디자인·설치", en: "Top sign design & installation" },
-          { ko: "프로그램북 광고 게재", en: "Program book advertisement" },
-        ],
-      },
-      // 국외용 — 해외 발급 카드(Visa·Mastercard 등), 원화 같은 금액
-      {
-        id: "ticket-intl", audience: "international", name: "Conference Ticket", nameKo: "컨퍼런스 참가 티켓 (국외용)", price: 380000, maxQuantity: 10,
-        summary: { ko: "컨퍼런스 + 네트워킹 파티 포함", en: "Conference + Networking Party" },
-        features: [
-          { ko: "컨퍼런스 참석", en: "Conference Access" },
-          { ko: "네트워킹 파티", en: "Networking Party" },
-          { ko: "Day 1–2 참가", en: "Day 1–2 Included" },
-        ],
+        id: "director-member-kr", sku: "P0000BDK", audience: "domestic", currency: "KRW", price: 385000, maxQuantity: 10,
+        name: "2026 BNI Korea National Conference_for Director & Member", nameKo: "2026 BNI Korea National Conference_for Director & Member",
+        image: "/event/nc26/main-ko.png",
       },
       {
-        id: "booth-intl", audience: "international", name: "Exhibition Booth", nameKo: "부스 전시 (국외용)", price: 1500000, maxQuantity: 2,
-        summary: { ko: "Exhibition Booth (2m × 2m × 2.5m)", en: "Booth size: 2m × 2m × 2.5m" },
-        features: [
-          { ko: "상단 간판 디자인·설치", en: "Top sign design & installation" },
-          { ko: "프로그램북 광고 게재", en: "Program book advertisement" },
-        ],
+        id: "booth-kr", sku: "P0000BEA", audience: "domestic", currency: "KRW", price: 1500000, maxQuantity: 2,
+        name: "Exhibition Booth : BNI KOREA National Conference 2026", nameKo: "Exhibition Booth : BNI KOREA National Conference 2026",
+        image: "/event/nc26/main-ko.png",
+      },
+      {
+        id: "visitor-kr", sku: "P0000BFF", audience: "domestic", currency: "KRW", price: 250000, maxQuantity: 10,
+        name: "Visitor Pass : BNI KOREA National Conference 2026", nameKo: "Visitor Pass : BNI KOREA National Conference 2026",
+        image: "/event/nc26/main-ko.png",
+      },
+      {
+        id: "visitor-networking-kr", sku: "P0000BFG", audience: "domestic", currency: "KRW", price: 450000, maxQuantity: 10,
+        name: "Visitor + Networking Pass : BNI KOREA National Conference 2026", nameKo: "Visitor + Networking Pass : BNI KOREA National Conference 2026",
+        image: "/event/nc26/main-ko.png",
+      },
+      // 국외용 — 달러(USD). 카페24 영문몰 판매가.
+      {
+        id: "ed-intl", sku: "P0000BDJ", audience: "international", currency: "USD", price: 480, maxQuantity: 10,
+        name: "2026 BNI Korea National Conference_for ED", nameKo: "2026 BNI Korea National Conference_for ED",
+        image: "/event/nc26/main-ed.png", detailImages: ["/event/nc26/detail-conference.jpg"],
+      },
+      {
+        id: "director-member-intl", sku: "P0000BDK", audience: "international", currency: "USD", price: 360, maxQuantity: 10,
+        name: "2026 BNI Korea National Conference_for Director & Member", nameKo: "2026 BNI Korea National Conference_for Director & Member",
+        image: "/event/nc26/main-director-member.png", detailImages: ["/event/nc26/detail-conference.jpg"],
+      },
+      {
+        id: "booth-intl", sku: "P0000BEA", audience: "international", currency: "USD", price: 1500, maxQuantity: 2,
+        name: "Exhibition Booth : BNI KOREA National Conference 2026", nameKo: "Exhibition Booth : BNI KOREA National Conference 2026",
+        image: "/event/nc26/main-booth.png",
+        detailImages: ["/event/nc26/detail-booth-1.jpg", "/event/nc26/detail-booth-2.jpg", "/event/nc26/detail-booth-3.jpg"],
+      },
+      {
+        id: "visitor-intl", sku: "P0000BFF", audience: "international", currency: "USD", price: 190, maxQuantity: 10,
+        name: "Visitor Pass : BNI KOREA National Conference 2026", nameKo: "Visitor Pass : BNI KOREA National Conference 2026",
+        image: "/event/nc26/main-visitor.png", detailImages: ["/event/nc26/detail-visitor.jpg"],
+      },
+      {
+        id: "visitor-networking-intl", sku: "P0000BFG", audience: "international", currency: "USD", price: 245, maxQuantity: 10,
+        name: "Visitor + Networking Pass : BNI KOREA National Conference 2026", nameKo: "Visitor + Networking Pass : BNI KOREA National Conference 2026",
+        image: "/event/nc26/main-visitor-networking.png", detailImages: ["/event/nc26/detail-visitor-networking.jpg"],
       },
     ],
   },

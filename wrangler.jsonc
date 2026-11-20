@@ -9,6 +9,9 @@
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "workers_dev": true,
   "preview_urls": false,
-  "routes": [{ "pattern": "store.bnikorea.com", "custom_domain": true }],
+  "routes": [
+    { "pattern": "store.bnikorea.com", "custom_domain": true },
+    { "pattern": "event.bnikorea.com", "custom_domain": true }
+  ],
   "observability": { "enabled": true }
 }

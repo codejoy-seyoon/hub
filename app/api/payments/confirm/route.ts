@@ -61,6 +61,7 @@ export async function POST(req: Request) {
           tossOrderId: order.toss_order_id,
           domain: order.domain,
           amount: order.total_amount,
+          currency: order.currency,
           status: order.status,
           customerName: order.customer_name,
         },
@@ -75,7 +76,7 @@ export async function POST(req: Request) {
 
     await updatePayment(payment.id, { status: "confirming" });
 
-    const confirmResult = await confirmTossPayment({ paymentKey, orderId, amount }, tossScopeOf(order.domain));
+    const confirmResult = await confirmTossPayment({ paymentKey, orderId, amount }, tossScopeOf(order.domain, order.fulfillment));
 
     if (!confirmResult.ok) {
       await updatePayment(payment.id, { status: "failed", raw_confirm_response: confirmResult.data });
@@ -147,6 +148,7 @@ export async function POST(req: Request) {
         tossOrderId: order.toss_order_id,
         domain: order.domain,
         amount: isDone ? approvedAmount : order.total_amount,
+        currency: order.currency,
         status: isDone ? "paid" : "pending_payment",
         customerName: order.customer_name,
         customerEmail: order.customer_email,

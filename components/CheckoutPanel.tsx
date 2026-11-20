@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { loadTossPayments } from "@tosspayments/tosspayments-sdk";
 import type { Customer, OrderRequest, Shipping } from "@/lib/catalog";
 import { REGIONS, REGION_NONE, CHAPTER_OTHER, chaptersOf } from "@/lib/data/regions";
+import { money } from "@/lib/format";
 
 type PreparedOrder = {
   orderId: string;
@@ -11,6 +12,7 @@ type PreparedOrder = {
   domain: string;
   orderName: string;
   amount: number;
+  currency?: "KRW" | "USD";
   customerKey: string;
   customer: Customer;
 };
@@ -43,6 +45,8 @@ type Props = {
   eventAudience?: "domestic" | "international";
   /** 이 주문에 쓸 토스 클라이언트 키(MID 가 다른 주소용). 없으면 스토어 키. */
   tossClientKey?: string;
+  /** 화면에 보여 줄 금액의 통화. 없으면 원화. 실제 결제 통화는 서버가 만든 주문의 통화를 따른다. */
+  currency?: "KRW" | "USD";
 };
 
 const TOSS_CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY!;
@@ -59,6 +63,7 @@ export function CheckoutPanel({
   withShipping = false,
   eventAudience,
   tossClientKey,
+  currency = "KRW",
 }: Props) {
   const clientKey = tossClientKey || TOSS_CLIENT_KEY;
   const IS_TEST_MODE = (clientKey ?? "").startsWith("test_");
@@ -154,7 +159,7 @@ export function CheckoutPanel({
 
     const base = SITE || window.location.origin;
     const common = {
-      amount: { currency: "KRW", value: prepared.amount },
+      amount: { currency: prepared.currency ?? "KRW", value: prepared.amount },
       orderId: prepared.orderId,
       orderName: prepared.orderName,
       successUrl: `${base}/payments/success`,
@@ -219,7 +224,7 @@ export function CheckoutPanel({
     }
   }
 
-  const won = (n: number) => "₩" + n.toLocaleString("ko-KR");
+  const won = (n: number) => money(n, prepared?.currency ?? currency);
 
   // 우편번호 찾기(카카오 우편번호 서비스). 창이 안 열리면 직접 입력해도 된다.
   function openPostcode() {

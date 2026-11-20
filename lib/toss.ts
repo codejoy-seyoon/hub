@@ -1,24 +1,33 @@
 /**
  * 결제 키 묶음(= 토스 MID). 주소마다 MID 가 다르다.
  *   store → store.bnikorea.com (굿즈, 국내결제)
- *   event → event.bnikorea.com (행사 티켓, 국내결제+해외카드)
- * 행사용 키가 아직 없으면 스토어 키를 함께 쓴다(테스트 단계).
+ *   event      → event.bnikorea.com 국내결제 MID (카드·간편결제·계좌이체)
+ *   event_intl → event.bnikorea.com 해외카드 MID
+ * (토스 최종원 매니저 2026-11-20 16:47: 행사는 국내카드용 MID 와 해외카드용 MID 로 분리)
+ * 행사용 키가 아직 없으면 앞 단계 키를 함께 쓴다(테스트 단계): 해외 → 행사 국내 → 스토어.
  */
-export type TossScope = "store" | "event";
+export type TossScope = "store" | "event" | "event_intl";
 
-export function tossScopeOf(domain: string | null | undefined): TossScope {
-  return domain === "event" ? "event" : "store";
+export function tossScopeOf(
+  domain: string | null | undefined,
+  fulfillment?: Record<string, unknown> | null,
+): TossScope {
+  if (domain !== "event") return "store";
+  const audience = (fulfillment?.event as { audience?: string } | undefined)?.audience;
+  return audience === "international" ? "event_intl" : "event";
 }
 
 export function tossSecretKey(scope: TossScope = "store"): string {
   const store = process.env.TOSS_SECRET_KEY ?? "";
-  if (scope === "event") return process.env.TOSS_EVENT_SECRET_KEY || store;
+  const event = process.env.TOSS_EVENT_SECRET_KEY || store;
+  if (scope === "event_intl") return process.env.TOSS_EVENT_INTL_SECRET_KEY || event;
+  if (scope === "event") return event;
   return store;
 }
 
 /** 조회에 써 볼 시크릿 키 목록(중복 제거). 웹훅처럼 어느 MID 결제인지 모를 때 쓴다. */
 export function tossSecretKeys(): string[] {
-  return [...new Set([tossSecretKey("store"), tossSecretKey("event")])].filter(Boolean);
+  return [...new Set([tossSecretKey("store"), tossSecretKey("event"), tossSecretKey("event_intl")])].filter(Boolean);
 }
 
 /**

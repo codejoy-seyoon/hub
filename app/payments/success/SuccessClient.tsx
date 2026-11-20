@@ -4,6 +4,7 @@ import { storePath } from "@/lib/storefront";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { money } from "@/lib/format";
 
 type VirtualAccount = {
   accountNumber?: string;
@@ -22,6 +23,7 @@ type ConfirmResponse = {
     tossOrderId: string;
     domain: "store" | "ebook" | "training" | "reservation" | "event";
     amount: number;
+    currency?: string;
     status: string;
     customerName: string;
   };
@@ -125,7 +127,7 @@ export function SuccessClient() {
             <dl className="grid gap-1.5">
               <Row k="입금 은행" v={va.bank ?? va.bankCode ?? "-"} />
               <Row k="입금 계좌" v={va.accountNumber ?? "-"} />
-              <Row k="입금 금액" v={`₩${Number(data.order.amount).toLocaleString("ko-KR")}`} />
+              <Row k="입금 금액" v={money(Number(data.order.amount), data.order.currency)} />
               {va.dueDate && <Row k="입금 기한" v={new Date(va.dueDate).toLocaleString("ko-KR")} />}
             </dl>
           </div>
@@ -133,7 +135,7 @@ export function SuccessClient() {
 
         <dl className="grid gap-2.5 border-t border-bni-line pt-5 text-sm">
           <Row k="주문번호" v={data.order.orderNo} />
-          <Row k="결제금액" v={`₩${Number(data.order.amount).toLocaleString("ko-KR")}`} />
+          <Row k="결제금액" v={money(Number(data.order.amount), data.order.currency)} />
           <Row k="결제수단" v={data.payment.method ?? "-"} />
           <Row k="주문상태" v={waitingDeposit ? "입금대기" : data.order.status} />
           <Row k="주문자" v={data.order.customerName} />
