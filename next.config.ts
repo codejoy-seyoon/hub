@@ -20,7 +20,10 @@ const RESERVED =
 // 스토어 규칙보다 먼저 본다. 스토어 주소에서는 "/event" 를 숨긴다(STORE_ONLY 일 때).
 const EVENT_HOST = "event.bnikorea.com";
 const ON_EVENT = [{ type: "host" as const, value: EVENT_HOST }];
-const EVENT_CODE = `:code((?!(?:${RESERVED})$)[a-z0-9][a-z0-9-]*)`;
+// The lookahead must stop at a segment boundary too (not only end of path): on Cloudflare (OpenNext)
+// rewrites are applied again to the rewritten path, so /event/conference or /api/orders must never
+// be read as code=event / code=api by the two-segment rules below.
+const EVENT_CODE = `:code((?!(?:${RESERVED})(?:$|\/))[a-z0-9][a-z0-9-]*)`;
 const eventRedirects = [
   { source: "/event", has: ON_EVENT, destination: "/", permanent: false },
   { source: "/event/:path*", has: ON_EVENT, destination: "/:path*", permanent: false },
