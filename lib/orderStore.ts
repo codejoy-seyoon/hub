@@ -12,7 +12,7 @@ export type OrderRecord = {
   order_no: string;
   toss_order_id: string;
   user_id: string | null;
-  domain: "store" | "ebook" | "training" | "reservation";
+  domain: "store" | "ebook" | "training" | "reservation" | "event";
   status: string;
   currency: string;
   customer_name: string;

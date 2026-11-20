@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { confirmTossPayment } from "@/lib/toss";
+import { confirmTossPayment, tossScopeOf } from "@/lib/toss";
 import {
   getOrderByTossId,
   getLatestPayment,
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
 
     await updatePayment(payment.id, { status: "confirming" });
 
-    const confirmResult = await confirmTossPayment({ paymentKey, orderId, amount });
+    const confirmResult = await confirmTossPayment({ paymentKey, orderId, amount }, tossScopeOf(order.domain));
 
     if (!confirmResult.ok) {
       await updatePayment(payment.id, { status: "failed", raw_confirm_response: confirmResult.data });

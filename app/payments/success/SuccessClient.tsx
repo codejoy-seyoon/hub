@@ -20,7 +20,7 @@ type ConfirmResponse = {
   order: {
     orderNo: string;
     tossOrderId: string;
-    domain: "store" | "ebook" | "training" | "reservation";
+    domain: "store" | "ebook" | "training" | "reservation" | "event";
     amount: number;
     status: string;
     customerName: string;
@@ -39,6 +39,8 @@ const DOMAIN_DONE: Record<string, { title: string; desc: string; backHref: strin
   ebook: { title: "구매가 완료되었습니다", desc: "전자책 열람 권한이 부여되었습니다.", backHref: "/ebook", backLabel: "이북으로" },
   training: { title: "수강 신청이 완료되었습니다", desc: "트레이닝 수강 신청과 결제가 확정되었습니다.", backHref: "/training", backLabel: "트레이닝으로" },
   reservation: { title: "예약이 완료되었습니다", desc: "대관 예약과 결제가 정상 확정되었습니다.", backHref: "/reserve", backLabel: "대관 예약으로" },
+  // 행사 티켓. 돌아갈 주소는 접속한 주소에 따라 화면에서 정한다(event.bnikorea.com 이면 "/").
+  event: { title: "티켓 결제가 완료되었습니다 · Payment complete", desc: "행사 티켓 주문과 결제가 정상 확정되었습니다.", backHref: "/event", backLabel: "행사 목록으로 · Events" },
 };
 
 export function SuccessClient() {
@@ -139,7 +141,11 @@ export function SuccessClient() {
 
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
-            href={meta.backHref}
+            href={
+              data.order.domain === "event" && typeof window !== "undefined" && window.location.hostname.startsWith("event.")
+                ? "/"
+                : meta.backHref
+            }
             className="inline-flex h-12 items-center justify-center rounded-xl bg-bni-ink px-5 font-semibold text-white"
           >
             {meta.backLabel}

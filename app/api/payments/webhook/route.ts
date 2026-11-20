@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getTossPayment, getTossPaymentByOrderId } from "@/lib/toss";
+import { getTossPayment, getTossPaymentByOrderId, tossSecretKeys } from "@/lib/toss";
 import {
   getOrderByTossId,
   getLatestPayment,
@@ -35,9 +35,14 @@ export async function POST(req: Request) {
   }
 
   // 권위있는 상태 재조회
-  const fetched = paymentKey
-    ? await getTossPayment(paymentKey)
-    : await getTossPaymentByOrderId(orderId);
+  // 스토어·행사 MID 가 다르면 키도 다르다. 어느 쪽 결제인지 모르니 차례로 물어본다.
+  let fetched: Awaited<ReturnType<typeof getTossPayment>> = { ok: false, status: 0, data: null };
+  for (const key of tossSecretKeys()) {
+    fetched = paymentKey
+      ? await getTossPayment(paymentKey, key)
+      : await getTossPaymentByOrderId(orderId, key);
+    if (fetched.ok) break;
+  }
 
   if (!fetched.ok) {
     return NextResponse.json({ ok: false, message: "toss lookup failed" }, { status: 200 });

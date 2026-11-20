@@ -4,6 +4,7 @@ import { getBook } from "./data/books";
 import { getTraining } from "./data/trainings";
 import { getSpace, getAddon } from "./data/spaces";
 import { isValidAffiliation } from "./data/regions";
+import { audienceOf, getEvent, getTicket, isOnSale } from "./data/events";
 
 /* ============================================================
    통합 주문 카탈로그
@@ -68,8 +69,18 @@ const reservationCart = z.object({
   memo: z.string().max(500).optional().default(""),
 });
 
+// 행사 티켓(event.bnikorea.com). 배송지·소속을 받지 않는다.
+const eventCart = z.object({
+  domain: z.literal("event"),
+  customer: customerSchema,
+  eventCode: z.string().min(2).max(20),
+  ticketId: z.string().min(1).max(40),
+  quantity: z.number().int().positive().max(99),
+});
+
 export const orderRequestSchema = z.discriminatedUnion("domain", [
   storeCart,
+  eventCart,
   ebookCart,
   trainingCart,
   reservationCart,
@@ -77,7 +88,7 @@ export const orderRequestSchema = z.discriminatedUnion("domain", [
 export type OrderRequest = z.infer<typeof orderRequestSchema>;
 
 export type OrderLine = {
-  kind: "product" | "book" | "training" | "space" | "addon";
+  kind: "product" | "book" | "training" | "space" | "addon" | "ticket";
   refId: string;
   name: string;
   unitPrice: number;
@@ -143,6 +154,37 @@ export function buildOrder(req: OrderRequest): BuiltOrder {
           address2: req.shipping.address2 ?? "",
         },
         member: { region: req.shipping.region, chapter: req.shipping.chapter },
+      },
+    };
+  }
+
+  if (req.domain === "event") {
+    const event = getEvent(req.eventCode);
+    if (!event) throw new Error(`알 수 없는 행사입니다: ${req.eventCode}`);
+    if (!isOnSale(event)) throw new Error("지금은 판매 중인 행사가 아닙니다.");
+    const ticket = getTicket(req.eventCode, req.ticketId);
+    if (!ticket) throw new Error(`알 수 없는 티켓입니다: ${req.ticketId}`);
+    if (req.quantity > ticket.maxQuantity) {
+      throw new Error(`한 번에 ${ticket.maxQuantity}매까지 구매할 수 있습니다.`);
+    }
+    const lineTotal = ticket.price * req.quantity;
+    const lines: OrderLine[] = [
+      {
+        kind: "ticket",
+        refId: `${event.code}:${ticket.id}`,
+        name: `${event.name} - ${ticket.name}`,
+        unitPrice: ticket.price,
+        quantity: req.quantity,
+        lineTotal,
+      },
+    ];
+    return {
+      domain: "event",
+      lines,
+      orderName: orderName(lines),
+      amounts: { subtotal: lineTotal, discount: 0, shipping: 0, total: lineTotal },
+      fulfillment: {
+        event: { code: event.code, ticketId: ticket.id, quantity: req.quantity, audience: audienceOf(ticket) },
       },
     };
   }

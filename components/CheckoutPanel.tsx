@@ -19,12 +19,17 @@ type PaymentInstance = ReturnType<
   Awaited<ReturnType<typeof loadTossPayments>>["payment"]
 >;
 
-type PayMethod = "CARD" | "TRANSFER" | "VIRTUAL_ACCOUNT";
+type PayMethod = "CARD" | "TRANSFER" | "VIRTUAL_ACCOUNT" | "INTL_CARD";
 const METHODS: { key: PayMethod; label: string }[] = [
   { key: "CARD", label: "신용/체크카드" },
   { key: "TRANSFER", label: "계좌이체" },
   { key: "VIRTUAL_ACCOUNT", label: "가상계좌" },
 ];
+// 행사 티켓: 국내 결제수단에 더해 해외 발급 카드(Visa·Mastercard 등)를 받는다.
+const INTL_METHOD: { key: PayMethod; label: string } = {
+  key: "INTL_CARD",
+  label: "International Card (Visa · Mastercard · JCB · AMEX)",
+};
 
 type Props = {
   makeRequest: (customer: Customer, shipping?: Shipping) => OrderRequest;
@@ -34,12 +39,16 @@ type Props = {
   summary?: React.ReactNode;
   disabledReason?: string;
   defaultCustomer?: Partial<Customer>;
+  /** 행사 티켓 주문. 국내용이면 국내 결제수단, 국외용이면 해외카드 결제창(영문 화면)만 보여 준다. */
+  eventAudience?: "domestic" | "international";
+  /** 이 주문에 쓸 토스 클라이언트 키(MID 가 다른 주소용). 없으면 스토어 키. */
+  tossClientKey?: string;
 };
 
 const TOSS_CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY!;
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "";
 // 테스트 키로 연결된 동안에는 화면에 테스트 안내를 띄운다.
-const IS_TEST_MODE = (TOSS_CLIENT_KEY ?? "").startsWith("test_");
+// (실제 판정은 컴포넌트 안에서 이 주문에 쓰는 키로 한다.)
 
 export function CheckoutPanel({
   makeRequest,
@@ -48,7 +57,16 @@ export function CheckoutPanel({
   disabledReason,
   defaultCustomer,
   withShipping = false,
+  eventAudience,
+  tossClientKey,
 }: Props) {
+  const clientKey = tossClientKey || TOSS_CLIENT_KEY;
+  const IS_TEST_MODE = (clientKey ?? "").startsWith("test_");
+  const eventMode = !!eventAudience;
+  const intl = eventAudience === "international";
+  // 국외용 화면은 영문, 그 밖은 국문
+  const t = (ko: string, en: string) => (intl ? en : ko);
+  const methods = intl ? [INTL_METHOD] : METHODS;
   const [customer, setCustomer] = useState<Customer>({
     name: defaultCustomer?.name ?? "",
     email: defaultCustomer?.email ?? "",
@@ -63,7 +81,7 @@ export function CheckoutPanel({
   });
   const [prepared, setPrepared] = useState<PreparedOrder | null>(null);
   const [payment, setPayment] = useState<PaymentInstance | null>(null);
-  const [method, setMethod] = useState<PayMethod>("CARD");
+  const [method, setMethod] = useState<PayMethod>(intl ? "INTL_CARD" : "CARD");
   const [ready, setReady] = useState(false);
   const [preparing, setPreparing] = useState(false);
   const [paying, setPaying] = useState(false);
@@ -71,13 +89,13 @@ export function CheckoutPanel({
 
   // 결제 키가 연결되지 않은 배포에서는 주문을 받지 않는다.
   const blockedReason =
-    disabledReason ?? (TOSS_CLIENT_KEY ? undefined : "결제 준비 중입니다");
+    disabledReason ?? (clientKey ? undefined : "결제 준비 중입니다");
 
   async function prepareOrder() {
     if (blockedReason) return;
     setError(null);
     if (!customer.name || !customer.email || !customer.phone) {
-      setError("이름·이메일·전화번호를 모두 입력하세요.");
+      setError(t("이름·이메일·전화번호를 모두 입력하세요.", "Please enter your name, email and phone number."));
       return;
     }
     if (withShipping) {
@@ -112,7 +130,7 @@ export function CheckoutPanel({
     let cancelled = false;
     (async () => {
       try {
-        const tossPayments = await loadTossPayments(TOSS_CLIENT_KEY);
+        const tossPayments = await loadTossPayments(clientKey);
         if (cancelled) return;
         // 결제창(일반 결제) — API 개별 연동 키(live_ck/live_sk) 지원
         setPayment(tossPayments.payment({ customerKey: prepared.customerKey }));
@@ -127,7 +145,7 @@ export function CheckoutPanel({
     return () => {
       cancelled = true;
     };
-  }, [prepared]);
+  }, [prepared, clientKey]);
 
   async function requestPayment() {
     if (!payment || !prepared) return;
@@ -147,7 +165,23 @@ export function CheckoutPanel({
     };
 
     try {
-      if (method === "CARD") {
+      if (method === "INTL_CARD") {
+        // 해외 발급 카드: 다국어 결제창이 열린다. 금액은 원화 그대로 청구된다.
+        // 해외 전화번호는 형식이 달라 토스에 넘기지 않는다.
+        const { customerMobilePhone: _omit, ...intlCommon } = common;
+        void _omit;
+        await payment.requestPayment({
+          ...intlCommon,
+          method: "CARD",
+          card: {
+            useEscrow: false,
+            flowMode: "DEFAULT",
+            useCardPoint: false,
+            useAppCardOnly: false,
+            useInternationalCardOnly: true,
+          },
+        });
+      } else if (method === "CARD") {
         await payment.requestPayment({
           ...common,
           method: "CARD",
@@ -215,25 +249,27 @@ export function CheckoutPanel({
     <div className="space-y-6">
       {IS_TEST_MODE && (
         <p className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900">
-          테스트 결제 모드입니다. 실제로 결제되거나 배송되지 않습니다.
+          {eventMode
+            ? t("테스트 결제 모드입니다. 실제로 결제되지 않습니다.", "Test mode — no real charge will be made.")
+            : "테스트 결제 모드입니다. 실제로 결제되거나 배송되지 않습니다."}
         </p>
       )}
       {summary}
 
       <section className="rounded-2xl border border-bni-line p-5">
-        <h2 className="mb-4 text-lg font-bold">주문자 정보</h2>
+        <h2 className="mb-4 text-lg font-bold">{t("주문자 정보", "Buyer information")}</h2>
         <div className="grid gap-3">
           <input
             value={customer.name}
             onChange={(e) => setCustomer((p) => ({ ...p, name: e.target.value }))}
-            placeholder="이름"
+            placeholder={t("이름", "Full name")}
             disabled={!!prepared}
             className="h-12 rounded-xl border border-bni-line px-4 outline-none focus:border-bni-red disabled:bg-bni-soft"
           />
           <input
             value={customer.email}
             onChange={(e) => setCustomer((p) => ({ ...p, email: e.target.value }))}
-            placeholder="이메일"
+            placeholder={t("이메일", "Email")}
             type="email"
             disabled={!!prepared}
             className="h-12 rounded-xl border border-bni-line px-4 outline-none focus:border-bni-red disabled:bg-bni-soft"
@@ -241,7 +277,7 @@ export function CheckoutPanel({
           <input
             value={customer.phone}
             onChange={(e) => setCustomer((p) => ({ ...p, phone: e.target.value }))}
-            placeholder="휴대폰 번호 (- 없이)"
+            placeholder={t("휴대폰 번호 (- 없이)", "Phone number (digits only, with country code)")}
             inputMode="numeric"
             disabled={!!prepared}
             className="h-12 rounded-xl border border-bni-line px-4 outline-none focus:border-bni-red disabled:bg-bni-soft"
@@ -340,14 +376,14 @@ export function CheckoutPanel({
             {blockedReason
               ? blockedReason
               : preparing
-                ? "주문 생성 중..."
-                : `${won(amount)} 주문 생성하기`}
+                ? t("주문 생성 중...", "Creating order...")
+                : t(`${won(amount)} 주문 생성하기`, `Create order · ${won(amount)}`)}
           </button>
         ) : (
           <p className="mt-4 rounded-xl bg-bni-red-soft px-4 py-3 text-sm text-bni-red-dark">
-            주문이 생성되었습니다. 결제수단을 선택해 결제를 진행하세요.
+            {t("주문이 생성되었습니다. 결제수단을 선택해 결제를 진행하세요.", "Your order has been created. Please proceed to payment.")}
             <br />
-            주문번호: {prepared.orderId}
+            {t("주문번호", "Order no.")}: {prepared.orderId}
           </p>
         )}
 
@@ -358,9 +394,9 @@ export function CheckoutPanel({
 
       {prepared && (
         <section className="rounded-2xl border border-bni-line p-5">
-          <h2 className="mb-4 text-lg font-bold">결제수단</h2>
-          <div className="grid grid-cols-3 gap-2">
-            {METHODS.map((m) => (
+          <h2 className="mb-4 text-lg font-bold">{t("결제수단", "Payment method")}</h2>
+          <div className={intl ? "grid grid-cols-1 gap-2" : "grid grid-cols-3 gap-2"}>
+            {methods.map((m) => (
               <button
                 key={m.key}
                 type="button"
@@ -382,7 +418,7 @@ export function CheckoutPanel({
             disabled={!ready || paying}
             className="mt-5 w-full rounded-xl bg-bni-ink py-4 text-base font-bold text-white transition hover:opacity-90 disabled:opacity-50"
           >
-            {paying ? "결제창 이동 중..." : `${won(prepared.amount)} 결제하기`}
+            {paying ? t("결제창 이동 중...", "Opening payment window...") : t(`${won(prepared.amount)} 결제하기`, `Pay ${won(prepared.amount)}`)}
           </button>
         </section>
       )}

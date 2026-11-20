@@ -10,7 +10,7 @@ import {
 
 export const runtime = "nodejs";
 
-function createOrderNo() {
+function createOrderNo(prefix = "ORD") {
   // 주문번호의 날짜·시각은 항상 한국 시간으로 찍는다.
   // 서버(Cloudflare) 시계는 세계 표준시라 그대로 쓰면 자정~오전 9시 주문이 하루 전 날짜가 된다.
   // 한국은 서머타임이 없어 9시간을 더한 뒤 표준시 기준으로 읽으면 된다.
@@ -19,7 +19,7 @@ function createOrderNo() {
   const ts =
     `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}` +
     `${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}`;
-  return `ORD-${ts}-${crypto.randomUUID().slice(0, 8)}`;
+  return `${prefix}-${ts}-${crypto.randomUUID().slice(0, 8)}`;
 }
 
 export async function POST(req: Request) {
@@ -45,7 +45,11 @@ export async function POST(req: Request) {
     }
 
     const { customer } = parsed.data;
-    const orderNo = createOrderNo();
+    // 행사 주문은 번호 앞에 행사 코드를 단다(예: EVT-NC26-…). 나중에 행사별로 모아 보기 쉽다.
+    const orderNo =
+      parsed.data.domain === "event"
+        ? createOrderNo(`EVT-${parsed.data.eventCode.toUpperCase()}`)
+        : createOrderNo();
     const tossOrderId = orderNo;
 
     // 로그인 사용자 연결 (Supabase 설정된 경우에만 시도)
